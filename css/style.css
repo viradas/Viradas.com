@@ -1,0 +1,303 @@
+
+
+
+
+
+/* RESET BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #fff;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* HEADER & MENU */
+header {
+  background: #fff;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+nav ul {
+  list-style: none;
+  justify-content: center;
+  gap: 30px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+/* ---- MENU PRINCIPALE ---- */
+.menu {
+  list-style: none;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  position: relative;
+}
+
+.menu a {
+  text-decoration: none;
+  padding: 8px 12px;
+  color: white;
+}
+
+/* ===== MENU A TENDINA ===== */
+
+/* Nascondi il submenu di default */
+.submenu {
+  display: none;
+  position: absolute;
+  background: indigo;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-width: 180px;
+  border-radius: 6px;
+}
+
+/* Mostra submenu quando passi sul menu principale */
+.dropdown:hover .submenu {
+  display: block;
+}
+
+/* Stile delle voci nel submenu */
+.submenu li a {
+  display: block;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+/* Hover sulle voci */
+.submenu li a:hover {
+  background: #3a3a70;
+}
+
+/* PER MANTENERE IL MENU PRINCIPALE IN ORIZZONTALE */
+.menu {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  align-items: center;
+}
+
+/* Metti il dropdown nella giusta posizione */
+.dropdown {
+  position: relative;
+}
+
+
+.submenu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+
+/* MENU A TENDINA */
+nav ul li {
+  position: relative;
+}
+
+nav ul li ul {
+  display: none; /* NASCONDE il sottomenù */
+  position: absolute;
+  top: 100%; /* lo mette sotto al menu principale */
+  left: 0;
+  background: #222;
+  padding: 0;
+  min-width: 180px;
+  border-radius: 5px;
+  z-index: 999;
+}
+
+
+
+nav ul li:hover > ul {
+   Mostra il menu quando passi il mouse */
+}
+
+nav ul li ul li a {
+  padding: 10px;
+  color: white;
+    text-decoration: none;
+}
+
+nav ul li ul li a:hover {
+  background: #3a3a70;
+}
+
+/* NASCONDE IL SOTTOMENU DI DEFAULT */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #222;
+  padding: 0;
+  min-width: 180px;
+  border-radius: 5px;
+  z-index: 999;
+}
+
+/* Fa in modo che il contenitore del menu sia il riferimento */
+.dropdown {
+  position: relative;
+}
+
+/* Mostra il submenu al passaggio del mouse */
+.dropdown:hover .submenu {
+  display: block;
+}
+
+/* Stile voci dentro il submenu */
+.submenu li {
+  display: block;
+}
+
+.submenu li a {
+  padding: 10px;
+  color: white;
+  display: block;
+  text-decoration: none;
+}
+
+.submenu li a:hover {
+  background: #3a3a70;
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu > li {
+  display: inline-block;
+  position: relative;
+}
+
+/* DEFAULT: NASCONDE IL SUBMENU */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #222;
+  min-width: 180px;
+  border-radius: 5px;
+  padding: 0;
+  z-index: 999;
+  list-style: none;
+}
+
+/* MOSTRA IL SUBMENU AL PASSAGGIO MOUSE */
+.dropdown:hover .submenu {
+  display: block;
+}
+
+/* VOCI DENTRO IL SUBMENU */
+.submenu li {
+  display: block;
+}
+
+.submenu li a {
+  display: block;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.submenu li a:hover {
+  background: #3a3a70;
+}
+
+
+/* HERO SECTION */
+.hero {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #f5f5f5;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+
+.mini-hero {
+    background-color: indigo;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+}
+.mini-hero h1 {
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-size: 28px;
+    font-weight: bold;;
+}
+
+/* BOTTONI */
+.button {
+  background: #4b4b8f;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background: #3a3a70;
+}
+
+/* SEZIONI GENERALI */
+section {
+  padding: 80px 20px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* FOOTER */
+footer {
+ display:block;
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
