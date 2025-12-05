@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^(www\.)?marlenemasino\.com$ [NC]
+RewriteRule ^(.*)$ https://viradas.com/$1 [L,R=301]
