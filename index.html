@@ -2,13 +2,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Viradas</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FQ76Y8VLX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6FQ76Y8VLX');
+</script>
 
 <!-- Favicon -->
 
-<link rel="icon" type="images/Logo_viradas_greige.png" href="favicon.png" >
+<link rel="icon" type="image/jpeg" href="/images/favicon.png?v=20">
+<link rel="shortcut icon" href="/images/favicon.jpg" type="image/jpeg">
 
-<!-- Foglio di stile -->
-<link rel="stylesheet" href="style.css" >
 
 
 <!-- Fonts -->
@@ -16,6 +27,20 @@
 
 <!-- Icons -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header id="site-header"></header>
 
 
 
@@ -41,7 +66,7 @@
           </p>
 <br>
 <br>
-Sito in costruzione
+<h3><i>Sito in costruzione</i></h3>
           <p class="hero-quote">
             <span></span>
             <!-- QUI puoi mettere la tua frase di Iroh / Viradas -->
@@ -74,7 +99,78 @@ Sito in costruzione
     </div>
   </section>
 
-<!-- HIGHLIGHTS -->
+<!-- QUICK LINKS / GRID 3 CARD -->
+
+  <main>
+    <section class="quick-links">
+      <div class="container">
+        <div class="quick-grid">
+
+          <a href="#ViradaRelazione" class="quick-card" id="relazione">
+            <!-- IMMAGINE METODO -->
+            <img src="images/Logo_Viradas.png"
+                 alt="Carte e taccuino che rappresentano il metodo Viradas"
+                 class="quick-thumb">
+            <div class="quick-eyebrow">Counseling</div>
+            <h2 class="quick-title">Virada Relazione</h2>
+            <p class="quick-text">
+              Per fare chiarezza sulla sensazione di gabbia e muoversi verso la libertà interiore.</p>
+            <div class="quick-meta">
+              <span><span class="quick-dot"></span>Consapevolezza e direzione</span>
+              <span class="quick-arrow">→</span>
+            </div>
+          </a>
+
+          <a href="#ViradaCorpoSenso" class="quick-card" id="corpoesenso">
+            <!-- IMMAGINE COUNSELING -->
+            <img src="images/pianta.jpg"
+                 alt="Poltrone in uno spazio di ascolto"
+                 class="quick-thumb">
+            <div class="quick-eyebrow">Consulenza stile di vita</div>
+            <h2 class="quick-title">Virada Corpo&Senso</h2>
+            <p class="quick-text">
+              Per ascoltare il corpo, regolare il ritmo di vita e ritrovare energia e movimento interni.</p>
+            <div class="quick-meta">
+              <span><span class="quick-dot"></span>Abitudini quotidiane</span>
+              <span class="quick-arrow">→</span>
+            </div>
+          </a>
+
+          <a href="#ViradaStrumenti" class="quick-card" id="strumenti">
+            <!-- IMMAGINE PERCORSI -->
+            <img src="images/percorsi.jpg"
+                 alt="Cerchio di sedie pronto per un gruppo"
+                 class="quick-thumb">
+            <div class="quick-eyebrow">Formazione</div>
+            <h2 class="quick-title">Virada Strumenti (KitLab)</h2>
+            <p class="quick-text">
+              Per allenarsi a muoversi con metodo attraverso i blocchi della vita privata e lavorativa. </p>
+            <div class="quick-meta">
+              <span><span class="quick-dot"></span>Mappe e metodi</span>
+              <span class="quick-arrow">→</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+<!-- SPAZIO VUOTO -->
+<section id="menuviradas" class="reveal show">
+  <div class="container">
+
+   
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
 
 
 
@@ -99,8 +195,7 @@ Sito in costruzione
 <!-- CONTACTS -->
 <section id="contact" class="reveal show">
   <div class="container">
-    <h3 class="section-title">Contattami</h3>
-    <p class="lead">Scegli come preferisci contattarmi: telefono, email, WhatsApp o con un messaggio diretto qui sotto.</p>
+    <h3 class="section-title">Contatti</h3>
 
     <div class="contact-grid">
 
@@ -113,7 +208,7 @@ Sito in costruzione
   <div class="card">
     <h4>Email</h4>
     <p>info@viradas.com</p>
-    <p><a href="mailto:info@viradas.com">Invia email</a></p>
+    <p><a href="mailto:info@viradas.com">Invia email <i> (protetta)</i></a></p>
   </div>
 
   <div class="card">
@@ -124,157 +219,151 @@ Sito in costruzione
 
 </div>
 
-    <div class="form-wrap" style="margin-top:28px">
-  <form action="https://formsubmit.co/info@viradas.com" method="POST">
+        <div class="form-wrap" style="margin-top:28px">
+      <form action="https://formsubmit.co/info@viradas.com" method="POST">
 
-  <!-- IMPORTANTISSIMO -->
-  <input type="hidden" name="_next" value="https://viradas.com/index.html?sent=1">
-  <input type="hidden" name="_captcha" value="false">
+        <!-- Redirect dopo invio -->
+        <input type="hidden" name="_next" value="https://viradas.com/index.html?sent=1">
+        <input type="hidden" name="_captcha" value="false">
 
- <div class="form-wrap" style="margin-top:28px">
+        <div class="form-row">
+          <div class="col">
+            <input type="text" name="name" placeholder="Il tuo nome" required>
+          </div>
+          <div class="col">
+            <input type="text" name="phone" placeholder="Telefono (opzionale)">
+          </div>
+        </div>
 
-  <form action="https://formsubmit.co/info@viradas.com" method="POST">
+        <input type="email" name="email" placeholder="La tua email" required>
 
-    <!-- Dove vuoi ricevere l’utente dopo l’invio -->
-    <input type="hidden" name="_next" value="https://viradas.com/index.html?sent=1">
+        <textarea name="message" placeholder="Scrivi il tuo messaggio (protetto)" required></textarea>
 
-    <!-- Disattiva captcha -->
-    <input type="hidden" name="_captcha" value="false">
+        <div style="text-align:center;margin-top:12px">
+          <button type="submit" class="btn-send">Invia messaggio</button>
+        </div>
 
-    <div class="form-row">
-      <div class="col">
-        <input type="text" name="name" placeholder="Il tuo nome" required>
-      </div>
-      <div class="col">
-        <input type="text" name="phone" placeholder="Telefono (opzionale)">
-      </div>
+      </form>
     </div>
 
-    <input type="email" name="email" placeholder="La tua email" required>
 
-    <textarea name="message" placeholder="Scrivi il tuo messaggio" required></textarea>
 
-    <div style="text-align:center;margin-top:12px">
-      <button type="submit" class="btn-send">Invia messaggio</button>
-    </div>
-
-  </form>
-
+<!-- POPUP UNICO (corretto) -->
+<div id="thanksPopup" 
+     style="position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--sage);
+            color: var(--indigo);
+            padding: 18px 22px;
+            border-radius: 12px;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+            font-weight: 600;
+            display: none;
+            z-index: 2000;">
+    Grazie per il tuo messaggio! Ti risponderò presto.
 </div>
 
 
-
-
-
-
-
   </div>
-  <a class="section-top-arrow" href="#hero" title="Torna su">↑</a>
+  <a class="section-top-arrow" href="#contact" title="Torna su">↑</a>
 </section>
 
 <!-- Floating to-top -->
 <a id="toTop" href="#hero" title="Torna in alto"><i class="fa-solid fa-chevron-up"></i></a>
 
+<div id="legalModal" class="legal-modal">
+  <div class="legal-content">
+
+    <button class="legal-close" id="closeLegal">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
 
 
-<script>
-/* Mobile menu toggle */
-function toggleMenu(){
-  const ul = document.getElementById('menuList');
-  ul.classList.toggle('show');
-}
+  <h2>Informazioni legali</h2>
 
-/* reveal on scroll */
-const els = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show') });
-}, {threshold: 0.18});
-els.forEach(el => io.observe(el));
+  <p style="font-size:14px;line-height:1.55;text-align:justify;">
+    Le presenti informazioni hanno lo scopo di illustrare in modo chiaro e trasparente la natura del servizio offerto tramite Viradas, il trattamento dei dati personali forniti volontariamente dall’utente e le modalità di utilizzo degli strumenti tecnici impiegati dal sito.
+  </p>
 
-/* Smooth anchor fix: ensure #contact and others scroll to correct offset under sticky header */
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-  anchor.addEventListener('click', function(e){
-    const targetId = this.getAttribute('href').substring(1);
-    const el = document.getElementById(targetId);
-    if(el){
-      e.preventDefault();
-      const headerOffset = document.querySelector('header').offsetHeight + 12;
-      const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - headerOffset;
-      window.scrollTo({top: offsetPosition, behavior: 'smooth'});
-      /* if mobile menu open, close it */
-      const menu = document.getElementById('menuList');
-      if(menu.classList.contains('show')) menu.classList.remove('show');
-    }
-  });
-});
+  <h3>1. Disclaimer professionale</h3>
+  <p>
+    Il counseling offerto tramite <b>Viradas</b> si colloca nell’ambito della relazione d’aiuto, della prevenzione e della crescita personale.  
+    <br><br>
+    <b>Non è psicoterapia</b>, non è una professione sanitaria, non formula diagnosi, non effettua trattamenti medici o psicologici e non sostituisce percorsi terapeutici o psichiatrici.  
+    <br><br>
+    Il servizio è rivolto a persone maggiorenni e si concentra su consapevolezza, risorse personali, gestione delle emozioni, confini, relazioni e processi di cambiamento.  
+    <br><br>
+    In presenza di sintomi rilevanti, rischi per sé o per altri, o condizioni che richiedano una valutazione clinica, è necessario rivolgersi al proprio medico, psicologo o psicoterapeuta di riferimento.
+  </p>
 
+  <h3>2. Trattamento dei dati personali (Privacy)</h3>
+  <p>
+    I dati forniti tramite il form di contatto (nome, email, eventuale numero di telefono e contenuto del messaggio) vengono utilizzati esclusivamente per rispondere alla richiesta ricevuta.  
+    <br><br>
+    Non vengono ceduti a terzi e non vengono utilizzati per finalità commerciali o di marketing.  
+    <br><br>
+    Il provider del servizio e l’hosting del sito possono trattare i dati in qualità di incaricati del trattamento.  
+    <br><br>
+    L’utente può richiedere la rettifica o la cancellazione dei propri dati scrivendo a:
+    <a href="mailto:info@viradas.com">info@viradas.com</a>.
+  </p>
 
-/* WhatsApp link optional prefilling: if you want a preset message, change waText below */
-(function(){
-  const wa = document.getElementById('waLink');
-  const number = "41766168507";  
+  <h3>3. Cookie e strumenti di analisi</h3>
+  <p>
+    Questo sito utilizza <b>Google Analytics 4</b>, un servizio di analisi web fornito da Google Ireland Limited. Google Analytics utilizza cookie e tecnologie simili per raccogliere informazioni statistiche sull’utilizzo del sito (ad esempio pagine visitate, durata della visita, tipo di dispositivo e di browser). In Google Analytics è attiva la funzione di anonimizzazione dell’indirizzo IP e sono disattivati i segnali Google e le funzioni di personalizzazione degli annunci, così da ridurre il livello di identificabilità degli utenti. I dati vengono trattati da Google per elaborare report aggregati sul traffico e sull’interazione con il sito, che utilizzo esclusivamente per migliorare i contenuti e il funzionamento delle pagine. Puoi limitare o bloccare l’utilizzo dei cookie di Google Analytics tramite le impostazioni del tuo browser o, se presente, tramite le preferenze espresse nel banner cookie del sito. </p>
 
-  // SE vuoi un messaggio precompilato
-  const text = "Ciao, vorrei ricevere informazioni.";
+  <h3>4. Sicurezza</h3>
+  <p>
+    Il sito utilizza connessione protetta HTTPS.  
+    Nessuna delle informazioni inviate tramite i moduli presenti sul sito viene archiviata localmente: la trasmissione avviene in modo protetto tramite il servizio utilizzato per l’invio del messaggio (FormSubmit).
+  </p>
 
-  // Link con messaggio
-  wa.href = `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
-})();
+  <h3>5. Diritti dell’utente</h3>
+  <p>
+    Puoi richiedere in ogni momento:
+    <ul style="padding-left:20px;margin-top:8px;">
+      <li>accesso ai dati che hai inviato;</li>
+      <li>rettifica delle informazioni errate;</li>
+      <li>cancellazione completa dei dati;</li>
+      <li>limitazione del trattamento.</li>
+    </ul>
+    <p>
+    Basta scrivere a:
+    <a href="mailto:info@viradas.com">info@viradas.com</a>.
+  </p>
 
-</script>
+  <h3>6. Aggiornamento</h3>
+  <p>
+    Il contenuto di questa sezione può essere aggiornato in qualsiasi momento.  
+    La versione in vigore è sempre quella visibile in questa pagina.
+  </p>
 
-
-
-
-
-<footer id="footer"></footer>
-
-<div id="thanksPopup" 
-     style="position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--sage);
-            color: var(--indigo);
-            padding: 18px 22px;
-            border-radius: 12px;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-            font-weight: 600;
-            display: none;
-            z-index: 2000;">
-    Grazie per il tuo messaggio! Ti risponderò presto.
+ </div>
 </div>
 
-<!-- QUI mette il POPUP -->
-<div id="thanksPopup" 
-     style="position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--sage);
-            color: var(--indigo);
-            padding: 18px 22px;
-            border-radius: 12px;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-            font-weight: 600;
-            display: none;
-            z-index: 2000;">
-    Grazie per il tuo messaggio! Ti risponderò presto.
+
+
+
+<!-- FOOTER -->
+<footer id="site-footer"></footer>
+
+
+
+<!-- COOKIE BANNER -->
+<div id="cookie-banner">
+  <div class="cookie-box">
+    <p>
+      Questo sito utilizza cookie statistici tramite Google Analytics per migliorare l’esperienza di navigazione. 
+      Puoi accettare o rifiutare il loro utilizzo.
+    </p>
+
+    <div class="cookie-buttons">
+      <button id="cookie-accept">Accetta</button>
+      <button id="cookie-decline" class="decline">Rifiuta</button>
+    </div>
+  </div>
 </div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function(){
-  const params = new URLSearchParams(window.location.search);
-  if(params.has("sent")){
-    document.getElementById("thanksPopup").style.display = "block";
-    setTimeout(()=>{ 
-        document.getElementById("thanksPopup").style.display = "none"; 
-    }, 4500);
-  }
-});
-</script>
-
-
-
 
 
 </body></html>
