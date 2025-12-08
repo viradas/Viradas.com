@@ -621,9 +621,76 @@ background: rgba(168,159,150,0.12); /* greige chiaro */
 }
 
 
+#viradas {
+  background: linear-gradient(
+    to bottom,
+    var(--greige) 0%,
+    #fdfbf8 100%
+  );
+}
+
+
+#counseling {
+  background: linear-gradient(
+    to bottom,
+    var(--sage) 0%,
+    #fdfbf8 100%
+  );
+}
+#ViradaRelazione {
+  background: linear-gradient(
+    to bottom,
+    var(--greige) 0%,
+    #fdfbf8 100%
+  );
+}
+
+
+
+#ViradaCorpoSenso {
+  background: linear-gradient(
+    to bottom,
+    var(--sage) 0%,
+    #fdfbf8 100%
+  );
+}
+
+
+
+#ViradaStrumenti {
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--indigo) 40%, white 60%) 0%,
+    #fdfbf8 100%
+  );
+}
+
+
+#about {
+  background: linear-gradient(
+    to bottom,
+    var(--greige) 0%,
+    #fdfbf8 100%
+  );
+}
+
+
+#contact {
+  background: linear-gradient(
+    to bottom,
+    var(--sage) 0%,
+    #fdfbf8 100%
+  );
+}
 
 /* Contatti */
-#contact{background:var(--rose)}
+#contact {
+  background: linear-gradient(
+    to bottom,
+    var(--rose) 0%,
+    #fdfbf8 100%
+  );
+}
 .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
 .card{background:white;padding:18px;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,0.05)}
 .card h4{margin-bottom:8px;color:var(--indigo)}
