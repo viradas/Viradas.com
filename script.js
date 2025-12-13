@@ -79,13 +79,13 @@ function initStepButtons() {
   if (!steps.length || !box || !title || !text) return;
 
   const content = {
-    verita: { title: "Verità", text: "Riconoscere ciò che accade senza giudizio." },
-    identita: { title: "Identità", text: "Chi sei oggi, cosa senti, cosa desideri." },
-    relazione: { title: "Relazione", text: "Contatto, bisogni, confini, dinamiche." },
-    assertivita: { title: "Assertività", text: "Saper dire sì/no, chiedere, negoziare." },
-    direzione: { title: "Direzione", text: "Che cosa dà senso al tuo percorso." },
-    azione: { title: "Azione", text: "Passi concreti, realistici e sostenibili." },
-    svolta: { title: "Svolta", text: "Integrare e consolidare il cambiamento." }
+    verita: { title: "Verità", text: "Riconoscere ciò che sta davvero accadendo, senza giudizio e senza evasione." },
+    identita: { title: "Identità", text: "Vedere chi sei oggi, cosa senti, cosa desideri, cosa ti nutre e cosa ti blocca." },
+    relazione: { title: "Relazione", text: "Esplorare il modo in cui entri in contatto: confini, bisogni, dinamiche ricorrenti." },
+    assertivita: { title: "Assertività", text: "Allenare la capacità di dire sì/no, chiedere, negoziare, comunicare con chiarezza." },
+    direzione: { title: "Direzione", text: "Capire verso dove vuoi muoverti davvero e che cosa dà senso al percorso." },
+    azione: { title: "Azione", text: "Tradurre desideri e bisogni in passi concreti, realistici e rispettosi dei tempi." },
+    svolta: { title: "Svolta", text: "Integrare ciò che hai scoperto e consolidare il cambiamento nella vita quotidiana." }
   };
 
   steps.forEach(btn => {
