@@ -585,3 +585,17 @@ ma a non andare avanti per automatismi.
 
 }
 
+// ==========================
+// TO TOP VISIBILITY
+// ==========================
+const toTopBtn = document.getElementById("toTop");
+
+if (toTopBtn) {
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+      toTopBtn.classList.add("show");
+    } else {
+      toTopBtn.classList.remove("show");
+    }
+  });
+}
