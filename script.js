@@ -75,7 +75,8 @@ function initStepButtons() {
   const title = document.getElementById("step-title");
   const text = document.getElementById("step-text");
 
-  if (!steps.length || !box) return;
+  // 👉 se NON siamo nella pagina del metodo, esce senza errori
+  if (!steps.length || !box || !title || !text) return;
 
   const content = {
     verita: { title: "Verità", text: "Riconoscere ciò che accade senza giudizio." },
