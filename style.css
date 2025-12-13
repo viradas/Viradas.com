@@ -221,6 +221,14 @@ nav a:hover{color:var(--greige)}
       margin-bottom: 8px;
     }
 
+.quote {
+   font-size: 0.95rem;
+  opacity: 0.75;
+  margin: 1.2rem 0 2rem;
+}
+
+
+
     .btn {
       border-radius: 999px;
       padding: 9px 18px;
@@ -1666,4 +1674,453 @@ footer {
   #cookie-banner {
     z-index: 4000 !important; /* sotto al popup */
   }
+}
+
+
+
+
+
+
+
+/* ==============
+   Quiz percorsi
+================ */
+
+#viradas-orientamento {
+  background: #f7f2f0; /* oppure quello che scegli */
+  border-radius: 24px; /* opzionale, ma molto bello */
+  max-width: 720px;
+  margin: 4rem auto;
+  padding: 2rem;
+  font-family: Inter, Manrope, sans-serif;
+}
+
+/* Header */
+.viradas-header h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+.privacy {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-top: 0.5rem;
+}
+
+/* Domanda */
+.question h3 {
+  margin: 2.5rem 0 0.4rem;
+  font-size: 1.2rem;
+}
+
+/* Testo piccolo sotto la domanda (UNA SOLA / PIÙ RISPOSTE) */
+.question-hint {
+  font-size: 0.85rem;
+  opacity: 0.65;
+  margin: 0.2rem 0 1rem;
+}
+
+/* Opzioni */
+.options {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.option-card {
+  position: relative;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(0,0,0,0.18);
+  border-radius: 14px;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.25s ease;
+
+  /* mobile friendly */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.option-card span {
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Hover desktop */
+.option-card:hover {
+  background: rgba(0,0,0,0.035);
+  border-color: rgba(0,0,0,0.35);
+}
+
+/* Active mobile */
+.option-card:active {
+  background: rgba(0,0,0,0.06);
+  border-color: rgba(0,0,0,0.45);
+  transform: scale(0.99);
+}
+
+/* Stato selezionato */
+.option-card.selected {
+  background: rgba(0,0,0,0.05);
+  border-color: rgba(0,0,0,0.55);
+}
+
+/* Visto elegante */
+.option-card.selected::after {
+  content: "✓";
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
+
+/* Bottoni */
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+button {
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.3);
+  background: transparent;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+button.ghost {
+  border: none;
+  background: transparent;
+  opacity: 0.6;
+}
+
+button.ghost:hover {
+  opacity: 0.9;
+}
+
+/* Messaggi */
+.hint {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-top: 0.6rem;
+}
+
+/* Risultato */
+#result {
+  margin-top: 3rem;
+  padding: 2rem;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.04);
+}
+
+/* Utility */
+.hidden {
+  display: none;
+}
+
+
+/* ==========================
+   QUIZ – RISULTATO FINALE
+   ========================== */
+
+#result {
+  background: #f5f6fb;
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+#result strong {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #5b5f7a;
+  margin-bottom: 12px;
+}
+
+#result p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #374151;
+  margin-bottom: 12px;
+}
+
+/* ==========================
+   BOTTONI QUIZ
+   ========================== */
+
+.quiz-controls button {
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#nextBtn,
+#restartBtn {
+  background-color: #e0e7ff;
+  color: #373a53;
+  border: 1px solid #c7d2fe;
+}
+
+#nextBtn:hover,
+#restartBtn:hover {
+  background-color: #c7d2fe;
+}
+
+#prevBtn {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border: 1px solid #e5e7eb;
+}
+
+#prevBtn:hover {
+  background-color: #e5e7eb;
+}
+
+.quiz-controls button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+
+/* ==========================
+   QUIZ VIRADAS – STILE GLOBALE
+   ========================== */
+
+/* SFONDO INTERO QUIZ */
+#quiz-percorsi,
+.quiz-section {
+  background: linear-gradient(
+    160deg,
+    #f7f6fb 0%,
+    #f1f3fa 50%,
+    #eef2f7 100%
+  );
+  border-radius: 24px;
+  padding: 32px 24px;
+  margin: 32px 0;
+}
+
+/* ==========================
+   DOMANDA
+   ========================== */
+
+.question h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #3f4259;
+  margin-bottom: 12px;
+}
+
+.question-hint {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+/* ==========================
+   OPZIONI / RISPOSTE
+   ========================== */
+
+.options {
+  display: grid;
+  gap: 14px;
+}
+
+/* card risposta */
+.option-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 16px 18px;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.15s ease;
+}
+
+/* hover (mouse) */
+.option-card:hover {
+  background: #f0f3ff;
+  border-color: #c7d2fe;
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.12);
+  transform: translateY(-1px);
+}
+
+/* selezionata */
+.option-card.selected {
+  background: linear-gradient(
+    160deg,
+    #eef2ff 0%,
+    #e0e7ff 100%
+  );
+  border-color: #a5b4fc;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.18);
+}
+
+/* testo risposta */
+.option-card span {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #374151;
+}
+
+/* ==========================
+   BOTTONI NAVIGAZIONE
+   ========================== */
+
+.quiz-controls {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.quiz-controls button {
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+/* avanti / ricomincia */
+#nextBtn,
+#restartBtn {
+  background-color: #e0e7ff;
+  color: #373a53;
+  border: 1px solid #c7d2fe;
+}
+
+#nextBtn:hover,
+#restartBtn:hover {
+  background-color: #c7d2fe;
+}
+
+/* indietro */
+#prevBtn {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border: 1px solid #e5e7eb;
+}
+
+#prevBtn:hover {
+  background-color: #e5e7eb;
+}
+
+/* disabilitato */
+.quiz-controls button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ==========================
+   RISULTATO FINALE
+   ========================== */
+
+#result {
+  background: linear-gradient(
+    160deg,
+    #ffffff 0%,
+    #f4f6fb 100%
+  );
+  border-radius: 20px;
+  padding: 24px;
+  margin-top: 32px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+}
+
+/* titolo risultato */
+#result strong {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #5b5f7a;
+  margin-bottom: 14px;
+}
+
+/* testo risultato */
+#result p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #374151;
+  margin-bottom: 12px;
+}
+
+
+/* ==========================
+   QUIZ – INTRO TESTO (FIX DEFINITIVO)
+   ========================== */
+
+/* forza il contesto corretto */
+#viradas-orientamento .quiz-intro {
+  margin-bottom: 32px;
+  color: var(--text-main);
+}
+
+/* titolo */
+#viradas-orientamento .quiz-intro h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--indigo);
+  margin-bottom: 12px;
+}
+
+/* testo */
+#viradas-orientamento .quiz-intro p {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: 720px;
+}
+
+/* ==========================
+   QUIZ – INTRO TESTO (FIX REALE)
+   ========================== */
+
+#quiz-percorsi.quiz-intro {
+  background: linear-gradient(
+    160deg,
+    #f7f6fb 0%,
+    #f1f3fa 50%,
+    #eef2f7 100%
+  );
+  border-radius: 24px;
+  padding: 32px 24px;
+}
+
+/* Titolo */
+#quiz-percorsi.quiz-intro h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--indigo);
+  margin-bottom: 12px;
+}
+
+/* Testo introduttivo */
+#quiz-percorsi.quiz-intro p {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: 720px;
 }

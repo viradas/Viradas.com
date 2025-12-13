@@ -176,7 +176,6 @@ function initLegalPopup() {
 }
 
 
-
 // ==========================
 // TO TOP BUTTON
 // ==========================
@@ -186,7 +185,6 @@ if (toTop) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
-
 
 
 /* === COOKIE BANNER LOGIC === */
@@ -205,10 +203,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // fallback mobile se un click viene bloccato da overlay
-document.getElementById("cookie-decline").addEventListener("touchstart", function () {
-  localStorage.setItem("cookie-consent", "declined");
-  document.getElementById("cookie-banner").style.display = "none";
-});
+  document.getElementById("cookie-decline").addEventListener("touchstart", function () {
+    localStorage.setItem("cookie-consent", "declined");
+    document.getElementById("cookie-banner").style.display = "none";
+  });
 
 
   // 2. ACCETTA
@@ -249,5 +247,341 @@ function loadGA() {
       allow_ad_personalization_signals: false
     });
   };
+}
+
+/* === QUIZ PERCORSI === */
+
+const steps = [
+  {
+    id: 1,
+    multi: false,
+    question: "Quale sensazione ti accompagna in questo periodo?",
+    options: [
+      { tag: "relazione", text: "Mi sento stretta/o, come se non avessi spazio e tempo per essere o fare ciò che vorrei." },
+      { tag: "strumenti", text: "Non mi sento capace come vorrei, qualcosa mi manca o mi frena." },
+      { tag: "corpo", text: "Vivo una pressione continua, come se dovessi sempre reggere qualcosa." },
+      { tag: "orientamento", text: "Faccio fatica a immaginare una vita serena o soddisfatta." }
+    ]
+  },
+
+  {
+    id: 2,
+    multi: false,
+    question: "Cosa ti manca di più in questo momento?",
+    options: [
+      { tag: "relazione", text: "Cambiare sguardo e capire cosa voglio davvero, cosa mi fa bene." },
+      { tag: "strumenti", text: "Sapere come muovermi, cosa fare, passo per passo." },
+      { tag: "corpo", text: "Più energia, meno fatica, meno alti e bassi." },
+      { tag: "orientamento", text: "Capire se è solo stress o se c’è altro." }
+    ]
+  },
+
+  {
+    id: 3,
+    multi: true,
+    question: "Dove si manifesta di più questa difficoltà?",
+    options: [
+      { tag: "relazione", text: "Con le persone e nei ruoli: mi adatto, non dico di no, non mi sento vista/o." },
+      { tag: "strumenti", text: "Nel comportamento, nelle scelte e nelle decisioni: rimando, non mi muovo." },
+      { tag: "corpo", text: "Nel corpo e nell'energia: sento sempre tensione, stanchezza, sonno, gonfiore, stress." },
+      { tag: "orientamento", text: "Nei pensieri: rimugino, valuto e interpreto in continuazione, la testa rimane sempre accesa." }
+    ]
+  },
+
+  {
+    id: 4,
+    multi: true,
+    question: "Come leggi tutti questi segnali?",
+    options: [
+      { tag: "corpo", text: "Li collego soprattutto a stress o periodi difficili." },
+      { tag: "orientamento_cond", text: "Ho condizioni già note che conosco e seguo." },
+      { tag: "orientamento_medi", text: "Non so come leggerli, ma sento che vanno ascoltati." },
+      { tag: "orientamento_preoc", text: "Alcuni segnali mi preoccupano." },
+      { tag: "orientamento_male", text: "Mi accorgo che alcune abitudini o reazioni non mi fanno bene." }
+    ]
+  },
+
+  {
+    id: 5,
+    multi: true,
+    question: "Quale passo senti possibile ora?",
+    options: [
+      { tag: "relazione", text: "Fermarmi e dare senso a quello che sto vivendo." },
+      { tag: "strumenti", text: "Provare a fare qualcosa di diverso, anche in modo piccolo e concreto." },
+      { tag: "corpo", text: "Rimettere un po' di ordine nelle mie abitudini quotidiane." },
+      { tag: "orientamento", text: "Capire se serve un tipo di supporto diverso." }
+      // Varianti commentate:
+      // "Capire se non basta solo orientarsi."
+      // "Capire se serve un lavoro più profondo."
+    ]
+  },
+
+];
+
+let currentStep = 0;
+let answers = {};
+
+const container = document.getElementById("step-container");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+const restartBtn = document.getElementById("restartBtn");
+const resultBox = document.getElementById("result");
+
+if (!container || !prevBtn || !nextBtn || !restartBtn || !resultBox) {
+  console.warn("Quiz: elementi mancanti (step-container / prevBtn / nextBtn / restartBtn / result)");
+} else {
+
+  function renderStep() {
+    const step = steps[currentStep];
+    const selected = answers[step.id] || [];
+
+    const hintText = step.multi
+      ? "Qui puoi scegliere più risposte, senza forzare."
+      : "Scegli una sola risposta: quella che senti più forte adesso. Dopo ti occuperai anche degli altri aspetti, ma un passo alla volta.";
+
+    container.innerHTML = `
+      <div class="question">
+        <h3>${step.question}</h3>
+
+        <p class="question-hint">
+          ${hintText}
+        </p>
+
+        <div class="options">
+          ${step.options.map(o => `
+            <div class="option-card ${ (answers[step.id] || []).includes(o.tag) ? "selected" : "" }"
+                data-tag="${o.tag}">
+              <span>${o.text}</span>
+            </div>
+          `).join("")}
+        </div>
+
+        <p class="hint hidden">Scegli almeno una risposta per continuare.</p>
+      </div>
+    `;
+
+   document.querySelectorAll(".option-card").forEach(card => {
+  card.onclick = () => {
+    const tag = card.dataset.tag;
+
+    if (step.multi) {
+      // risposte multiple: resta sulla domanda
+      answers[step.id] = selected.includes(tag)
+        ? selected.filter(t => t !== tag)
+        : [...selected, tag];
+      renderStep();
+    } else {
+      // risposta singola: seleziona e vai avanti
+      answers[step.id] = [tag];
+
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        renderStep();
+      } else {
+        showResult();
+      }
+    }
+  };
+});
+
+    prevBtn.disabled = currentStep === 0;
+  }
+
+  nextBtn.onclick = () => {
+    const selected = answers[steps[currentStep].id];
+    if (!selected || selected.length === 0) {
+      document.querySelector(".hint").classList.remove("hidden");
+      return;
+    }
+
+    if (currentStep < steps.length - 1) {
+      currentStep++;
+      renderStep();
+    } else {
+      showResult();
+    }
+  };
+
+  prevBtn.onclick = () => {
+    currentStep--;
+    renderStep();
+  };
+
+  restartBtn.onclick = () => {
+    // reset logica
+    currentStep = 0;
+    answers = {};
+
+    // reset UI
+    resultBox.classList.add("hidden");
+    nextBtn.classList.remove("hidden");
+
+    // ricarica prima domanda (nessuna selezione)
+    renderStep();
+  };
+
+
+  function getFlags() {
+    const flags = {
+      condizioni: false,
+      ascoltare: false,
+      preoccupano: false,
+      fanno_male: false,
+      supporto_diverso: false
+    };
+
+    const score = getPercorsiScore();
+    const sorted = Object.entries(score)
+      .sort((a, b) => b[1] - a[1])
+      .filter(([, v]) => v > 0);
+
+    const primary = sorted[0]?.[0];
+    const secondary = sorted[1]?.[0];
+
+    Object.values(answers).flat().forEach(tag => {
+      if (tag === "orientamento_cond") flags.condizioni = true;
+      if (tag === "orientamento_medi") flags.ascoltare = true;
+      if (tag === "orientamento_preoc") flags.preoccupano = true;
+      if (tag === "orientamento_male") flags.fanno_male = true;
+      if (tag === "orientamento") flags.supporto_diverso = true;
+    });
+
+    return flags;
+  }
+
+  function getPercorsiScore() {
+    const score = {
+      relazione: 0,
+      strumenti: 0,
+      corpo: 0
+    };
+
+    Object.values(answers).flat().forEach(tag => {
+      if (score[tag] !== undefined) {
+        score[tag] += 1;
+      }
+    });
+
+    return score;
+  }
+
+
+  function showResult() {
+  container.innerHTML = "";
+  nextBtn.classList.add("hidden");
+  restartBtn.classList.remove("hidden");
+
+  const flags = getFlags();
+  let message = "";
+
+  // 1️⃣ MESSAGGIO PRINCIPALE (come prima)
+  if (flags.preoccupano) {
+    message = `
+      <p><strong>Quando qualcosa chiede più ascolto.</strong></p>
+      <p>
+        Quando qualcosa inizia a preoccupare, fermarsi non è un segno di debolezza,
+        ma un modo responsabile di prendersi cura di sé.
+        Un confronto professionale può aiutare a chiarire cosa sta succedendo,
+        distinguendo ciò che è transitorio da ciò che va approfondito.
+      </p>
+      <p>
+        Un percorso di counseling integrato può offrire uno spazio di ascolto e orientamento,
+        in dialogo – se serve – con altri professionisti della salute.
+        L’obiettivo non è dare risposte affrettate,
+        ma aiutarti a fare il prossimo passo con più chiarezza e sicurezza.
+      </p>
+      <p>
+        Se senti che parlarne potrebbe esserti utile,
+        puoi valutare una breve chiamata di orientamento,
+        con me o con un professionista di tua fiducia.
+      </p>
+    `;
+  } else if (flags.fanno_male) {
+    message = `
+      <p><strong>Accorgerti di ciò che non ti sostiene più.</strong></p>
+      <p>
+        Questa consapevolezza è già un primo passo importante.
+        Non sempre serve cambiare tutto subito:
+        a volte basta iniziare a osservare con più attenzione
+        ciò che toglie energia e ciò che la restituisce.
+      </p>
+      <p>
+        Un percorso di counseling integrato può aiutare a dare senso a questi segnali,
+        lavorando su relazioni, scelte quotidiane e modo di stare nelle situazioni,
+        in modo concreto e rispettoso dei tuoi tempi.
+      </p>
+      <p>
+        Se lo desideri, puoi usare questo momento per orientarti:
+        con me o con un altro professionista,
+        scegliendo il tipo di supporto che senti più adatto ora.
+      </p>
+    `;
+  } else if (flags.supporto_diverso || flags.ascoltare) {
+    message = `
+      <p><strong>Dare spazio a ciò che senti.</strong></p>
+      <p>
+        Quando emergono sensazioni diffuse o difficili da nominare,
+        fermarsi ad ascoltare può evitare di andare avanti per inerzia.
+        Non significa avere già una risposta,
+        ma riconoscere che qualcosa chiede spazio e attenzione.
+      </p>
+      <p>
+        Un counseling integrato può offrire uno spazio di orientamento,
+        per mettere ordine tra pensieri, vissuti e bisogni,
+        e capire che tipo di supporto è più utile in questa fase della vita.
+      </p>
+      <p>
+        Può essere un primo colloquio,
+        una breve chiamata di orientamento,
+        oppure il confronto con un professionista che già conosci.
+        L’importante è non restare da soli con ciò che emerge.
+      </p>
+    `;
+  } else {
+    message = `
+      <p><strong>Anche una pausa può diventare una svolta.</strong></p>
+      <p>
+        Anche quando non c’è un’urgenza evidente, fermarsi può aiutare a guardare meglio come stai,
+dove senti più peso e quali passi ti sembrano oggi possibili.
+Prendersi questo spazio non serve a decidere subito,
+ma a non andare avanti per automatismi.
+      </p>
+      <p>
+        Un percorso di counseling integrato può aiutare a muoverti
+        con maggiore consapevolezza tra relazioni, scelte e abitudini,
+        senza forzare cambiamenti,
+        ma accompagnandoli quando sono maturi.
+      </p>
+      <p>
+        Se senti che è il momento di approfondire,
+        puoi scegliere se farlo con me o con un altro professionista:
+        l’importante è che il supporto sia coerente con ciò che stai vivendo ora.
+      </p>
+    `;
+  }
+
+  // 2️⃣ INTEGRAZIONE "CONDIZIONI NOTE"
+  // solo se NON c'è preoccupazione
+  if (flags.condizioni && !flags.preoccupano) {
+    message += `
+      <hr>
+      <p>
+        <em>
+        Se stai già seguendo percorsi di cura o accompagnamento,
+        un counseling integrato non li sostituisce,
+        ma può affiancarli,
+        offrendo uno spazio per lavorare su relazioni, scelte e abitudini quotidiane,
+        in dialogo e nel rispetto di ciò che è già in corso.
+        </em>
+      </p>
+    `;
+  }
+
+  resultBox.innerHTML = message;
+  resultBox.classList.remove("hidden");
+}
+
+  renderStep();
+
 }
 
