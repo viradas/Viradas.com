@@ -29,6 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initStepButtons();
   initFAQ();
   initPopupThankYou();
+    initQuiz();
+
 
 });
 
@@ -250,6 +252,9 @@ function loadGA() {
 }
 
 /* === QUIZ PERCORSI === */
+
+
+function initQuiz() {
 
 const steps = [
   {
@@ -582,7 +587,7 @@ ma a non andare avanti per automatismi.
 }
 
   renderStep();
-
+}
 }
 
 // ==========================
