@@ -2124,3 +2124,63 @@ button.ghost:hover {
   color: var(--text-muted);
   max-width: 720px;
 }
+
+
+/* ==========================
+   QUIZ VIRADAS – OVERRIDE FINALE
+   ========================== */
+
+#quiz-percorsi {
+  background: linear-gradient(
+    160deg,
+    #f7f6fb 0%,
+    #f1f3fa 50%,
+    #eef2f7 100%
+  );
+  border-radius: 24px;
+  padding: 32px 24px;
+}
+
+/* Titolo */
+#quiz-percorsi h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--indigo);
+  margin-bottom: 12px;
+}
+
+/* Testo intro */
+#quiz-percorsi > p {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: 720px;
+}
+
+/* Cards */
+#quiz-percorsi .option-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Hover */
+#quiz-percorsi .option-card:hover {
+  background: #eef2ff;
+  border-color: #a5b4fc;
+  box-shadow: 0 6px 18px rgba(99,102,241,0.18);
+}
+
+/* Selezionata */
+#quiz-percorsi .option-card.selected {
+  background: linear-gradient(
+    160deg,
+    #eef2ff 0%,
+    #e0e7ff 100%
+  );
+  border-color: #818cf8;
+  box-shadow: 0 10px 24px rgba(99,102,241,0.25);
+}
