@@ -2257,3 +2257,70 @@ button.ghost:hover {
   visibility: visible;
   opacity: 1;
 }
+
+/* ==========================
+   FRECCIA "TORNA SU" DI SEZIONE
+   (non floating, non blu, a destra)
+   ========================== */
+
+.section-top-arrow{
+  display: block;
+  width: 100%;
+  text-align: right;
+
+  margin-top: 18px;
+  padding-right: 2px;
+
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-decoration: none;
+
+  color: var(--greige) !important;
+  opacity: 0.65;
+
+  transition: opacity .25s ease, transform .25s ease, color .25s ease;
+}
+
+.section-top-arrow:hover{
+  opacity: 1;
+  color: var(--indigo) !important;
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   FAQ – FIX DEFINITIVO MOBILE
+   =============================== */
+@media (max-width: 650px) {
+
+  .faq-answer.open {
+    max-height: 75vh !important;     /* usa viewport */
+    overflow-y: auto !important;     /* ✅ SCROLL */
+    padding-bottom: 22px !important;
+
+    background: rgba(255,255,255,0.95) !important; /* più solido */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* scrollbar mobile visibile ma fine */
+  .faq-answer.open::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .faq-answer.open::-webkit-scrollbar-thumb {
+    background: rgba(168,159,150,0.6);
+    border-radius: 10px;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .faq-answer .btn,
+  .faq-answer a.btn {
+    background: var(--indigo) !important;
+    color: #ffffff !important;
+    font-weight: 600;
+  }
+
+}
