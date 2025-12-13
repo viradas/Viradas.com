@@ -2251,12 +2251,7 @@ button.ghost:hover {
   display: block;
 }
 
-/* sicurezza: evita che venga nascosto */
-#step-container,
-#step-container * {
-  visibility: visible;
-  opacity: 1;
-}
+
 
 /* ==========================
    FRECCIA "TORNA SU" DI SEZIONE
