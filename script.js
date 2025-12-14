@@ -343,7 +343,7 @@ if (!container || !prevBtn || !nextBtn || !restartBtn || !resultBox) {
 
     const hintText = step.multi
       ? "Qui puoi scegliere più risposte, senza forzare."
-      : "Scegli una sola risposta: quella che senti più forte adesso. Dopo ti occuperai anche degli altri aspetti, ma un passo alla volta.";
+      : "Scegli <b>una</b> sola risposta: quella che senti più forte adesso. <br> Ti occuperai anche degli altri aspetti, ma un passo alla volta.";
 
     container.innerHTML = `
       <div class="question">

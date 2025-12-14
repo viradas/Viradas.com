@@ -273,12 +273,12 @@ nav a:hover{color:var(--greige)}
 
     .btn-primary {
       background: var(--greige);
-      color: var(--indigo);
+      color: white;
       border-color: var(--greige);
     }
 
     .btn-primary:hover {
-      background: #ede4db;
+      background: var(--indigo);
       border-color: #ede4db;
     }
 
