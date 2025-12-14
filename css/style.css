@@ -75,10 +75,18 @@ nav a:hover{color:var(--greige)}
 }
 
 @media (max-width: 820px) {
+
+  /* bottone Contatti nel menu mobile */
   nav a.cta-top {
+    background: var(--indigo) !important;
     color: #ffffff !important;
+    padding: 10px 18px;
+    border-radius: 999px;
+    text-align: center;
   }
+
 }
+
 
 
 .event-grid {
