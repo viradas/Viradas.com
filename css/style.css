@@ -2352,3 +2352,45 @@ button.ghost:hover {
   }
 
 }
+
+
+
+.faq-signature {
+  margin-top: 18px;
+  font-style: italic;
+  opacity: 0.75;
+  text-align: right;
+}
+
+/* Epilogo personale – diverso dalle FAQ */
+.faq-epilogue {
+  background: rgba(168, 159, 150, 0.10); /* greige leggerissimo */
+  box-shadow: none;
+}
+
+.faq-epilogue .faq-question {
+  font-weight: 500;
+  color: var(--indigo);
+  cursor: default;
+}
+
+.faq-epilogue .faq-question:hover {
+  transform: none;
+  color: var(--indigo);
+  cursor: pointer;
+}
+
+.faq-epilogue .faq-answer {
+  background: transparent;
+  padding-top: 6px;
+}
+
+.faq-question {
+  cursor: pointer;
+}
+
+.quote {
+  font-size: 0.9rem;
+  opacity: 0.65;
+  margin-top: 12px;
+}
