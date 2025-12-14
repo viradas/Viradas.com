@@ -71,8 +71,13 @@ nav a:hover{color:var(--greige)}
 @media(max-width:820px){
   nav ul{display:none;position:absolute;right:18px;top:64px;background:rgba(255,255,255,0.94);flex-direction:column;padding:16px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.08)}
   nav ul.show{display:flex}
+  nav .cta-top {
+    color: #ffffff !important;
+  }
   .hamburger{display:block}
 }
+
+
 
 .event-grid {
   display: grid;
