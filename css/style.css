@@ -300,97 +300,7 @@ nav a:hover{color:var(--greige)}
       opacity: 0.9;
     }
 
-    /* HERO ASIDE CON IMMAGINE */
-
-    .hero-aside {
-      position: relative;
-      z-index: 1;
-      margin-top: 16px;
-    }
-
-    .hero-figure {
-      max-width: 320px;
-      margin-left: auto;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: var(--shadow-soft);
-      position: relative;
-    }
-
-    .hero-image {
-      display: block;
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      filter: saturate(1.05);
-    }
-
-    .hero-card {
-      position: absolute;
-      left: 12px;
-      bottom: 12px;
-      right: 12px;
-      background: rgba(18, 22, 36, 0.9);
-      border-radius: 16px;
-      padding: 10px 12px;
-      border: 1px solid rgba(229, 231, 235, 0.3);
-      color: #f9fafb;
-    }
-
-    .hero-card-label {
-      font-size: 0.7rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: #e5e7eb;
-      margin-bottom: 4px;
-      opacity: 0.85;
-    }
-
-    .hero-card-title {
-      font-size: 0.95rem;
-      font-weight: 500;
-      margin-bottom: 4px;
-      color: #f9fafb;
-    }
-
-    .hero-card-text {
-      font-size: 0.8rem;
-      color: #e5e7eb;
-      margin-bottom: 8px;
-      opacity: 0.95;
-    }
-
-    .hero-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.75rem;
-      border-radius: 999px;
-      border: 1px solid rgba(229, 231, 235, 0.8);
-      padding: 3px 8px;
-      color: #f9fafb;
-      background: rgba(31, 41, 55, 0.7);
-    }
-
-    .hero-pill-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--rose);
-    }
-
-    @media (max-width: 880px) {
-      .hero-figure {
-        margin: 8px 0 0;
-      }
-      .hero-image {
-        height: 220px;
-      }
-      .hero {
-        padding-bottom: 40px;
-      }
-    }
-
+   
     /* QUICK LINKS */
 
     .quick-links {
@@ -2393,4 +2303,131 @@ button.ghost:hover {
   font-size: 0.9rem;
   opacity: 0.65;
   margin-top: 12px;
+}
+
+
+/* === HERO ASIDE (SENZA IMMAGINE) === */
+
+.hero-aside {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 2.5rem;
+}
+
+.hero-card-standalone {
+  display: block;
+  max-width: 360px;
+  width: 100%;
+  padding: 1.4rem 1.6rem;
+
+  border-radius: 22px;
+
+  background: rgba(248, 248, 247, 0.14);   /* ← sempre presente */
+  border: 1px solid rgba(255,255,255,0.18);
+
+  backdrop-filter: blur(6px);
+
+  box-shadow:
+    0 8px 20px rgba(15, 23, 42, 0.18);
+
+  text-decoration: none;
+  color: inherit;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.hero-card-standalone:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.28);
+  border-color: rgba(255,255,255,0.35);
+  background: rgba(248, 248, 247, 0.14); /* ← IDENTICO */
+  box-shadow:
+    0 14px 34px rgba(15, 23, 42, 0.32),
+    inset 0 0 0 1px rgba(255,255,255,0.15);
+}
+
+
+/* Titolo card */
+.hero-card-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: normal;
+  text-transform: none;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 0.4rem;
+}
+
+
+/* Testo card */
+.hero-card-text {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: rgba(229,231,235,0.75);
+  margin-bottom: 0.8rem;
+}
+
+
+/* CTA interna (non bottone marketing) */
+.hero-pill {
+  all: unset;
+  font-size: 0.82rem;
+  color: rgba(229,231,235,0.85);
+  cursor: pointer;
+}
+
+.hero-pill::after {
+  content: " →";
+  opacity: 0.6;
+}
+
+
+/* Pallino */
+.hero-pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rose);
+}
+
+/* === MOBILE === */
+@media (max-width: 768px) {
+  .hero-aside {
+    margin-top: 3rem;
+  }
+}
+
+  
+
+
+
+.hero-aside {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 0;   /* ← IMPORTANTISSIMO */
+}
+
+/* === FRASE PONTE HERO (Viradas) === */
+
+.hero-bridge {
+  margin-top: 1.4rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+
+  color: rgba(229, 231, 235, 0.7); /* chiaro ma non debole */
+  font-style: italic;
+
+  max-width: 32rem; /* non troppo larga */
+}
+
+/* Mobile: ancora più discreta */
+@media (max-width: 768px) {
+  .hero-bridge {
+    font-size: 0.85rem;
+    margin-top: 1.6rem;
+  }
 }
