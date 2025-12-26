@@ -475,8 +475,7 @@ Quando utile, vengono proposte piccole attività o esercizi pratici per osservar
 Si presta attenzione ai segnali del corpo, ai ritimi e alle abitudini quotidiane di igiene e alimentazione (non dietetica) e a come le emozioni che influenzano tutto questo.
 Il lavoro integra strumenti del counseling, educazione al benessere, principi non sanitari della naturopatia e della medicina tradizionale cinese, proposti in modo semplice e rispettoso.
 <br><br><b>Nota sull'approccio</b>
-<br>Il percorso si colloca nell’ambito del benessere e integra riferimenti scientifici e tradizioni riconosciute, senza dottrine rigide né visioni ideologiche.
-Gli strumenti sono proposti senza proselitismo, validi per persone di ogni credo o visione, nel rispetto della libertà e delle convinzioni personali; quando necessario, è previsto l’invio a professionisti competenti.
+<br>Il percorso integra strumenti di benessere che integrano la saggezza della medicina tradizionale cinese e della naturopatia in un'ottica educativa e di prevenzione, nel pieno rispetto della libertà e delle convinzioni di ciascuno.
 
 <br><br><b>Durata</b> 
 <br>Degli incontri: 90 minuti il primo incontro + 30-45 minuti il secondo di restituzione, 60 minuti gli altri incontri di sostegno e follow up.
@@ -487,6 +486,7 @@ Gli strumenti sono proposti senza proselitismo, validi per persone di ogni credo
 <br>Per i percorsi in tedesco preparo in anticipo la terminologia chiave.
 <br>Utilizzo anche lo svizzero-tedesco nelle sessioni individuali.
 <br>Il francese non è una lingua che utilizzo professionalmente.
+
 <br><br>  
 <br>
 <div class="hero-actions">
@@ -536,7 +536,9 @@ Gli strumenti sono proposti senza proselitismo, validi per persone di ogni credo
 <br>Per i percorsi in tedesco preparo in anticipo la terminologia chiave.
 <br>Utilizzo anche lo svizzero-tedesco nelle sessioni individuali.
 <br>Il francese non è una lingua che utilizzo professionalmente.
+
 <br> <br> <br> 
+
 <div class="hero-actions">
             <a href="#contact" class="btn btn-primary">Richiedi informazioni e costi</a>
           </div>
@@ -696,58 +698,77 @@ Gli strumenti sono proposti senza proselitismo, validi per persone di ogni credo
 
 
 <!-- CONTACTS -->
+<!-- CONTACTS -->
 <section id="contact" class="reveal show">
   <div class="container">
     <h3 class="section-title">Contatti</h3>
 
     <div class="contact-grid">
+      <div class="card">
+        <h4>Telefono</h4>
+        <p>+41 (0)76 616 85 07</p>
+        <p><a class="link" href="tel:+41766168507">Chiama ora</a></p>
+      </div>
 
-  <div class="card">
-    <h4>Telefono</h4>
-    <p>+41 (0)76 616 85 07</p>
-    <p><a href="tel:+41766168507">Chiama ora</a></p>
-  </div>
+      <div class="card">
+        <h4>Email</h4>
+        <p>info@viradas.com</p>
+        <p>
+          <a class="link" href="mailto:info@viradas.com">Invia email</a>
+          <span class="meta"> (posta protetta)</span>
+        </p>
+      </div>
 
-  <div class="card">
-    <h4>Email</h4>
-    <p>info@viradas.com</p>
-    <p><a href="mailto:info@viradas.com">Invia email <i> (protetta)</i></a></p>
-  </div>
+      <div class="card">
+        <h4>WhatsApp</h4>
+        <p class="meta">Chat rapida</p>
+        <p>
+          <a id="waLink" class="link" href="https://wa.me/41766168507" target="_blank" rel="noopener">
+            Invia un messaggio
+          </a>
+        </p>
+      </div>
+    </div>
 
-  <div class="card">
-    <h4>WhatsApp</h4>
-    <p>Chat rapida</p>
-    <p><a id="waLink" href="https://wa.me/41766168507" target="_blank" rel="noopener">Invia un messaggio</a></p>
-  </div>
-
-</div>
-
-        <div class="form-wrap" style="margin-top:28px">
-      <form action="https://formsubmit.co/info@viradas.com" method="POST">
-
+    <div class="form-wrap">
+      <form action="https://formsubmit.co/info@viradas.com" method="POST" class="contact-form">
         <!-- Redirect dopo invio -->
         <input type="hidden" name="_next" value="https://viradas.com/index.html?sent=1">
         <input type="hidden" name="_captcha" value="false">
 
         <div class="form-row">
           <div class="col">
-            <input type="text" name="name" placeholder="Il tuo nome" required>
+            <label class="sr-only" for="name">Nome</label>
+            <input id="name" type="text" name="name" placeholder="Il tuo nome" autocomplete="name" required>
           </div>
+
           <div class="col">
-            <input type="text" name="phone" placeholder="Telefono (opzionale)">
+            <label class="sr-only" for="phone">Telefono</label>
+            <input id="phone" type="tel" name="phone" placeholder="Telefono (opzionale)"
+                   autocomplete="tel" inputmode="tel">
           </div>
         </div>
 
-        <input type="email" name="email" placeholder="La tua email" required>
+        <label class="sr-only" for="email">Email</label>
+        <input id="email" type="email" name="email" placeholder="La tua email" autocomplete="email" required>
 
-        <textarea name="message" placeholder="Scrivi il tuo messaggio (protetto)" required></textarea>
+        <label class="sr-only" for="message">Messaggio</label>
+        <textarea id="message" name="message" placeholder="Scrivi il tuo messaggio" required></textarea>
 
-        <div style="text-align:center;margin-top:12px">
+        <div class="form-consent">
+          <label class="consent-label">
+            <input type="checkbox" name="consenso_info" required>
+            Ho preso visione della natura del servizio (non sanitario) e delle  <a id="open-legal" class="footer-link" href="#">Informazioni legali</a>.<br><br>
+          </label>
+        </div>
+        <div class="form-actions">
           <button type="submit" class="btn-send">Invia messaggio</button>
         </div>
-
       </form>
     </div>
+  </div>
+</section>
+
 
 
 
