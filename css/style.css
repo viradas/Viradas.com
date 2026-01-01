@@ -2468,3 +2468,113 @@ input[type="checkbox"] {
   text-decoration: underline;
 }
 
+/* --- MODIFICHE BOX ESERCIZIO (DESTRA) --- */
+
+/* 1. Ingrandiamo leggermente il box e aggiungiamo le foglioline di sfondo */
+.hero-aside .hero-card {
+    position: relative;
+    overflow: hidden; /* Fondamentale per le foglioline */
+    padding: 30px;    /* Più respiro interno */
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255, 255, 255, 0.05); /* Un tocco di trasparenza elegante */
+}
+
+/* 2. Le foglioline dietro (usiamo l'immagine che hai già) */
+.hero-aside .hero-card::before {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    width: 120px;
+    height: 120px;
+    background-image: url('../images/favicon.png'); /* Usa la tua icona come decorazione */
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.12; /* Molto soffuso, come un marchio d'acqua */
+    transform: rotate(-15deg);
+    pointer-events: none;
+}
+
+/* 3. Rendiamo il bottone "Inizia" colorato e più grande */
+.hero-aside .hero-pill {
+    background-color: var(--sage) !important; /* Usa il tuo colore Salvia */
+    color: var(--indigo) !important;          /* Testo scuro per leggere bene */
+    padding: 12px 28px !important;            /* Più grande */
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Effetto al passaggio del mouse sul bottone */
+.hero-aside .hero-pill:hover {
+    background-color: white !important;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Sistemiamo il pallino accanto alla scritta Inizia */
+.hero-pill-dot {
+    background: var(--indigo) !important; /* Pallino blu scuro sul verde */
+    width: 8px;
+    height: 8px;
+}
+
+
+/* --- UNIFORMARE IL BOTTONE INIZIA A "COME FUNZIONA" --- */
+
+.hero-aside .hero-pill {
+    /* Copiamo lo stile esatto dei tuoi bottoni .btn */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    
+    /* Dimensioni identiche al bottone "Come funziona" */
+    padding: 9px 18px !important; 
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    border-radius: 999px !important;
+    
+    /* Colore SAGE per farlo risaltare (come nell'immagine) */
+    background-color: var(--sage) !important;
+    color: white !important;
+    
+    border: 1px solid transparent !important;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all .18s ease;
+    
+    /* Rimuove eventuali margini automatici se presenti */
+    width: fit-content !important; 
+    margin-top: 20px;
+}
+
+/* Effetto hover (stesso stile dei tuoi bottoni) */
+.hero-aside .hero-pill:hover {
+    background-color: var(--indigo) !important;
+    transform: translateY(-2px);
+    border-color: #ede4db !important;
+}
+
+/* Nascondiamo o sistemiamo il pallino se non ti piace */
+.hero-pill-dot {
+    display: none; /* Lo nascondiamo per farlo uguale a "Come funziona" */
+}
+
+
+
+
+#result h3 {
+  color: var(--indigo); /* oppure il tuo blu esatto */
+}
