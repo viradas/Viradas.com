@@ -2578,3 +2578,152 @@ input[type="checkbox"] {
 #result h3 {
   color: var(--indigo); /* oppure il tuo blu esatto */
 }
+
+
+
+/* ======================================================
+   QUIZ PERCORSI - STILE REVISIONATO
+   ====================================================== */
+
+#quiz-section {
+    padding: 60px 0;
+    background: #fdfbf8; /* Sfondo neutro per far risaltare le card */
+}
+
+/* Box principale più compatto */
+.quiz-wrapper {
+    max-width: 700px; 
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(74, 91, 116, 0.05);
+}
+
+.question h3 {
+    color: var(--indigo);
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.question-hint {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+/* Griglia delle opzioni più "movimentata" */
+.options {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Due colonne su desktop */
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 600px) {
+    .options { grid-template-columns: 1fr; }
+}
+
+/* Card delle opzioni più piccole ed eleganti */
+.option-card {
+    background: #f9f9f9;
+    border: 2px solid transparent;
+    border-radius: var(--radius-md);
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    min-height: 80px;
+}
+
+.option-card span {
+    font-size: 0.92rem;
+    line-height: 1.4;
+    color: var(--indigo);
+}
+
+.option-card:hover {
+    transform: translateY(-3px);
+    background: #fff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-color: var(--sage);
+}
+
+/* Stato selezionato */
+.option-card.selected {
+    background: white;
+    border-color: var(--indigo);
+    box-shadow: 0 5px 15px rgba(74, 91, 116, 0.1);
+}
+
+.option-card.selected span {
+    font-weight: 600;
+}
+
+/* Navigazione Quiz */
+.quiz-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.quiz-btn {
+    padding: 10px 24px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+}
+
+#prevBtn { background: transparent; color: var(--greige); }
+#nextBtn { background: var(--indigo); color: white; }
+#nextBtn:hover { background: var(--greige); transform: scale(1.05); }
+
+/* RISULTATI - Colorati e dinamici */
+#result {
+    margin-top: 20px;
+    padding: 30px;
+    border-radius: var(--radius-lg);
+    animation: fadeIn 0.5s ease;
+}
+
+/* Varianti colore per i profili */
+.result-profile-1 { background: rgba(230, 199, 196, 0.15); border-left: 5px solid var(--rose); }
+.result-profile-2 { background: rgba(183, 200, 182, 0.15); border-left: 5px solid var(--sage); }
+.result-profile-3 { background: rgba(168, 159, 150, 0.15); border-left: 5px solid var(--greige); }
+
+#result h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--indigo);
+}
+
+#result p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.micro-note {
+    font-size: 0.75rem !important;
+    margin-top: 30px;
+    opacity: 0.7;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
