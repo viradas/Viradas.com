@@ -1,5 +1,7 @@
 /* === QUIZ PERCORSI AGGIORNATO (Versione Consapevolezza e Slancio) === */
 
+console.log("QUIZ file caricato:", location.pathname);
+
 function initQuiz() {
   const steps = [
     {
@@ -68,6 +70,15 @@ function initQuiz() {
   const nextBtn = document.getElementById("nextBtn");
   const restartBtn = document.getElementById("restartBtn");
   const resultBox = document.getElementById("result");
+
+
+console.log("QUIZ init:", {
+  container,
+  prevBtn,
+  nextBtn,
+  restartBtn,
+  resultBox
+});
 
   if (!container || !prevBtn || !nextBtn || !restartBtn || !resultBox) return;
 
@@ -184,4 +195,9 @@ function initQuiz() {
 }
 
 
-document.addEventListener("DOMContentLoaded", initQuiz);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initQuiz);
+} else {
+  initQuiz();
+}
+
