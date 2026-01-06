@@ -86,15 +86,8 @@ function initStepButtons() {
   // 👉 se NON siamo nella pagina del metodo, esce senza errori
   if (!steps.length || !box || !title || !text) return;
 
-  const content = {
-    verita: { title: "Verità", text: "Riconoscere ciò che sta davvero accadendo, senza giudizio e senza evasione." },
-    identita: { title: "Identità", text: "Vedere chi sei oggi, cosa senti, cosa desideri, cosa ti nutre e cosa ti blocca." },
-    relazione: { title: "Relazione", text: "Esplorare il modo in cui entri in contatto: confini, bisogni, dinamiche ricorrenti." },
-    assertivita: { title: "Assertività", text: "Allenare la capacità di dire sì/no, chiedere, negoziare, comunicare con chiarezza." },
-    direzione: { title: "Direzione", text: "Capire verso dove vuoi muoverti davvero e che cosa dà senso al percorso." },
-    azione: { title: "Azione", text: "Tradurre desideri e bisogni in passi concreti, realistici e rispettosi dei tempi." },
-    svolta: { title: "Svolta", text: "Integrare ciò che hai scoperto e consolidare il cambiamento nella vita quotidiana." }
-  };
+  const content = window.VIRADAS_STEP_CONTENT || {};
+
 
   steps.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -390,3 +383,9 @@ function initLangSwitch() {
   document.addEventListener("pointerdown", closeIfOutside);
   document.addEventListener("click", closeIfOutside);
 }
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  initStepButtons();
+});

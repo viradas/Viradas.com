@@ -213,3 +213,35 @@ if (document.readyState === "loading") {
 } else {
   initQuiz();
 }
+
+
+window.VIRADAS_STEP_CONTENT = {
+  verita: {
+    title: "Verdade",
+    text: "Reconhecer o que está realmente acontecendo, sem julgamento e sem evasão."
+  },
+  identita: {
+    title: "Identidade",
+    text: "Ver quem você é hoje, o que sente, o que deseja, o que te nutre e o que te bloqueia."
+  },
+  relazione: {
+    title: "Relação",
+    text: "Explorar a forma como você se relaciona: limites, necessidades e dinâmicas recorrentes."
+  },
+  assertivita: {
+    title: "Assertividade",
+    text: "Desenvolver a capacidade de dizer sim ou não, pedir, negociar e se comunicar com clareza."
+  },
+  direzione: {
+    title: "Direção",
+    text: "Compreender para onde você realmente quer ir e o que dá sentido ao seu caminho."
+  },
+  azione: {
+    title: "Ação",
+    text: "Transformar desejos e necessidades em passos concretos, realistas e respeitosos do seu tempo."
+  },
+  svolta: {
+    title: "Virada",
+    text: "Integrar o que foi descoberto e consolidar a mudança na vida cotidiana."
+  }
+};
