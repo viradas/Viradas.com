@@ -2727,3 +2727,90 @@ input[type="checkbox"] {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+
+
+
+/* === Language switch (IT ▾) === */
+.lang-switch {
+  position: relative;
+}
+
+.lang-current {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.lang-caret {
+  font-size: 0.65em;
+  opacity: 0.55;
+  transform: translateY(-0.02em);
+}
+
+.lang-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.45rem);
+  min-width: 5.2rem;
+  padding: 0.35rem;
+  margin: 0;
+  list-style: none;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+  z-index: 999;
+}
+
+.lang-menu li {
+  margin: 0;
+}
+
+.lang-menu a {
+  display: block;
+  padding: 0.4rem 0.55rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.85;
+}
+
+.lang-menu a:hover {
+  opacity: 1;
+  background: rgba(0,0,0,0.04);
+}
+
+/* show menu on hover (desktop) */
+.lang-switch:hover .lang-menu {
+  display: block;
+}
+
+/* accessibility: show menu when focusing via keyboard */
+.lang-switch:focus-within .lang-menu {
+  display: block;
+}
+
+/* === Language switch – INDIGO === */
+.lang-current {
+  color: var(--indigo, #3f3d56);
+}
+
+.lang-menu a {
+  color: var(--indigo, #3f3d56);
+}
+
+.lang-menu a:hover {
+  background: rgba(63, 61, 86, 0.08);
+}
+
+.lang-caret {
+  color: var(--indigo, #3f3d56);
+  opacity: 0.55;
+}
