@@ -329,30 +329,64 @@ function initLangSwitch() {
   const menuLinks = langSwitch.querySelectorAll(".lang-menu a");
   if (!currentBtn || !menuLinks.length) return;
 
-  // Toggle dropdown
-  currentBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    langSwitch.classList.toggle("open");
-  });
-
-  // Detect language from path: /en/, /de/, /es/, /fr/, /pt/ (default it)
-  const path = window.location.pathname;
+  // ---- detect current language ----
+  const path = window.location.pathname; // es: /pt/guide.html
   const match = path.match(/^\/(en|de|es|fr|pt)\//i);
   const currentLang = match ? match[1].toLowerCase() : "it";
 
-  // Update button label
+  // Base path without language prefix (keeps same page: /guide.html)
+  const basePath = path.replace(/^\/(en|de|es|fr|pt)\//i, "/");
+
+  // ---- update button label ----
   currentBtn.innerHTML = `${currentLang.toUpperCase()} <span class="lang-caret" aria-hidden="true">▾</span>`;
 
-  // Hide current language in dropdown
+  // ---- open/close dropdown (mobile-friendly) ----
+  const toggleOpen = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    langSwitch.classList.toggle("open");
+  };
+
+  // Usa pointerup (migliore su touch), ma mantieni anche click come fallback
+  currentBtn.addEventListener("pointerup", toggleOpen);
+  currentBtn.addEventListener("click", toggleOpen);
+  currentBtn.addEventListener("touchstart", toggleOpen, { passive: false });
+
+  // ---- build correct URLs + hide current language ----
   menuLinks.forEach(a => {
-    const code = (a.getAttribute("lang") || a.textContent || "").trim().toLowerCase();
+    // leggi il codice lingua da data-lang oppure lang oppure testo
+    const code = (
+      a.getAttribute("data-lang") ||
+      a.getAttribute("lang") ||
+      a.textContent
+    ).trim().toLowerCase();
+
     const li = a.closest("li");
-    if (!li) return;
-    li.style.display = (code === currentLang) ? "none" : "";
+    if (li) li.style.display = (code === currentLang) ? "none" : "";
+
+    // costruisci URL "equivalente" mantenendo pagina + query + hash
+    // it = root, altre lingue = /xx/
+    const targetPath = (code === "it") ? basePath : `/${code}${basePath}`;
+    const targetUrl = `${targetPath}${window.location.search}${window.location.hash}`;
+
+    // imposta href (utile per long-press e accessibilità)
+    a.setAttribute("href", targetUrl);
+
+    // su mobile forziamo la navigazione con pointerup/touchstart
+    const go = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.href = targetUrl;
+    };
+    a.addEventListener("pointerup", go);
+    a.addEventListener("click", go);
+    a.addEventListener("touchstart", go, { passive: false });
   });
 
-  // Close dropdown when clicking outside
-  document.addEventListener("click", (e) => {
+  // ---- close dropdown when tapping outside ----
+  const closeIfOutside = (e) => {
     if (!langSwitch.contains(e.target)) langSwitch.classList.remove("open");
-  });
+  };
+  document.addEventListener("pointerdown", closeIfOutside);
+  document.addEventListener("click", closeIfOutside);
 }
