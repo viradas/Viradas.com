@@ -7,13 +7,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const langPrefix = m ? `/${m[1].toLowerCase()}` : "";
 
   // === LOAD HEADER ===
-  fetch(`${langPrefix}/header.html`)
-    .then(res => res.text())
-    .then(html => {
-      const header = document.getElementById("site-header");
-      if (header) header.innerHTML = html;
-    })
-    .catch(err => console.error("Header load error:", err));
+ fetch(`${langPrefix}/header.html`)
+  .then(res => res.text())
+  .then(html => {
+    const header = document.getElementById("site-header");
+    if (header) header.innerHTML = html;
+
+    // IMPORTANTISSIMO: init dopo che l'header esiste nel DOM
+    initMenu();
+    initLangSwitch();   // <-- nuova
+  })
+  .catch(err => console.error("Header load error:", err));
+
 
   // === LOAD FOOTER ===
   fetch(`${langPrefix}/footer.html`)
@@ -33,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initStepButtons();
   initFAQ();
   initPopupThankYou();
-  initQuiz();
 });
 
 
@@ -315,3 +319,40 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+function initLangSwitch() {
+  const langSwitch = document.querySelector(".lang-switch");
+  if (!langSwitch) return;
+
+  const currentBtn = langSwitch.querySelector(".lang-current");
+  const menuLinks = langSwitch.querySelectorAll(".lang-menu a");
+  if (!currentBtn || !menuLinks.length) return;
+
+  // Toggle dropdown
+  currentBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    langSwitch.classList.toggle("open");
+  });
+
+  // Detect language from path: /en/, /de/, /es/, /fr/, /pt/ (default it)
+  const path = window.location.pathname;
+  const match = path.match(/^\/(en|de|es|fr|pt)\//i);
+  const currentLang = match ? match[1].toLowerCase() : "it";
+
+  // Update button label
+  currentBtn.innerHTML = `${currentLang.toUpperCase()} <span class="lang-caret" aria-hidden="true">▾</span>`;
+
+  // Hide current language in dropdown
+  menuLinks.forEach(a => {
+    const code = (a.getAttribute("lang") || a.textContent || "").trim().toLowerCase();
+    const li = a.closest("li");
+    if (!li) return;
+    li.style.display = (code === currentLang) ? "none" : "";
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!langSwitch.contains(e.target)) langSwitch.classList.remove("open");
+  });
+}

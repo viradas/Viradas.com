@@ -2814,3 +2814,14 @@ input[type="checkbox"] {
   color: var(--indigo, #3f3d56);
   opacity: 0.55;
 }
+
+
+
+
+
+
+/* menu lingua che non rimane sulla lingua selezionata */
+
+
+.navbar { overflow: visible; }   /* importantissimo */
+.lang-menu { z-index: 9999; }
