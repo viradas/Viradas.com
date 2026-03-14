@@ -591,7 +591,7 @@ background: rgba(168,159,150,0.12); /* greige chiaro */
 #ViradaRelazione {
   background: linear-gradient(
     to bottom,
-    var(--greige) 0%,
+    var(--rose) 0%,
     #fdfbf8 100%
   );
 }
@@ -606,12 +606,29 @@ background: rgba(168,159,150,0.12); /* greige chiaro */
   );
 }
 
+#ViradaMovimento {
+  background: linear-gradient(
+    to bottom,
+    var(--indigo) 0%,
+    #fdfbf8 100%
+  );
+}
 
+#ViradaMovimento .section-title,
+#ViradaMovimento h2 {
+  color: #ffffff !important;
+}
 
+#ViradaMovimento .subtitle,
+#ViradaMovimento h3,
+#ViradaMovimento .quick-eyebrow,
+#ViradaMovimento .lead {
+  color: #f2f2f2 !important;
+}
 #ViradaStrumenti {
   background: linear-gradient(
     to bottom,
-    color-mix(in srgb, var(--indigo) 40%, white 60%) 0%,
+    color-mix(in srgb, var(--greige) 40%, white 60%) 0%,
     #fdfbf8 100%
   );
 }
