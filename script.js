@@ -389,3 +389,23 @@ function initLangSwitch() {
 document.addEventListener("DOMContentLoaded", () => {
   initStepButtons();
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const langLinks = document.querySelectorAll(".lang-link");
+
+  langLinks.forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const baseUrl = this.getAttribute("href");
+      const currentHash = window.location.hash;
+      let targetUrl = baseUrl;
+
+      if (currentHash) {
+        targetUrl += currentHash;
+      }
+
+      window.location.href = targetUrl;
+    });
+  });
+});
