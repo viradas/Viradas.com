@@ -304,7 +304,7 @@ nav a:hover{color:var(--greige)}
     /* QUICK LINKS */
 
     .quick-links {
-      background: linear-gradient(to bottom, var(--greige) 0, #fdfbf8 100%);
+      background: linear-gradient(to bottom, var(--white) 0, #fdfbf8 100%);
       padding: 26px 0 40px;
     }
 
