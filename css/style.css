@@ -659,7 +659,7 @@ background: rgba(168,159,150,0.12); /* greige chiaro */
     #fdfbf8 100%
   );
 }
-.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+.contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:start}
 .card{background:white;padding:18px;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,0.05)}
 .card h4{margin-bottom:8px;color:var(--indigo)}
 .card p{color:#4a5560;margin-bottom:8px}
