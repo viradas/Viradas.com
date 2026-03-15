@@ -2747,104 +2747,11 @@ input[type="checkbox"] {
 
 
 
-
-/* === Language switch (IT ▾) === */
-.lang-switch {
-  position: relative;
+/* === Language links inline nel menu === */
+.navbar {
+  overflow: visible;
 }
 
-.lang-current {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  font: inherit;
-  color: inherit;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.2rem;
-}
-
-.lang-caret {
-  font-size: 0.65em;
-  opacity: 0.55;
-  transform: translateY(-0.02em);
-}
-
-.lang-menu {
-  display: none;
-  position: absolute;
-  right: 0;
-  top: calc(100% + 0.45rem);
-  min-width: 5.2rem;
-  padding: 0.35rem;
-  margin: 0;
-  list-style: none;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.10);
-  z-index: 999;
-}
-
-.lang-menu li {
-  margin: 0;
-}
-
-.lang-menu a {
-  display: block;
-  padding: 0.4rem 0.55rem;
-  border-radius: 8px;
-  text-decoration: none;
-  color: inherit;
-  opacity: 0.85;
-}
-
-.lang-menu a:hover {
-  opacity: 1;
-  background: rgba(0,0,0,0.04);
-}
-
-/* show menu on hover (desktop) */
-.lang-switch:hover .lang-menu {
-  display: block;
-}
-
-/* accessibility: show menu when focusing via keyboard */
-.lang-switch:focus-within .lang-menu {
-  display: block;
-}
-
-/* === Language switch – INDIGO === */
-.lang-current {
-  color: var(--indigo, #3f3d56);
-}
-
-.lang-menu a {
-  color: var(--indigo, #3f3d56);
-}
-
-.lang-menu a:hover {
-  background: rgba(63, 61, 86, 0.08);
-}
-
-.lang-caret {
-  color: var(--indigo, #3f3d56);
-  opacity: 0.55;
-}
-
-
-
-
-
-
-/* menu lingua che non rimane sulla lingua selezionata */
-
-
-.navbar { overflow: visible; }   /* importantissimo */
-.lang-menu { z-index: 9999; }
-
-
-/* === Lingue inline nel menu === */
 .lang-inline {
   display: flex;
   align-items: center;
@@ -2856,11 +2763,16 @@ input[type="checkbox"] {
 .lang-inline a {
   color: var(--indigo);
   text-decoration: none;
-  transition: color .2s ease, opacity .2s ease;
+  transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 .lang-inline a:hover {
   color: var(--greige);
+}
+
+.lang-inline a.active {
+  color: var(--greige) !important;
+  font-weight: 600;
 }
 
 .lang-sep {
@@ -2874,21 +2786,4 @@ input[type="checkbox"] {
     justify-content: flex-start;
     padding: 4px 0;
   }
-}
-
-.lang-inline a.active {
-  font-weight: 700;
-  color: var(--greige);
-  position: relative;
-}
-
-.lang-inline a.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 2px;
-  background: var(--greige);
-  border-radius: 2px;
 }
