@@ -208,30 +208,30 @@ console.log("guide-it.js LOADED");
 window.VIRADAS_STEP_CONTENT = {
   verita: {
     title: "Verità",
-    text: "Riconoscere ciò che sta davvero accadendo, senza giudizio e senza evasione."
+    text: "Fare chiarezza su ciò che sta accadendo, distinguendo tra fatti, emozioni e interpretazioni."
   },
   identita: {
     title: "Identità",
-    text: "Vedere chi sei oggi, cosa senti, cosa desideri, cosa ti nutre e cosa ti blocca."
+    text: "Riappropriarsi dei propri valori, bisogni e desideri, distinguendoli da ciò che non ci appartiene più."
   },
   relazione: {
     title: "Relazione",
-    text: "Esplorare il modo in cui entri in contatto: confini, bisogni, dinamiche ricorrenti."
+    text: "Riconoscere ruoli, aspettative e schemi ricorrenti nella relazione con sé e con gli altri."
   },
   assertivita: {
     title: "Assertività",
-    text: "Allenare la capacità di dire sì/no, chiedere, negoziare, comunicare con chiarezza."
+    text: "Allenarsi ad esprimere bisogni e confini, con chiarezza e gentile fermezza, senza aggredire, né rinunciare."
   },
   direzione: {
     title: "Direzione",
-    text: "Capire verso dove vuoi muoverti davvero e che cosa dà senso al percorso."
+    text: "Scegliere una direzione e trasformare il desiderio in progetto, passo dopo passo."
   },
   azione: {
     title: "Azione",
-    text: "Tradurre desideri e bisogni in passi concreti, realistici e rispettosi dei tempi."
+    text: "Sperimentare piccoli passi per allargare lo spazio e creare nuove possibilità."
   },
   svolta: {
     title: "Svolta",
-    text: "Integrare ciò che hai scoperto e consolidare il cambiamento nella vita quotidiana."
+    text: "Integrare e consolidare i cambiamenti, in una svolta che non stravolge, ma trasforma."
   }
 };

@@ -217,31 +217,31 @@ if (document.readyState === "loading") {
 
 window.VIRADAS_STEP_CONTENT = {
   verita: {
-    title: "Verdade",
-    text: "Reconhecer o que está realmente acontecendo, sem julgamento e sem evasão."
+    title: "Verdade (Verità)",
+    text: "Clarificar o que está acontecendo, distinguindo entre fatos, emoções e interpretações."
   },
   identita: {
-    title: "Identidade",
-    text: "Ver quem você é hoje, o que sente, o que deseja, o que te nutre e o que te bloqueia."
+    title: "Identidade (Identità)",
+    text: "Reapropriar-se dos próprios valores, necessidades e desejos, distinguindo-os do que já não pertence."
   },
   relazione: {
-    title: "Relação",
-    text: "Explorar a forma como você se relaciona: limites, necessidades e dinâmicas recorrentes."
+    title: "Relação (Relazione)",
+    text: "Reconhecer papéis, expectativas e padrões recorrentes na relação consigo e com os outros."
   },
   assertivita: {
-    title: "Assertividade",
-    text: "Desenvolver a capacidade de dizer sim ou não, pedir, negociar e se comunicar com clareza."
+    title: "Assertividade (Assertività)",
+    text: "Praticar expressar necessidades e limites com clareza e firmeza gentil, sem agredir nem ceder."
   },
   direzione: {
-    title: "Direção",
+    title: "Direção (Direzione)",
     text: "Compreender para onde você realmente quer ir e o que dá sentido ao seu caminho."
   },
   azione: {
-    title: "Ação",
-    text: "Transformar desejos e necessidades em passos concretos, realistas e respeitosos do seu tempo."
+    title: "Ação (Azione)",
+    text: "Escolher uma direção e transformar o desejo em projeto, passo a passo."
   },
   svolta: {
-    title: "Virada",
-    text: "Integrar o que foi descoberto e consolidar a mudança na vida cotidiana."
+    title: "Virada (Svolta)",
+    text: "Escolher uma direção e transformar o desejo em projeto, passo a passo."
   }
 };

@@ -217,31 +217,31 @@ if (document.readyState === "loading") {
 
 window.VIRADAS_STEP_CONTENT = {
   verita: {
-    title: "Truth",
-    text: "Recognizing what is truly happening, without judgment and without avoidance."
+    title: "Truth (Verità)",
+    text: "Integrar e consolidar as mudanças, numa virada que não rompe, mas transforma."
   },
   identita: {
-    title: "Identity",
-    text: "Seeing who you are today, what you feel, what you desire, what nourishes you and what holds you back."
+    title: "Identity (Identità)",
+    text: "Reclaiming one’s values, needs and desires, distinguishing them from what no longer belongs."
   },
   relazione: {
-    title: "Relationship",
-    text: "Exploring how you relate to others: boundaries, needs, and recurring patterns."
+    title: "Relationship (Relazione)",
+    text: "Recognizing roles, expectations and recurring patterns in the relationship with oneself and others."
   },
   assertivita: {
-    title: "Assertiveness",
-    text: "Developing the ability to say yes or no, to ask, negotiate, and communicate clearly."
+    title: "Assertiveness (Assertività)",
+    text: "Practicing how to express needs and boundaries with clarity and gentle firmness, without aggression or withdrawal."
   },
   direzione: {
-    title: "Direction",
-    text: "Understanding where you truly want to go and what gives meaning to your path."
+    title: "Direction (Direzione)",
+    text: "Choosing a direction and turning desire into a project, step by step."
   },
   azione: {
-    title: "Action",
-    text: "Turning desires and needs into concrete, realistic steps that respect your timing."
+    title: "Action (Azione)",
+    text: "Experimenting with small steps to create space and open new possibilities."
   },
   svolta: {
-    title: "Turning Point",
-    text: "Integrating what you have discovered and grounding change in everyday life."
+    title: "Shift (Svolta)",
+    text: "Integrating and consolidating changes, in a shift that does not disrupt, but transforms."
   }
 };
