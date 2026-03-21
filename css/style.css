@@ -2787,3 +2787,26 @@ input[type="checkbox"] {
     padding: 4px 0;
   }
 }
+
+
+
+/* MENU INCONTRI */
+
+.incontri-subnav {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  opacity: 0.75;
+}
+
+.incontri-subnav a {
+  text-decoration: none;
+  color: var(--indigo);
+}
+
+.incontri-subnav a:hover {
+  opacity: 1;
+}
+
+.incontri-subnav span {
+  margin: 0 0.4rem;
+}
