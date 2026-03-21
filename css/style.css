@@ -2810,3 +2810,26 @@ input[type="checkbox"] {
 .incontri-subnav span {
   margin: 0 0.4rem;
 }
+
+.incontri-subnav a {
+  text-decoration: none;
+  color: var(--indigo);
+  opacity: 0.75;
+}
+
+.incontri-subnav a:hover,
+.incontri-subnav a:active {
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .incontri-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .incontri-subnav span {
+    display: none; /* togli i puntini su mobile */
+  }
+}
