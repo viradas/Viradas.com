@@ -2829,7 +2829,5 @@ input[type="checkbox"] {
     gap: 0.5rem;
   }
 
-  .incontri-subnav span {
-    display: none; /* togli i puntini su mobile */
-  }
+ 
 }
