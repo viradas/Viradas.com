@@ -2831,3 +2831,19 @@ input[type="checkbox"] {
 
  
 }
+/* Modifica la sezione esistente nel tuo CSS */
+@media (max-width: 600px) {
+  .incontri-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra i link per un look più pulito su mobile */
+    gap: 8px; /* Spazio tra elementi */
+    row-gap: 12px; /* Spazio tra le righe se va a capo */
+  }
+
+  .incontri-subnav span {
+    display: inline-block; /* Garantisce che il puntino sia visibile */
+    margin: 0; /* Pulizia margini precedenti */
+    opacity: 0.5;
+  }
+}
