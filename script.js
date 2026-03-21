@@ -238,7 +238,7 @@ function loadGA() {
 
   const gtagScript = document.createElement("script");
   gtagScript.async = true;
-  gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX";
+gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-6FQ76Y8VLX";
   document.head.appendChild(gtagScript);
 
   gtagScript.onload = function () {
@@ -247,8 +247,8 @@ function loadGA() {
     window.gtag = gtag;
 
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX', {
-      anonymize_ip: true,
+gtag('config', 'G-6FQ76Y8VLX', {
+        anonymize_ip: true,
       allow_google_signals: false,
       allow_ad_personalization_signals: false
     });
