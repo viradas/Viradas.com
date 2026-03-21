@@ -147,34 +147,36 @@ function initPopupThankYou() {
 // ==========================
 function initLegalPopup() {
   const legalModal = document.getElementById("legalModal");
-  const openLegal = document.getElementById("open-legal");
+  const openLegalLinks = document.querySelectorAll(".open-legal");
   const closeLegal = document.getElementById("closeLegal");
   const cookieBanner = document.getElementById("cookie-banner");
 
-  if (!legalModal || !openLegal || !closeLegal) return;
+  if (!legalModal || !openLegalLinks.length || !closeLegal) return;
 
-  openLegal.addEventListener("click", (e) => {
-    e.preventDefault();
-    legalModal.style.display = "flex";
+  openLegalLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      legalModal.style.display = "flex";
 
-    // 👇 FIX MOBILE: nascondi cookie banner mentre il popup è aperto
-    if (cookieBanner) cookieBanner.style.display = "none";
+      if (cookieBanner) cookieBanner.style.display = "none";
+    });
   });
 
   closeLegal.addEventListener("click", () => {
     legalModal.style.display = "none";
 
-    // 👇 FIX MOBILE: ri-mostra il banner solo se l’utente non ha ancora scelto
-    if (!localStorage.getItem("cookie-consent") && cookieBanner)
+    if (!localStorage.getItem("cookie-consent") && cookieBanner) {
       cookieBanner.style.display = "block";
+    }
   });
 
   window.addEventListener("click", (e) => {
     if (e.target === legalModal) {
       legalModal.style.display = "none";
 
-      if (!localStorage.getItem("cookie-consent") && cookieBanner)
+      if (!localStorage.getItem("cookie-consent") && cookieBanner) {
         cookieBanner.style.display = "block";
+      }
     }
   });
 }
@@ -409,3 +411,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+

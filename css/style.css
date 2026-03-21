@@ -2794,7 +2794,7 @@ input[type="checkbox"] {
 
 .incontri-subnav {
   margin-top: 1rem;
-  font-size: 0.95rem;
+  font-size: 1rem;
   opacity: 0.75;
 }
 
@@ -2846,4 +2846,74 @@ input[type="checkbox"] {
     margin: 0; /* Pulizia margini precedenti */
     opacity: 0.5;
   }
+}
+
+.wave-container {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    background: transparent; /* Assicurati che lo sfondo dell'Hero arrivi fin qui */
+    margin-top: -2px; /* Evita sottili linee bianche di errore rendering */
+}
+
+.wave-container svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 80px; /* Regola l'altezza dell'onda a piacimento */
+}
+
+.wave-container svg path {
+    /* Il colore deve essere lo STESSO della sezione che segue (Viradas) */
+    fill: #ffffff; 
+}
+
+
+
+.wave-container svg path {
+    /* Usiamo un colore neutro e leggero per staccare dal bianco */
+    fill: #f4f7f6; 
+}
+
+.wave-container {
+    background: #ffffff; /* Sfondo della striscia */
+    margin-top: -1px;
+}
+@media (max-width: 768px) {
+    .wave-container svg {
+        height: 40px; /* Onda più piccola su cellulare */
+    }
+}
+
+
+
+#hero {
+    background-color: #fdfbf8; /* O il colore che preferisci per l'Hero */
+    margin-bottom: 0;
+}
+
+.wave-container {
+    background-color: #fdfbf8; /* Lo STESSO colore dell'Hero */
+}
+
+.wave-container svg path {
+    fill: #ffffff; /* Il colore della sezione Viradas (bianco) */
+}
+
+.wave-container svg {
+    filter: drop-shadow(0px -5px 5px rgba(0,0,0,0.03));
+}
+
+
+.legal-link {
+  color: var(--greige);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.legal-link:hover,
+.legal-link:focus {
+  color: var(--rose);
+  text-decoration: none;
 }
