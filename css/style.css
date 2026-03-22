@@ -2975,3 +2975,7 @@ a:hover, a:active, a:focus {
     padding: 0 10px;
   }
 }
+.hero-languages a {
+    color: inherit !important; 
+    text-decoration: none !important;
+}
