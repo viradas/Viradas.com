@@ -2918,30 +2918,60 @@ input[type="checkbox"] {
   text-decoration: none;
 }
 
-
-/* Cor padrão do link (Rosa) e sem o sublinhado */
+/* --- STILE GENERALE (Computer e Tablet) --- */
 a {
-  color: var(--rose); /* Aqui você escolhe o tom de rosa que preferir */
-  text-decoration: none;
-  transition: color 0.3s ease; /* Para a mudança de cor ser suave */
+  color: var(--rose); 
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* Quando passa o mouse (Hover) */
-a:hover {
-  color: var(-greige); /* A cor que ele assume ao passar o mouse */
-  
-}
-
-/* Estilo padrão para todos os dispositivos */
-a {
-  color: var(--rose); /* O seu Rosa */
-  text-decoration: none; /* Remove o sublinhado */
-  transition: all 0.3s ease; /* Suaviza a transição de cor */
-  -webkit-tap-highlight-color: transparent; /* Remove aquele quadrado cinza chato no Android/iOS ao tocar */
-}
-
-/* Efeito ao passar o mouse (Computador) e ao tocar (Celular) */
+/* Correzione variabile --greige e rimozione sottolineatura */
 a:hover, a:active, a:focus {
-  color: var(-greige); /* Cor que aparece no toque ou hover */
+  color: var(--greige); 
+  text-decoration: none !important;
   outline: none;
+}
+
+/* --- SOLUZIONE SPECIFICA PER LE LINGUE --- */
+.hero-languages a {
+  color: inherit !important; 
+  opacity: 0.8;
+  padding: 5px; /* Rende l'area cliccabile un po' più grande */
+}
+
+.hero-languages a:hover {
+  opacity: 1;
+  color: var(--rose) !important;
+}
+
+/* --- MEDIA QUERIES (Specifiche per il Cellulare) --- */
+@media screen and (max-width: 768px) {
+  /* Su mobile, i link delle lingue sono leggermente più grandi per le dita */
+  .hero-languages {
+    font-size: 1.1em !important; 
+    line-height: 1.8; /* Più spazio tra le righe per non sbagliare lingua */
+  }
+  
+  /* Se i bottoni sono troppo larghi, li mettiamo uno sotto l'altro */
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px !important;
+  }
+
+  .btn-ghost {
+    width: 90%; /* Il bottone occupa quasi tutta la larghezza */
+    text-align: center;
+  }
+  
+  /* Titolo leggermente più piccolo per non andare a capo male */
+  .hero-title {
+    font-size: 2.2em !important;
+  }
+  
+  h2 {
+    font-size: 1.4em !important;
+    padding: 0 10px;
+  }
 }
