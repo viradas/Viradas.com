@@ -2975,7 +2975,20 @@ a:hover, a:active, a:focus {
     padding: 0 10px;
   }
 }
-.hero-languages a {
+/* Forza il colore su TUTTI gli stati del link (normale, visitato, cliccato) */
+.hero-languages a, 
+.hero-languages a:visited, 
+.hero-languages a:active, 
+.hero-languages a:focus {
     color: inherit !important; 
     text-decoration: none !important;
+    border-bottom: none !important;
+    outline: none !important;
+    -webkit-appearance: none; /* Toglie stili predefiniti di Safari/iOS */
+}
+
+/* Solo quando ci passi sopra (o lo tocchi) diventa rosa */
+.hero-languages a:hover {
+    color: var(--rose) !important;
+    opacity: 1 !important;
 }
