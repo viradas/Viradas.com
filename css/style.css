@@ -2917,3 +2917,31 @@ input[type="checkbox"] {
   color: var(--rose);
   text-decoration: none;
 }
+
+
+/* Cor padrão do link (Rosa) e sem o sublinhado */
+a {
+  color: var(--rose); /* Aqui você escolhe o tom de rosa que preferir */
+  text-decoration: none;
+  transition: color 0.3s ease; /* Para a mudança de cor ser suave */
+}
+
+/* Quando passa o mouse (Hover) */
+a:hover {
+  color: var(-greige); /* A cor que ele assume ao passar o mouse */
+  
+}
+
+/* Estilo padrão para todos os dispositivos */
+a {
+  color: var(--rose); /* O seu Rosa */
+  text-decoration: none; /* Remove o sublinhado */
+  transition: all 0.3s ease; /* Suaviza a transição de cor */
+  -webkit-tap-highlight-color: transparent; /* Remove aquele quadrado cinza chato no Android/iOS ao tocar */
+}
+
+/* Efeito ao passar o mouse (Computador) e ao tocar (Celular) */
+a:hover, a:active, a:focus {
+  color: var(-greige); /* Cor que aparece no toque ou hover */
+  outline: none;
+}
