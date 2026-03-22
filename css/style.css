@@ -282,17 +282,36 @@ nav a:hover{color:var(--greige)}
       border-color: #ede4db;
     }
 
-    .btn-ghost {
-      background: transparent;
-      color: #e5e7eb;
-      border-color: rgba(209, 213, 219, 0.7);
-    }
+   /* --- STILE BOTTONI (Computer e Tablet) --- */
+.btn-ghost {
+    background: transparent;
+    color: #e5e7eb;
+    border: 1px solid rgba(209, 213, 219, 0.7);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent; /* Rimuove l'alone blu sui cellulari */
+}
 
-    .btn-ghost:hover {
-      background: var(--rose) ;
-      
-      border-color: #e5e7eb;
+/* Effetto Hover (Mouse) e Active (Tocco sul Cellulare) */
+.btn-ghost:hover, 
+.btn-ghost:active, 
+.btn-ghost:focus {
+    background: var(--rose) !important;
+    color: #ffffff !important; /* Testo bianco per leggerezza sul rosa */
+    border-color: #e5e7eb !important;
+    outline: none;
+}
+
+/* --- MEDIA QUERY (Ottimizzazione specifica per Cellulare) --- */
+@media screen and (max-width: 768px) {
+    .btn-ghost {
+        width: 85%; /* Lo rende più facile da cliccare con il pollice */
+        margin: 10px auto;
+        padding: 15px 20px; /* Un po' più alto per il touch */
+        display: block; /* Li mette uno sotto l'altro */
+        font-size: 1.1em; /* Leggermente più grande per leggibilità */
     }
+}
 
     .hero-note {
       font-size: 0.78rem;
