@@ -3012,3 +3012,70 @@ a:hover, a:active, a:focus {
     color: var(--rose) !important;
     opacity: 1 !important;
 }
+
+
+
+
+/* Menu togli lingue da tendina */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.language-switcher {
+  position: relative;
+}
+
+.lang-toggle {
+  background: transparent;
+  border: 1px solid #d9d9d9;
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+.lang-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  right: 0;
+  min-width: 80px;
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.language-switcher.open .lang-dropdown {
+  display: block;
+}
+
+.lang-dropdown a {
+  display: block;
+  padding: 0.6rem 0.8rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.lang-dropdown a:hover {
+  background: #f6f6f6;
+}
