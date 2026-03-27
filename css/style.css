@@ -2940,7 +2940,7 @@ input[type="checkbox"] {
 
 /* --- STILE GENERALE (Computer e Tablet) --- */
 a {
-  color: var(--rose); 
+  color: var(--greige); 
   text-decoration: none !important;
   transition: all 0.3s ease;
   -webkit-tap-highlight-color: transparent;
@@ -2948,7 +2948,7 @@ a {
 
 /* Correzione variabile --greige e rimozione sottolineatura */
 a:hover, a:active, a:focus {
-  color: var(--greige); 
+  color: var(--rose); 
   text-decoration: none !important;
   outline: none;
 }
