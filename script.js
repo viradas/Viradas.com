@@ -2,37 +2,32 @@
 // 1. LOAD HEADER & FOOTER (language-aware)
 // ==========================
 document.addEventListener("DOMContentLoaded", () => {
-  // Detect language folder from path: /en/, /de/, /es/, /fr/, /pt/ (default: root IT)
+  document.body.classList.add("hero-loaded");
+
   const m = window.location.pathname.match(/^\/(en|de|es|fr|pt)\//i);
   const langPrefix = m ? `/${m[1].toLowerCase()}` : "";
 
-  // === LOAD HEADER ===
- fetch(`${langPrefix}/header.html`)
-  .then(res => res.text())
-  .then(html => {
-    const header = document.getElementById("site-header");
-    if (header) header.innerHTML = html;
+  fetch(`${langPrefix}/header.html`)
+    .then(res => res.text())
+    .then(html => {
+      const header = document.getElementById("site-header");
+      if (header) header.innerHTML = html;
 
-    // IMPORTANTISSIMO: init dopo che l'header esiste nel DOM
-    initMenu();
-    initLangSwitch();   // <-- nuova
-  })
-  .catch(err => console.error("Header load error:", err));
+      initMenu();
+      initLangSwitch();
+    })
+    .catch(err => console.error("Header load error:", err));
 
-
-  // === LOAD FOOTER ===
   fetch(`${langPrefix}/footer.html`)
     .then(res => res.text())
     .then(html => {
       const footer = document.getElementById("site-footer");
       if (footer) footer.innerHTML = html;
 
-      // init legal popup only after footer exists
       initLegalPopup();
     })
     .catch(err => console.error("Footer load error:", err));
 
-  // Init functions (safe even if some elements are missing)
   initMenu();
   initReveal();
   initStepButtons();
