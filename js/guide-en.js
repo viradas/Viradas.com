@@ -218,7 +218,7 @@ if (document.readyState === "loading") {
 window.VIRADAS_STEP_CONTENT = {
   verita: {
     title: "Truth (Verità)",
-    text: "Integrating and consolidating change, in a shift that doesn’t break, but transforms."
+    text: "Bringing clarity to what is happening and distinguishing between facts, emotions, and interpretations."
   },
   identita: {
     title: "Identity (Identità)",
