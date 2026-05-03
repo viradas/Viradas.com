@@ -3688,3 +3688,24 @@ margin: 0 0 1rem;
     font-size: 0.62rem;
   }
 }
+
+/* Toglie il sottolineato dai link nella pagina Appuntamenti/Eventi */
+.appointments-page a,
+.appointments-page a:hover,
+.appointments-page a:focus,
+.appointments-page a:active,
+.event-section a,
+.event-section a:hover,
+.event-section a:focus,
+.event-section a:active {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+.event-link,
+.event-link:hover,
+.event-link:focus,
+.event-link:active {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
