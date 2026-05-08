@@ -4619,3 +4619,21 @@ margin: 0 0 1rem;
   color: white;
   transform: translateY(-2px);
 }
+
+
+
+/* Fix per Chrome: forza la corretta distribuzione degli spazi */
+.event-hero-inner, .practical-info-grid, .contact-grid-elegant {
+  display: flex !important;
+  width: 100%;
+  flex-wrap: wrap; /* Impedisce che gli elementi escano fuori dallo schermo */
+}
+
+.event-hero-text, .event-hero-image-wrap {
+  flex: 1 1 300px; /* Chrome ha bisogno di una base minima (300px) per non collassare */
+}
+
+/* Forza le icone a non rimpicciolirsi mai su Chrome */
+.info-box i, .step-icon-wrap i, .contact-card i {
+  flex-shrink: 0;
+}
