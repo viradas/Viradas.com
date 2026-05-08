@@ -4534,3 +4534,88 @@ margin: 0 0 1rem;
   margin-top: 3rem;
   text-align: center;
 }
+
+
+
+
+
+
+
+.map-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(141, 163, 153, 0.3);
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.map-link:hover {
+  color: #8da399;
+  border-bottom-color: #8da399;
+  transform: translateY(-1px);
+}
+
+
+.map-link-evident {
+  color: #8da399; /* Usiamo il colore del brand per distinguerlo subito */
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 2px solid rgba(141, 163, 153, 0.2); /* Sottolineatura chiara ma visibile */
+  transition: all 0.3s ease;
+  display: inline-block;
+  padding-bottom: 1px;
+}
+
+.map-link-evident i {
+  font-size: 0.75rem; /* Iconcina piccola per non appesantire */
+  margin-left: 5px;
+  opacity: 0.7;
+}
+
+.map-link-evident:hover {
+  color: #6e837a; /* Si scurisce al passaggio */
+  border-bottom-color: #8da399; /* La linea diventa piena */
+  transform: translateX(3px); /* Piccola animazione di invito */
+}
+
+/* Su mobile lo rendiamo ancora più facile da cliccare */
+@media (max-width: 600px) {
+  .map-link-evident {
+    padding: 5px 0;
+    border-bottom-width: 1px;
+  }
+}
+
+
+
+
+
+
+.calendar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 6px 15px;
+  background-color: #f0f2f1; /* Grigio/verde chiarissimo */
+  color: #8da399;
+  text-decoration: none;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 50px; /* Arrotondato stile Viradas */
+  transition: all 0.3s ease;
+}
+
+.calendar-link i {
+  font-size: 0.7rem;
+  margin-top: -1px;
+}
+
+.calendar-link:hover {
+  background-color: #8da399;
+  color: white;
+  transform: translateY(-2px);
+}
