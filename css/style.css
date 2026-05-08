@@ -4622,18 +4622,213 @@ margin: 0 0 1rem;
 
 
 
-/* Fix per Chrome: forza la corretta distribuzione degli spazi */
-.event-hero-inner, .practical-info-grid, .contact-grid-elegant {
+/* =========================================
+   SISTEMA DI BASE & FIX CHROME
+   ========================================= */
+:root {
+  --virada-salvia: #8da399;
+  --virada-salvia-dark: #6e837a;
+  --virada-bg-light: #f9faf9;
+  --text-dark: #2c2c2c;
+  --text-gray: #666;
+}
+
+/* Fix universale per Chrome/Android per evitare collassi dei flexbox */
+.event-hero-inner, 
+.practical-info-grid, 
+.contact-grid-elegant, 
+.steps-elegant {
   display: flex !important;
+  display: -webkit-flex !important;
   width: 100%;
-  flex-wrap: wrap; /* Impedisce che gli elementi escano fuori dallo schermo */
+  flex-wrap: wrap;
 }
 
-.event-hero-text, .event-hero-image-wrap {
-  flex: 1 1 300px; /* Chrome ha bisogno di una base minima (300px) per non collassare */
-}
-
-/* Forza le icone a non rimpicciolirsi mai su Chrome */
-.info-box i, .step-icon-wrap i, .contact-card i {
+/* Impedisce alle icone di rimpicciolirsi sui browser basati su Chromium */
+.info-box i, 
+.step-icon-wrap i, 
+.contact-card i {
   flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+}
+
+/* =========================================
+   HERO SECTION (Testata)
+   ========================================= */
+.event-hero-volantino {
+  padding: 6rem 0;
+  background-color: #fff;
+}
+
+.event-hero-inner {
+  align-items: center;
+  gap: 4rem;
+}
+
+.event-hero-text {
+  flex: 1 1 450px; /* Base minima per Chrome */
+}
+
+.hero-title-elegant {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem); /* Si adatta da solo tra mobile e desktop */
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+}
+
+.eyebrow-hero {
+  font-family: 'Manrope', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.8rem;
+  color: var(--virada-salvia);
+  margin-bottom: 2rem;
+}
+
+.event-hero-image-wrap {
+  flex: 1 1 350px;
+}
+
+.event-hero-image-wrap img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px; /* Arrotondato stile Viradas */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+/* =========================================
+   BOTTONI ARROTONDATI (Pill Style)
+   ========================================= */
+.btn-volantino {
+  font-family: 'Manrope', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.9rem 2.2rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  border-radius: 50px;
+  margin: 0.5rem 0;
+}
+
+.btn-volantino.primary {
+  background-color: var(--virada-salvia);
+  color: white;
+  border: 1px solid var(--virada-salvia);
+}
+
+.btn-volantino.secondary {
+  background-color: transparent;
+  color: var(--virada-salvia);
+  border: 1px solid var(--virada-salvia);
+}
+
+.btn-volantino:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(141, 163, 153, 0.3);
+}
+
+/* =========================================
+   INTRO & LINK CLICCABILI
+   ========================================= */
+.intro-volantino-section {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.link-virada, .map-link-evident {
+  color: var(--virada-salvia);
+  text-decoration: none;
+  border-bottom: 2px solid rgba(141, 163, 153, 0.2);
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.link-virada:hover, .map-link-evident:hover {
+  border-bottom-color: var(--virada-salvia);
+  background-color: rgba(141, 163, 153, 0.05);
+}
+
+.line-divider {
+  width: 40px;
+  height: 1px;
+  background-color: #d1d1d1;
+  margin: 2.5rem auto;
+}
+
+/* =========================================
+   ISCRIZIONE & CARDS
+   ========================================= */
+.contact-grid-elegant {
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.contact-card {
+  flex: 1 1 250px; /* Chrome fix per le colonne */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1.5rem;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 25px; /* Molto arrotondato */
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+  border-color: var(--virada-salvia);
+  transform: scale(1.03);
+}
+
+/* =========================================
+   CALENDARIO & MAPPA
+   ========================================= */
+.calendar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 8px 20px;
+  background-color: #f0f2f1;
+  color: var(--virada-salvia);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.calendar-link:hover {
+  background-color: var(--virada-salvia);
+  color: white;
+}
+
+/* =========================================
+   RESPONSIVE MOBILE (Android/iOS)
+   ========================================= */
+@media (max-width: 992px) {
+  .event-hero-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-title-elegant {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-card {
+    flex-direction: row; /* Più comodo da toccare su smartphone */
+    padding: 1.5rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
 }
