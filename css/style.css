@@ -4921,3 +4921,347 @@ margin: 0 0 1rem;
     flex: 1 1 100% !important; /* Forza una box per riga su cellulare */
   }
 }
+
+/* --- FIX SEZIONI SPIEGAZIONE (Virada Relazione, Movimento, ecc.) --- */
+
+/* Ridimensioniamo il testo principale delle descrizioni */
+.counseling-text .lead, 
+.viradas-text .lead, 
+.counseling-text p {
+    font-size: 1.05rem !important; /* Dimensione ideale per lettura lunga */
+    line-height: 1.6 !important;
+    text-align: left !important; /* Molto più pulito del justify su mobile */
+    margin-bottom: 1.5rem;
+}
+
+/* Rimpiccioliamo i titoli delle sezioni che ora sono giganti */
+.section-title {
+    font-size: 1.8rem !important;
+    color: var(--indigo);
+    margin-bottom: 1rem;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+}
+
+/* Sistemiamo le liste puntate (A chi è rivolto) */
+.lab-themes li {
+    font-size: 0.95rem !important;
+    line-height: 1.5;
+    margin-bottom: 8px;
+    list-style: none;
+    position: relative;
+    padding-left: 20px;
+}
+
+.lab-themes li::before {
+    content: "•";
+    color: var(--indigo);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* --- FIX PER MOBILE --- */
+@media (max-width: 768px) {
+    /* Evitiamo che le immagini schiaccino troppo il testo su mobile */
+    .counseling-top {
+        flex-direction: column !important; /* Immagine sopra, testo sotto */
+        gap: 20px !important;
+    }
+
+    .counseling-top img {
+        width: 100% !important; /* L'immagine prende tutta la larghezza */
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .section-title {
+        font-size: 1.5rem !important; /* Titolo più umano sul telefono */
+    }
+
+    .counseling-text .lead {
+        font-size: 1rem !important; /* Testo standard per non affaticare l'occhio */
+    }
+}
+
+/* Forza l'allineamento a sinistra per tutti i testi descrittivi */
+p, .lead, .counseling-text p, .viradas-text p {
+    text-align: left !important;
+    hyphens: none !important; /* Evita che Chrome tagli le parole a metà */
+}
+
+/* Sistema anche i titoli per sicurezza */
+h1, h2, h3, h4 {
+    text-align: left !important;
+}
+
+/* Se vuoi che i titoli dell'Hero rimangano centrati (scelta consigliata) */
+.hero-main h1, .hero-main h2, .hero-main p {
+    text-align: center !important;
+}
+
+
+
+.lead {
+    font-size: 1rem !important; /* Prova 1rem o 0.9rem se lo vuoi ancora più piccolo */
+    line-height: 1.6;
+    text-align: left !important; /* Così togliamo anche il giustificato di cui parlavamo prima */
+}
+
+
+
+.incontri-menu-modern {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 40px 0 60px;
+    flex-wrap: wrap; /* Fondamentale per il cellulare */
+    padding: 0 10px;
+}
+
+.menu-btn {
+    padding: 12px 24px;
+    border: 1.5px solid var(--indigo); /* Il tuo Indigo */
+    border-radius: 50px;
+    color: var(--indigo);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.menu-btn:hover {
+    background: var(--indigo);
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .menu-btn {
+        width: 100%; /* Su mobile diventano dei listoni cliccabili */
+        text-align: center;
+    }
+}
+
+
+
+/* Uniforma i testi della sezione Virada Relazione (e simili) */
+#ViradaRelazione .counseling-text p,
+#ViradaRelazione .lab-themes li {
+    font-size: 1.05rem !important; /* Dimensione leggibile e moderna */
+    line-height: 1.6 !important;   /* Spaziatura tra le righe per non affaticare l'occhio */
+    color: #444 !important;        /* Grigio scuro per miglior contrasto */
+    margin-bottom: 12px;           /* Spazio tra i paragrafi e i punti */
+}
+
+/* Rendi i punti elenco più eleganti e allineati */
+#ViradaRelazione .lab-themes {
+    list-style: none !important;    /* Togliamo i pallini standard */
+    padding-left: 0 !important;
+    margin-top: 15px;
+}
+
+#ViradaRelazione .lab-themes li {
+    position: relative;
+    padding-left: 25px;            /* Spazio per l'icona personalizzata */
+}
+
+/* Aggiunge un pallino Indigo coordinato davanti ai punti */
+#ViradaRelazione .lab-themes li::before {
+    content: "•";
+    color: var(--indigo);                /* Il tuo Indigo */
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+/* Titolo "What it’s useful for" */
+#ViradaRelazione .counseling-text b {
+    display: inline-block;
+    margin-top: 10px;
+    color: #333;
+}
+
+
+
+
+
+
+/* --- UNIFORMITÀ SEZIONI VIRADA (Relazione, Corpo, Movimento, Lab) --- */
+/* RESET TOTALE PER SEZIONI VIRADA */
+.counseling-text {
+    text-align: left !important;
+}
+
+/* 1. I PARAGRAFI: uniformi e senza giustificato */
+.counseling-text p, 
+.counseling-text .lead {
+    font-size: 1.05rem !important;
+    line-height: 1.5 !important;
+    color: #444 !important;
+    text-align: left !important;
+    margin-bottom: 1rem !important;
+}
+
+/* 2. LE LISTE: usiamo il metodo standard per non farle andare a capo */
+.lab-themes {
+    list-style-type: disc !important; /* Pallino standard */
+    padding-left: 1.5rem !important; /* Spazio naturale per il pallino */
+    margin: 1rem 0 !important;
+    color: var(--indigo) !important; /* Il pallino prende il colore indigo */
+}
+
+.lab-themes li {
+    font-size: 1.05rem !important;
+    line-height: 1.5 !important;
+    color: #444 !important; /* Il testo della lista rimane grigio/nero */
+    margin-bottom: 0.5rem !important;
+    display: list-item !important; /* Fondamentale per non far sballare l'allineamento */
+}
+
+/* 3. IL GRASSETTO: stesso colore del testo, niente Indigo */
+.counseling-text b, 
+.counseling-text strong {
+    color: inherit !important;
+    font-weight: 700 !important;
+    font-family: inherit !important;
+}
+
+
+/* --- UNIFORMA CARD "COME SI LAVORA INSIEME" --- */
+
+/* Selettore mirato per i paragrafi dentro le card di questa sezione */
+#forme-lavoro p {
+    font-size: 1.05rem !important; /* Uguale alle sezioni Viradas */
+    line-height: 1.6 !important;
+    color: #444 !important; /* Il grigino scuro che volevi */
+    text-align: left !important;
+}
+
+/* Sistema i titoli delle card (Incontro individuale/gruppo) */
+#forme-lavoro h4 {
+    font-size: 1.3rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 15px !important;
+    color: var(--indigo) !important;
+}
+
+/* Rendi i grassetti (Modalità, Durata, Costo) coerenti */
+#forme-lavoro strong {
+    color: #333 !important; /* Un pizzico più scuro del testo ma non Indigo */
+    font-weight: 700 !important;
+}
+
+/* Sistema le card stesse per dare più respiro */
+#forme-lavoro div[style*="flex: 1"] {
+    border: 1px solid rgba(63, 81, 181, 0.15) !important;
+    background: #ffffff !important; /* Un fondo bianco pulito risalta meglio il testo grigio */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03); /* Un'ombra leggerissima per profondità */
+}
+
+/* Mobile Fix: evita che il testo diventi troppo piccolo sui telefoni */
+@media (max-width: 600px) {
+    #forme-lavoro p {
+        font-size: 1rem !important;
+    }
+}
+
+/* --- CARD "COME SI LAVORA INSIEME" --- */
+
+/* 1. La sezione generale: testo grigino */
+#forme-lavoro {
+    color: #555 !important;
+}
+
+/* 2. Le Card: design elegante e pulito */
+#forme-lavoro div[style*="flex: 1"] {
+    background: #ffffff !important;
+    border: 1px solid rgba(63, 81, 181, 0.08) !important;
+    border-radius: 12px !important; /* Angoli più morbidi */
+    box-shadow: 0 10px 30px rgba(63, 81, 181, 0.05) !important; /* Ombra eterea */
+    padding: 30px !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#forme-lavoro div[style*="flex: 1"]:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(63, 81, 181, 0.1) !important;
+}
+
+/* 3. Testo dentro le card: più piccolo ed elegante */
+#forme-lavoro p {
+    font-size: 0.95rem !important; /* Leggermente più piccolo delle Viradas */
+    line-height: 1.6 !important;
+    color: #555 !important;
+    font-weight: 400;
+}
+
+/* 4. Titoli delle card */
+#forme-lavoro h4 {
+    font-size: 1.2rem !important;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px !important;
+    color: var(--indigo) !important;
+    font-family: 'Manrope', sans-serif;
+}
+
+/* 5. Dettagli in grassetto (Modalità, Costo, ecc.) */
+#forme-lavoro strong {
+    color: #444 !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.8px;
+}
+
+/* --- SEZIONE "PER CHI" --- */
+
+/* 1. Il contenitore generale */
+#quando-utile {
+    color: #555 !important;
+    font-size: 1.05rem !important;
+    line-height: 1.6 !important;
+    text-align: left !important;
+}
+
+/* 2. Il testo introduttivo (quello prima della lista) */
+#quando-utile br + br, 
+#quando-utile {
+    color: #555 !important;
+}
+
+/* 3. La lista e i punti elenco */
+#quando-utile ul {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin-top: 20px !important;
+}
+
+#quando-utile li {
+    position: relative;
+    padding-left: 25px !important;
+    margin-bottom: 15px !important;
+    font-size: 1.05rem !important; /* Uguale alle sezioni Viradas */
+    color: #555 !important;
+    line-height: 1.6 !important;
+}
+
+/* 4. Allineamento pallini Indigo */
+#quando-utile li::before {
+    content: "•" !important;
+    color: var(--indigo) !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.3rem !important;
+}
+
+/* 5. Grassetto coerente */
+#quando-utile b, 
+#quando-utile strong {
+    color: #444 !important;
+    font-weight: 700 !important;
+}
