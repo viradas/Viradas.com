@@ -4915,3 +4915,9 @@ margin: 0 0 1rem;
   line-height: 1.5;
   color: #333;
 }
+
+@media (max-width: 600px) {
+  .info-box {
+    flex: 1 1 100% !important; /* Forza una box per riga su cellulare */
+  }
+}
