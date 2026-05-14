@@ -4443,18 +4443,40 @@ margin: 0 0 1rem;
 
 /* Responsive per cellulari */
 @media (max-width: 768px) {
+  /* Compattiamo il contenitore */
   .contact-grid-elegant {
-    flex-direction: column;
-    gap: 1rem;
+    gap: 0.8rem !important; /* Spazio ridotto tra le card */
+    padding: 0 10px;
   }
+
+  /* Trasformiamo le card in strisce sottili */
   .contact-card {
-    flex-direction: row;
-    padding: 1.2rem;
-    justify-content: flex-start;
-    padding-left: 2rem;
+    flex-direction: row !important; /* Icona a sinistra, testo a destra */
+    justify-content: flex-start !important;
+    padding: 1rem 1.5rem !important; /* Molto meno spazio sopra e sotto */
+    min-height: auto !important;
+    gap: 15px !important;
+    border-radius: 15px !important; /* Arrotondamento più sobrio */
+  }
+
+  .contact-card i {
+    font-size: 1.2rem !important; /* Icone più piccole */
+    width: 25px;
+    text-align: center;
+  }
+
+  .contact-card span {
+    font-size: 0.9rem !important; /* Testo più leggibile su una riga */
+    letter-spacing: normal !important;
+  }
+
+  /* Il bottone del modulo lo teniamo centrale e visibile */
+  .registration-content .btn-google-form {
+    width: 100%; /* Occupa tutta la larghezza così è facile da cliccare */
+    padding: 1rem !important;
+    margin-bottom: 1.5rem !important;
   }
 }
-
 
 
 
