@@ -4868,3 +4868,50 @@ margin: 0 0 1rem;
   background-color: #6e837a !important;
   transform: translateY(-2px);
 }
+
+/* Struttura della griglia */
+.practical-info-grid {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 20px !important;
+  justify-content: center;
+  width: 100%;
+}
+
+/* La singola box - fissa il "casinato" */
+.info-box {
+  flex: 1 1 280px; /* Permette di stare su due colonne o una sola su mobile */
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 15px;
+  text-align: left; /* Fondamentale se prima era center */
+}
+
+/* Fix Icone: ora si devono vedere */
+.info-box i {
+  color: #8da399 !important;
+  font-size: 1.2rem !important;
+  flex-shrink: 0 !important; /* Impedisce a Chrome di schiacciarle */
+  margin-top: 4px;
+}
+
+.info-box-text strong {
+  display: block;
+  color: #8da399;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.info-box-text p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+}
