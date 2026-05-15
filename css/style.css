@@ -5265,3 +5265,222 @@ h1, h2, h3, h4 {
     color: #444 !important;
     font-weight: 700 !important;
 }
+
+
+/* --- GRIGLIA INFORMAZIONI PRATICHE --- */
+
+.practical-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.info-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+/* Icone: var(--indigo) e allineate */
+.info-box i {
+    color: var(--indigo) !important;
+    font-size: 1.2rem;
+    margin-top: 3px;
+    width: 25px; /* Mantiene le icone allineate verticalmente */
+    text-align: center;
+}
+
+/* Testo dei titoli (Quando, Dove, ecc.) */
+.info-box-text strong {
+    display: block;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--indigo) !important;
+    margin-bottom: 5px;
+}
+
+/* Testo descrittivo: grigino elegante */
+.info-box-text p, 
+.info-box-text a {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+    color: #555 !important; /* Grigino coordinato */
+    margin: 0;
+    text-decoration: none;
+}
+
+/* Link (Mappa e Calendario) */
+.calendar-link, .map-link-evident {
+    display: inline-block;
+    margin-top: 8px;
+    font-weight: 600;
+    font-size: 0.85rem !important;
+    color: var(--sage) !important;
+}
+
+/* Footer (Cosa portare) */
+.practical-footer {
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(63, 81, 181, 0.03);
+    border-radius: 8px;
+    border-left: 3px solid var(--indigo);
+}
+
+.practical-footer p {
+    color: #555 !important;
+    font-size: 0.95rem !important;
+    margin: 0;
+}
+
+
+
+
+
+
+
+/* --- ASSURANCE SECTION ELEGANTE --- */
+.assurance-minimal {
+    margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.assurance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 2rem;
+}
+
+.assurance-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Icona piccola ed elegante */
+.assurance-item i {
+    color: var(--indigo);
+    font-size: 1.1rem;
+    opacity: 0.7;
+}
+
+/* Testo grigino, sottile e centrato */
+.assurance-item p {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    color: #666 !important;
+    font-style: normal !important; /* Togliamo l'italico che a volte stanca */
+    margin: 0 !important;
+}
+
+/* Variante per mobile */
+@media (max-width: 768px) {
+    .assurance-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+
+
+
+
+
+/* --- FOOTER PRATICO: LISTA ELEGANTE --- */
+/* --- FOOTER PRATICO: ALLINEATO A SINISTRA --- */
+.practical-footer {
+    margin-top: 40px;
+    padding: 30px;
+    background: rgba(63, 81, 181, 0.02);
+    border-radius: 12px;
+    border-left: 2px solid var(--indigo);
+    text-align: left !important; /* Forza allineamento a sinistra */
+}
+
+.practical-footer strong {
+    display: block;
+    color: var(--indigo);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    text-align: left !important;
+}
+
+.practical-footer ul {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+.practical-footer li {
+    position: relative;
+    padding-left: 22px !important;
+    margin-bottom: 10px !important;
+    font-size: 0.95rem !important;
+    color: #555 !important;
+    line-height: 1.5 !important;
+    display: block !important; /* Evita centrature residue */
+}
+
+/* Quadratino minimale indigo */
+.practical-footer li::before {
+    content: "■" !important;
+    color: var(--indigo);
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 0.7rem;
+    opacity: 0.6;
+}
+
+/* --- LINK INFORMAZIONI PRATICHE (Mappa e Calendario) --- */
+
+/* 1. Il Link a riposo: Evidente ma non aggressivo */
+.practical-info-grid .info-box-text a {
+    color: var(--sage) !important; /* Usiamo l'indigo per far capire che è un link */
+    font-weight: 600 !important; /* Un po' più spesso */
+    text-decoration: none !important; /* Togliamo la sottolineatura standard */
+    border-bottom: 1px solid rgba(63, 81, 181, 0.2); /* Sottolineatura sottile e indigo */
+    display: inline-flex; /* Allinea icona e testo perfettamente */
+    align-items: center;
+    gap: 6px;
+    padding-bottom: 2px;
+    transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease; /* Transizioni fluide */
+    position: relative;
+    font-size: 0.9rem !important;
+}
+
+/* 2. L'icona dentro il link (la freccetta) */
+.practical-info-grid .info-box-text a i {
+    font-size: 0.8rem; /* Più piccola */
+    color: inherit !important; /* Prende il colore del link */
+    margin: 0 !important; /* Reset margini precedenti */
+    width: auto; /* Reset larghezza precedente */
+}
+
+/* 3. L'Hover: Il colore rosino/pesca che cercavi, stabile */
+.practical-info-grid .info-box-text a:hover {
+    color: var(--rose) !important; /* Un rosa/pesca vivo ed elegante (simile a un rosino chiaro ma evidente) */
+    border-color: var(--rose)!important; /* La sottolineatura cambia colore */
+    background-color: rgba(233, 30, 99, 0.05); /* Un fondo rosino chiarissimo per evidenziare */
+    text-decoration: none !important;
+    transform: none !important; /* Blocca qualsiasi movimento (importante!) */
+    margin: 0 !important; /* Blocca cambi di margine */
+}
+
+/* 4. Link Specifici (se usi ancora queste classi nell'HTML) */
+.map-link-evident, .calendar-link {
+    margin-top: 8px; /* Mantiene lo stacco dal testo sopra */
+    display: inline-block; /* Reset di inline-flex se necessario */
+}
