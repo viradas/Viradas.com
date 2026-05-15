@@ -5446,3 +5446,32 @@ h1, h2, h3, h4 {
     margin-top: 8px; /* Mantiene lo stacco dal testo sopra */
     display: inline-block; /* Reset di inline-flex se necessario */
 }
+
+
+
+
+/* --- LINK INSTAGRAM ELEGANTE --- */
+.instagram-link-minimal {
+    color: var(--indigo) !important;
+    font-size: 0.95rem !important;
+    font-weight: 500;
+    text-decoration: none !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(63, 81, 181, 0.15);
+    padding-bottom: 2px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.instagram-link-minimal i {
+    font-size: 1.1rem;
+    color: inherit !important; /* Segue il colore del testo */
+}
+
+/* Hover Rosino e stabile */
+.instagram-link-minimal:hover {
+    color: #E91E63 !important; /* Stesso rosa della mappa */
+    border-color: #E91E63 !important;
+    transform: none !important; /* Nessun movimento fastidioso */
+}
