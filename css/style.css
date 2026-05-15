@@ -3570,44 +3570,25 @@ margin: 0 0 1rem;
 ========================== */
 
 /* ==========================
-   TOP EVENT BANNER — elegante + scrolling
+   TOP EVENT BANNER — Minimal & Chic
 ========================== */
 
 .top-event-banner {
   position: relative;
   z-index: 1200;
   overflow: hidden;
-
-  background: linear-gradient(
-    120deg,
-    var(--rose) 0%,
-    #f4eee9 28%,
-    var(--sage) 58%,
-    var(--indigo) 100%
-  );
-
-  border-bottom: 1px solid rgba(74, 91, 116, 0.12);
-}
-
-.top-event-banner::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    120deg,
-    transparent 0%,
-    rgba(255,255,255,0.28) 45%,
-    transparent 70%
-  );
-  transform: translateX(-100%);
-  animation: bannerGlow 7s ease-in-out infinite;
-  pointer-events: none;
+  /* Fondo neutro ed elegantissimo invece del gradiente forte */
+  background-color: #fcfaf8; 
+  border-bottom: 1px solid rgba(63, 81, 181, 0.08);
+  height: 45px; /* Altezza fissa e sottile */
+  display: flex;
+  align-items: center;
 }
 
 .top-event-track {
   display: flex;
   width: max-content;
-  animation: bannerScroll 28s linear infinite;
+  animation: bannerScroll 40s linear infinite; /* Più lento = più elegante */
 }
 
 .top-event-banner:hover .top-event-track {
@@ -3615,78 +3596,59 @@ margin: 0 0 1rem;
 }
 
 .top-event-banner a {
-  min-height: 42px;
-  padding: 0.55rem 2.2rem;
-
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 0.85rem;
-
-  color: var(--indigo) !important;
+  gap: 1.5rem;
+  padding: 0 3rem;
+  color: #444 !important; /* Grigino scuro invece di nero o blu */
   text-decoration: none !important;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
   white-space: nowrap;
 }
 
 .top-event-label {
-  padding: 0.22rem 0.65rem;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.55);
+  padding: 0.2rem 0.7rem;
+  border-radius: 4px; /* Meno arrotondato = più moderno */
+  background: rgba(63, 81, 181, 0.06);
   color: var(--indigo);
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   font-weight: 700;
 }
 
 .top-event-text {
-  font-weight: 700;
+  font-weight: 500;
+  color: #333;
 }
 
 .top-event-meta {
-  color: rgba(74, 91, 116, 0.78);
+  color: #999;
+  font-weight: 300;
 }
 
 .top-event-arrow {
-  font-weight: 700;
-  transition: transform 0.25s ease;
+  color: var(--indigo);
+  font-weight: 400;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
 }
 
 .top-event-banner a:hover .top-event-arrow {
-  transform: translateX(4px);
+  opacity: 1;
 }
 
+/* Animazione fluida */
 @keyframes bannerScroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-@keyframes bannerGlow {
-  0%, 60% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-@media (max-width: 700px) {
-  .top-event-track {
-    animation-duration: 22s;
-  }
-
-  .top-event-banner a {
-    font-size: 0.82rem;
-    padding: 0.55rem 1.4rem;
-  }
-
-  .top-event-label {
-    font-size: 0.62rem;
-  }
+@media (max-width: 768px) {
+  .top-event-banner { height: 40px; }
+  .top-event-text { font-size: 0.8rem; }
+  .top-event-meta { display: none; } /* Nasconde data su mobile per pulizia */
 }
 
 /* Toglie il sottolineato dai link nella pagina Appuntamenti/Eventi */
