@@ -5475,3 +5475,16 @@ h1, h2, h3, h4 {
     border-color: #E91E63 !important;
     transform: none !important; /* Nessun movimento fastidioso */
 }
+
+
+
+
+
+
+.practical-footer-title i {
+    color: var(--indigo) !important;
+    font-size: 1rem !important;
+    margin-right: 8px !important;
+    display: inline-block !important;
+    width: auto !important; /* Evita che prenda la larghezza fissa delle icone della griglia */
+}
