@@ -5488,3 +5488,26 @@ h1, h2, h3, h4 {
     display: inline-block !important;
     width: auto !important; /* Evita che prenda la larghezza fissa delle icone della griglia */
 }
+
+
+
+
+
+
+.language-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Allinea al centro, modificalo se serve a destra o sinistra */
+  gap: 8px; /* Crea uno spazio pulito tra l'icona e la prima lingua */
+}
+
+.lang-icon {
+  color: var(--greige); /* Prende in automatico lo stesso colore del testo circostante */
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Se vuoi che l'icona abbia anche lo stesso identico stile/dimensione dei link delle lingue */
+.lang-icon i {
+  font-size: 0.9em; /* Puoi regolarlo se preferisci il mondo leggermente più grande o più piccolo */
+}
