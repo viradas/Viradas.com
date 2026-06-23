@@ -5507,7 +5507,10 @@ h1, h2, h3, h4 {
   align-items: center;
 }
 
-/* Se vuoi che l'icona abbia anche lo stesso identico stile/dimensione dei link delle lingue */
+
+
+/* Assicura che l'icona scali in proporzione al testo delle lingue sul cellulare */
 .lang-icon i {
-  font-size: 0.9em; /* Puoi regolarlo se preferisci il mondo leggermente più grande o più piccolo */
+  font-size: 1rem;        
+  vertical-align: middle;
 }
