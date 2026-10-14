@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(html => {
       const footer = document.getElementById("site-footer");
       if (footer) footer.innerHTML = html;
+      const y = document.getElementById("year");
+if (y) y.textContent = new Date().getFullYear();
 
       initLegalPopup();
     })
@@ -44,7 +46,10 @@ document.addEventListener("DOMContentLoaded", () => {
 function initMenu() {
   window.toggleMenu = function () {
     const ul = document.getElementById("menuList");
-    if (ul) ul.classList.toggle("show");
+    const btn = document.querySelector(".hamburger");
+    if (!ul) return;
+    const open = ul.classList.toggle("show");
+    if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
   };
 }
 
@@ -143,6 +148,10 @@ function initPopupThankYou() {
 function initLegalPopup() {
   const legalModal = document.getElementById("legalModal");
   const openLegalLinks = document.querySelectorAll(".open-legal");
+  if (window.location.hash === "#legale") {
+  legalModal.style.display = "flex";
+  if (cookieBanner) cookieBanner.style.display = "none";
+}
   const closeLegal = document.getElementById("closeLegal");
   const cookieBanner = document.getElementById("cookie-banner");
 
@@ -192,36 +201,32 @@ if (toTop) {
 
 document.addEventListener("DOMContentLoaded", function () {
   const banner = document.getElementById("cookie-banner");
+  if (!banner) return;
 
-  // 1. Se l'utente NON ha ancora scelto → mostra banner
-  if (!localStorage.getItem("cookie-consent")) {
+  const acceptBtn = document.getElementById("cookie-accept");
+  const declineBtn = document.getElementById("cookie-decline");
+  const consent = localStorage.getItem("cookie-consent");
+
+  if (!consent) {
     banner.style.display = "block";
-  } else {
-    // Se ha già accettato → carica Google Analytics
-    if (localStorage.getItem("cookie-consent") === "accepted") {
-      loadGA();
-    }
+  } else if (consent === "accepted") {
+    loadGA();
   }
 
-  // fallback mobile se un click viene bloccato da overlay
-  document.getElementById("cookie-decline").addEventListener("touchstart", function () {
-    localStorage.setItem("cookie-consent", "declined");
-    document.getElementById("cookie-banner").style.display = "none";
-  });
+  if (acceptBtn) {
+    acceptBtn.addEventListener("click", function () {
+      localStorage.setItem("cookie-consent", "accepted");
+      banner.style.display = "none";
+      loadGA();
+    });
+  }
 
-
-  // 2. ACCETTA
-  document.getElementById("cookie-accept").addEventListener("click", function () {
-    localStorage.setItem("cookie-consent", "accepted");
-    banner.style.display = "none";
-    loadGA(); // carica GA solo dopo consenso
-  });
-
-  // 3. RIFIUTA
-  document.getElementById("cookie-decline").addEventListener("click", function () {
-    localStorage.setItem("cookie-consent", "declined");
-    banner.style.display = "none";
-  });
+  if (declineBtn) {
+    declineBtn.addEventListener("click", function () {
+      localStorage.setItem("cookie-consent", "declined");
+      banner.style.display = "none";
+    });
+  }
 });
 
 /* === FUNZIONE: CARICA GOOGLE ANALYTICS SOLO DOPO CONSENSO === */
