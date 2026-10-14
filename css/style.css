@@ -5520,3 +5520,61 @@ h1, h2, h3, h4 {
   .language-mobile { order: 2; margin-left: auto; margin-right: 12px; }
   .header-controls { order: 3; }
 }
+
+
+/* INTRODUZIONE VIRADAS */
+
+#menuviradas {
+  position: relative;
+  padding: 0 20px 65px;
+  text-align: center;
+  background: #fdfbf8;
+}
+
+#menuviradas .wave-container {
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  height: 90px;
+  overflow: hidden;
+}
+
+#menuviradas .wave-container svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: var(--sage);
+}
+
+#menuviradas .menuviradas-content {
+  max-width: 650px;
+  margin: 35px auto 0;
+}
+
+#menuviradas h2 {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  color: var(--indigo);
+  margin-bottom: 18px;
+}
+
+#menuviradas p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #394047;
+}
+
+@media (max-width: 600px) {
+  #menuviradas .wave-container {
+    height: 55px;
+  }
+
+  #menuviradas .menuviradas-content {
+    margin-top: 25px;
+  }
+
+  #menuviradas p {
+    font-size: 0.95rem;
+  }
+}
