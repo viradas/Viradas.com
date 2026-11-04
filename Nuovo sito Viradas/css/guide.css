@@ -1,0 +1,534 @@
+/* ============================================================
+   VIRADAS — GUIDA / TEST DI ORIENTAMENTO
+   Stili locali: non modificano il resto del sito.
+   ============================================================ */
+
+.guide-page {
+  --guide-blue: #26364a;
+  --guide-sage: #b7c8b6;
+  --guide-cream: #faf8f5;
+  --guide-paper: #f3f1eb;
+  --guide-line: #dce2dc;
+  background: var(--guide-cream);
+  color: var(--guide-blue);
+}
+
+.guide-page .hidden {
+  display: none !important;
+}
+
+.guide-page .guide-wrap {
+  width: min(100% - 56px, 1120px);
+  margin-inline: auto;
+}
+
+.guide-page .guide-kicker {
+  display: block;
+  font: 600 0.72rem/1.5 Manrope, sans-serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #799185;
+}
+
+/* Hero */
+
+.guide-hero {
+  padding: clamp(58px, 8vw, 112px) 0 clamp(64px, 8vw, 108px);
+  background: var(--guide-blue);
+  color: white;
+}
+
+.guide-back {
+  display: inline-block;
+  margin-bottom: clamp(48px, 6vw, 80px);
+  text-decoration: none;
+  color: #d2dedb;
+  font: 500 0.85rem Manrope, sans-serif;
+  transition: color 160ms ease;
+}
+
+.guide-back:hover {
+  color: white;
+}
+
+.guide-hero .guide-kicker {
+  color: #c2d5c8;
+  margin-bottom: 18px;
+}
+
+.guide-hero-copy {
+  max-width: 840px;
+}
+
+.guide-hero h1 {
+  margin: 0 0 24px;
+  color: white;
+  font-family: Manrope, sans-serif;
+  font-size: clamp(3.2rem, 7vw, 6.15rem);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 1.08;
+}
+
+.guide-hero h1 em,
+.guide-context h2 em,
+.guide-outro h2 em {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+.guide-hero-copy > p {
+  max-width: 610px;
+  margin: 0;
+  color: #e1e7e9;
+  font-size: clamp(1.03rem, 1.6vw, 1.17rem);
+  line-height: 1.75;
+}
+
+/* Layout centrale */
+
+.guide-page .quiz-intro {
+  padding: clamp(65px, 8vw, 112px) 0;
+  text-align: left;
+  background: var(--guide-cream);
+}
+
+.guide-quiz-layout {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.76fr) minmax(0, 1.24fr);
+  gap: clamp(35px, 6vw, 94px);
+  align-items: start;
+}
+
+.guide-context {
+  padding-top: 16px;
+}
+
+.guide-context h2 {
+  margin: 16px 0 24px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.5rem, 4vw, 4.2rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  color: var(--guide-blue);
+}
+
+.guide-context > p {
+  max-width: 360px;
+  color: #5d6975;
+  line-height: 1.8;
+}
+
+.guide-context .guide-privacy-note {
+  margin-top: 33px;
+  padding-top: 20px;
+  border-top: 1px solid var(--guide-line);
+  font-size: 0.84rem;
+  color: #77827e;
+}
+
+/* Contenitore del quiz */
+
+.guide-quiz-panel {
+  min-width: 0;
+  padding: clamp(25px, 4vw, 52px);
+  border: 1px solid #e1e5df;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 24px 70px rgba(38, 54, 74, 0.045);
+}
+
+.guide-quiz-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 27px;
+  padding-bottom: 19px;
+  border-bottom: 1px solid var(--guide-line);
+  color: #718a7b;
+  font: 600 0.69rem Manrope, sans-serif;
+  letter-spacing: 0.15em;
+}
+
+.guide-quiz-topline span:last-child {
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+.guide-page #step-container {
+  color: var(--guide-blue);
+  min-height: 125px;
+}
+
+.guide-page #step-container h2,
+.guide-page #step-container h3,
+.guide-page #step-container .question-title {
+  margin: 0 0 23px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.16;
+  color: var(--guide-blue);
+}
+
+.guide-page #step-container p {
+  color: #5c6872;
+  line-height: 1.75;
+}
+
+/* Opzioni create dinamicamente dal file guide-it.js */
+
+.guide-page #step-container label,
+.guide-page #step-container .option,
+.guide-page #step-container .answer-option,
+.guide-page #step-container .quiz-option {
+  display: block;
+  padding: 15px 17px;
+  margin: 9px 0;
+  border: 1px solid #dfe6e0;
+  border-radius: 8px;
+  background: #fafbf9;
+  color: var(--guide-blue);
+  cursor: pointer;
+  font-size: 0.94rem;
+  font-weight: 400;
+  line-height: 1.55;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.guide-page #step-container label:hover,
+.guide-page #step-container .option:hover,
+.guide-page #step-container .answer-option:hover,
+.guide-page #step-container .quiz-option:hover {
+  background: #f0f5f0;
+  border-color: #9db7a5;
+}
+
+.guide-page #step-container label:has(input:checked) {
+  border-color: #708c7f;
+  background: #edf3ee;
+}
+
+.guide-page #step-container input[type="radio"],
+.guide-page #step-container input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  margin-right: 11px;
+  vertical-align: middle;
+  accent-color: #557468;
+}
+
+.guide-page #step-container textarea,
+.guide-page #step-container input[type="text"] {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid #ccd6cf;
+  border-radius: 8px;
+  color: var(--guide-blue);
+  background: white;
+}
+
+.guide-page #step-container textarea:focus,
+.guide-page #step-container input[type="text"]:focus {
+  outline: 2px solid #8dab99;
+  outline-offset: 2px;
+}
+
+/* Pulsanti del test */
+
+.guide-page .quiz-controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 27px;
+  padding-top: 22px;
+  border-top: 1px solid var(--guide-line);
+}
+
+.guide-page .quiz-controls .btn {
+  min-height: 46px;
+  padding: 12px 22px;
+  opacity: 1;
+  border-radius: 999px;
+  box-shadow: none;
+  font: 600 0.82rem Manrope, sans-serif;
+  cursor: pointer;
+}
+
+.guide-page .quiz-controls .primary {
+  color: white;
+  background: var(--guide-blue);
+  border: 1px solid var(--guide-blue);
+}
+
+.guide-page .quiz-controls .primary:hover {
+  background: #3d546d;
+}
+
+.guide-page .quiz-controls .secondary {
+  color: var(--guide-blue);
+  background: transparent;
+  border: 1px solid #bac8c2;
+}
+
+.guide-page .quiz-controls .secondary:hover {
+  background: #eff3ee;
+}
+
+.guide-page .quiz-controls button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Risultato del quiz */
+
+.guide-page #result:not(.hidden) {
+  margin-top: 24px;
+  padding: 24px;
+  background: #eef4ee;
+  border-left: 3px solid #799c85;
+  border-radius: 0 9px 9px 0;
+  color: var(--guide-blue);
+}
+
+.guide-page #result h2,
+.guide-page #result h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  letter-spacing: -0.035em;
+  color: var(--guide-blue);
+}
+
+/* Chiusura della pagina */
+
+.guide-outro {
+  padding: clamp(55px, 7vw, 85px) 0;
+  background: var(--guide-paper);
+}
+
+.guide-outro-content {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+.guide-outro h2 {
+  margin: 10px 0 8px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.5rem, 4.6vw, 4.6rem);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 1.05;
+  color: var(--guide-blue);
+}
+
+.guide-outro p {
+  margin: 0;
+  color: #62717d;
+}
+
+.guide-contact-link {
+  flex: 0 0 auto;
+  color: var(--guide-blue);
+  text-decoration: none;
+  border-bottom: 1px solid #91a49b;
+  padding-bottom: 5px;
+  font: 600 0.86rem Manrope, sans-serif;
+}
+
+.guide-contact-link:hover {
+  color: #648173;
+}
+
+/* Responsive */
+
+@media (max-width: 780px) {
+  .guide-quiz-layout {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .guide-context {
+    padding-top: 0;
+  }
+
+  .guide-context .guide-privacy-note {
+    max-width: none;
+    margin-top: 20px;
+  }
+
+  .guide-outro-content {
+    align-items: start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 520px) {
+  .guide-page .guide-wrap {
+    width: min(100% - 38px, 1120px);
+  }
+
+  .guide-hero {
+    padding-top: 44px;
+  }
+
+  .guide-back {
+    margin-bottom: 43px;
+  }
+
+  .guide-page .quiz-intro {
+    padding: 48px 0 65px;
+  }
+
+  .guide-quiz-panel {
+    padding: 23px 19px;
+  }
+
+  .guide-page .quiz-controls {
+    gap: 9px;
+  }
+
+  .guide-page .quiz-controls .btn {
+    padding: 11px 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .guide-page *,
+  .guide-page *::before,
+  .guide-page *::after {
+    transition: none !important;
+  }
+}
+
+
+/* ============================================================
+   DOMANDE REALI DI guide-it.js: .option-card
+   ============================================================ */
+
+.guide-page .guide-progress {
+  height: 3px;
+  margin: -9px 0 30px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e6ebe6;
+}
+
+.guide-page #quiz-progress-fill {
+  display: block;
+  width: 20%;
+  height: 100%;
+  border-radius: inherit;
+  background: #859f90;
+  transition: width 250ms ease;
+}
+
+.guide-page #step-container .question-hint {
+  margin: -6px 0 25px;
+  font: 500 .8rem/1.6 Manrope, sans-serif;
+  color: #718379;
+}
+
+.guide-page #step-container .options {
+  display: grid;
+  gap: 11px;
+}
+
+.guide-page #step-container .option-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  min-height: 68px;
+  padding: 17px 20px;
+  border: 1px solid #dce4dd;
+  border-radius: 9px;
+  background: #fbfcfa;
+  color: #26364a;
+  text-align: left;
+  font: 400 .95rem/1.65 Inter, sans-serif;
+  cursor: pointer;
+  transition: background 170ms ease, border-color 170ms ease, box-shadow 170ms ease;
+}
+
+.guide-page #step-container .option-card::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  border: 1.5px solid #b3c3ba;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.guide-page #step-container .question[data-multi="true"] .option-card::before {
+  border-radius: 5px;
+}
+
+.guide-page #step-container .option-card:hover {
+  border-color: #9bb6a4;
+  background: #f2f6f1;
+}
+
+.guide-page #step-container .option-card.selected {
+  border-color: #718f7c;
+  background: #eaf2e9;
+  box-shadow: inset 3px 0 0 #718f7c;
+}
+
+.guide-page #step-container .option-card.selected::before {
+  border-color: #5e806b;
+  background: #5e806b;
+  box-shadow: inset 0 0 0 4px #fff;
+}
+
+.guide-page #step-container .option-card:focus-visible {
+  outline: 3px solid #83a792;
+  outline-offset: 3px;
+}
+
+.guide-page #step-container .hint-error {
+  padding: 12px 14px;
+  margin-top: 17px;
+  color: #8b3737;
+  border-radius: 6px;
+  background: #faeeee;
+  font-size: .85rem;
+}
+
+.guide-page #result:not(.hidden) {
+  margin-top: 6px;
+  padding: 26px 26px 18px;
+}
+
+.guide-page #result p {
+  color: #445566;
+  line-height: 1.8;
+}
+
+.guide-page #result p + p {
+  margin-top: 17px;
+}
+
+.guide-page #result .micro-note {
+  padding-top: 18px;
+  margin-top: 26px;
+  border-top: 1px solid #ccddcf;
+  font-size: .82rem;
+}
+
+@media (max-width: 520px) {
+  .guide-page #step-container .option-card {
+    padding: 15px 14px;
+    min-height: 62px;
+    font-size: .9rem;
+  }
+  .guide-page #result:not(.hidden) {
+    padding: 20px 18px;
+  }
+}

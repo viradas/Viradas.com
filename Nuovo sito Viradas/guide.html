@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Di cosa hai bisogno adesso? | Viradas</title>
+  <meta name="description" content="Un breve esercizio di orientamento personale di Viradas. Esplora ciò di cui hai bisogno ora, senza risposte giuste o sbagliate.">
+
+  <link rel="icon" type="image/png" href="./images/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stile condiviso con il resto del sito -->
+  <link rel="stylesheet" href="./css/style.css">
+  <!-- Stile specifico della pagina test -->
+  <link rel="stylesheet" href="./css/guide.css">
+
+  <!-- Il primo script gestisce le domande e le risposte del test -->
+  <script src="./js/guide-it.js" defer></script>
+  <!-- Il secondo gestisce header, footer e funzioni comuni -->
+  <script src="./js/script.js" defer></script>
+</head>
+
+<body class="guide-page">
+  <a class="skip-link" href="#quiz-percorsi">Vai al test</a>
+  <div id="site-header"></div>
+
+  <main id="main-content">
+    <section class="guide-hero" aria-labelledby="guide-title">
+      <div class="guide-wrap">
+        <a class="guide-back" href="./index.html#per-chi">← Torna a Viradas</a>
+
+        <div class="guide-hero-copy">
+          <span class="guide-kicker">UN PICCOLO ESERCIZIO · VIRADAS</span>
+          <h1 id="guide-title">Di cosa hai bisogno <em>adesso?</em></h1>
+          <p>
+            Un momento per ascoltare ciò che senti e dare un nome
+            a quello che potrebbe esserti utile oggi.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz-percorsi" class="quiz-intro" aria-label="Esercizio di orientamento">
+      <div class="guide-wrap">
+        <div class="guide-quiz-layout">
+          <aside class="guide-context" aria-label="Prima di iniziare">
+            <span class="guide-kicker">PRENDITI IL TUO TEMPO</span>
+            <h2>Non ci sono risposte <em>giuste.</em></h2>
+            <p>
+              Rispondi liberamente. Puoi tornare indietro o ricominciare
+              quando vuoi.
+            </p>
+            <p class="guide-privacy-note">
+              Questo è un esercizio di orientamento, non un test diagnostico.
+              Le risposte servono soltanto a guidare la tua riflessione.
+            </p>
+          </aside>
+
+          <div class="guide-quiz-panel">
+            <div class="guide-quiz-topline">
+              <span>IL TUO SPAZIO</span>
+              <span id="quiz-step-label" aria-live="polite">DOMANDA 1 DI 5</span>
+            </div>
+            <div class="guide-progress" aria-hidden="true">
+              <span id="quiz-progress-fill"></span>
+            </div>
+
+            <!-- Il JavaScript inserisce qui le domande -->
+            <div id="step-container" aria-live="polite"></div>
+
+            <!-- Manteniamo gli ID originali usati da guide-it.js -->
+            <div class="quiz-controls">
+              <button id="prevBtn" class="btn secondary" type="button">← Indietro</button>
+              <button id="nextBtn" class="btn primary" type="button">Avanti →</button>
+              <button id="restartBtn" class="btn secondary hidden" type="button">Ricomincia il test</button>
+            </div>
+
+            <!-- Il JavaScript inserisce qui il risultato finale -->
+            <div id="result" class="hidden" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="guide-outro" aria-label="Per approfondire">
+      <div class="guide-wrap guide-outro-content">
+        <div>
+          <span class="guide-kicker">UN PASSO ALLA VOLTA</span>
+          <h2>Non devi avere tutto <em>chiaro.</em></h2>
+          <p>Se desideri parlarne, puoi richiedere un primo incontro.</p>
+        </div>
+        <a class="guide-contact-link" href="./index.html#contatti">Parliamone ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <!-- Banner cookie: gli ID restano quelli utilizzati dal sito -->
+  <div id="cookie-banner">
+    <div class="cookie-box">
+      <p>
+        Questo sito utilizza cookie statistici tramite Google Analytics
+        per migliorare l’esperienza di navigazione.
+        Puoi accettare o rifiutare il loro utilizzo.
+      </p>
+      <div class="cookie-buttons">
+        <button id="cookie-accept" type="button">Accetta</button>
+        <button id="cookie-decline" class="decline" type="button">Rifiuta</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

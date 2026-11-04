@@ -348,3 +348,199 @@ section[id], .lab-section[id] { scroll-margin-top: 106px; }
   #site-header .langs {font-size:.7rem;gap:4px;}
   #site-header .lang-icon {width:17px;height:17px;margin-right:0;}
 }
+
+
+/* ============================================
+   FOOTER VIRADAS — UNA SOLA RIGA
+   Copyright | social centrati | link legali
+   ============================================ */
+.footer {
+  background: #26364a;
+  color: #cbd5df;
+  padding: 20px 0;
+  font: 400 .82rem/1.4 Inter, Arial, sans-serif;
+}
+.footer .footer-one-line {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 18px;
+}
+.footer .footer-copyright {
+  justify-self: start;
+  white-space: nowrap;
+  color: #d5dfe7;
+}
+.footer .footer-social {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.footer .footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(231,237,240,.33);
+  border-radius: 50%;
+  color: #e7edf0;
+  text-decoration: none;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+.footer .footer-social a:hover {
+  color: #26364a;
+  background: #e7edf0;
+  transform: translateY(-2px);
+}
+.footer .footer-social a:focus-visible,
+.footer .footer-links a:focus-visible { outline: 2px solid #b7c8b6; outline-offset: 3px; }
+.footer .footer-social svg { width: 17px; height: 17px; display: block; }
+.footer .footer-links {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+  white-space: nowrap;
+}
+.footer .footer-links a { color: #cbd5df; text-decoration: none; }
+.footer .footer-links a:hover { color: #fff; text-decoration: underline; }
+.footer .footer-separator { opacity: .5; }
+@media (max-width: 720px) {
+  .footer .footer-one-line { gap: 10px; }
+  .footer .footer-links { gap: 5px; font-size: .73rem; }
+  .footer .footer-social { gap: 5px; }
+  .footer .footer-social a { width: 32px; height: 32px; }
+  .footer .footer-copyright { font-size: .76rem; }
+}
+@media (max-width: 480px) {
+  .footer { padding: 16px 0; }
+  .footer .footer-one-line { grid-template-columns: auto auto 1fr; gap: 9px; padding-left: 14px; padding-right: 14px; }
+  .footer .footer-links { font-size: .7rem; }
+  .footer .footer-links .footer-separator,
+  .footer .footer-links a[href$="#collaborazioni"] { display: none; }
+  .footer .footer-social a { width: 30px; height: 30px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .footer .footer-social a { transition: none; }
+  .footer .footer-social a:hover { transform: none; }
+}
+
+/* CONTATTI — Link WhatsApp discreto (integrazione 2026-11) */
+#contatti .whatsapp-contact { margin: 19px 0 25px; }
+#contatti .whatsapp-contact a {
+  display: inline-flex; align-items: center; gap: 11px;
+  font: 600 .88rem/1.45 'Inter', Arial, sans-serif;
+  color: #f2f7f4; text-decoration: none;
+  border-bottom: 1px solid rgba(183,200,182,.68);
+  padding: 7px 0 9px; transition: color .2s, border-color .2s;
+}
+#contatti .whatsapp-contact svg { width: 22px; height: 22px; flex: none; color: #b7c8b6; }
+#contatti .whatsapp-contact a:hover { color: #cce1d2; border-color: #cce1d2; text-decoration: none; }
+#contatti .whatsapp-contact a:focus-visible { outline: 2px solid #cce1d2; outline-offset: 5px; }
+#contatti .whatsapp-arrow { font-size: .95rem; transition: transform .2s; }
+#contatti .whatsapp-contact a:hover .whatsapp-arrow { transform: translate(2px,-2px); }
+@media (prefers-reduced-motion: reduce) { #contatti .whatsapp-arrow { transition:none; } }
+
+
+/* ==========================================================
+   PAGINA EVENTI — VIRADAS / STILE EDITORIALE
+   Le regole sono limitate a .events-page e non alterano index.
+   ========================================================== */
+.events-page{background:#faf8f5;color:#26364a;font-family:Inter,Arial,sans-serif}
+.events-page .events-kicker{display:block;color:#8ea79b;font:700 .72rem/1.5 Manrope,Arial,sans-serif;letter-spacing:.17em}
+.events-page h1,.events-page h2{font-family:'Cormorant Garamond',Georgia,serif;letter-spacing:-.035em;font-weight:500}
+.events-page h1 em,.events-page h2 em{font-weight:400}
+.events-hero{background:#26364a;color:#fff;padding:clamp(65px,8vw,120px) 0 clamp(65px,7vw,105px)}
+.events-hero .events-kicker{color:#c1d0c6;margin-bottom:23px}
+.events-hero h1{max-width:1050px;color:#fff;font-size:clamp(3.5rem,7.7vw,7.3rem);line-height:.98;margin:0 0 30px}
+.events-hero h1 em{color:#d6dfdf}
+.events-hero p{max-width:560px;color:#d4dee8;font-size:clamp(1rem,1.4vw,1.14rem);line-height:1.7;margin:0}
+.events-upcoming{padding:clamp(60px,7vw,100px) 0;background:#faf8f5}
+.events-section-head{margin-bottom:32px}
+.events-page .events-section-head h2{font-size:clamp(2.8rem,5vw,4.8rem);line-height:1.03;color:#26364a;margin:12px 0 0}
+.events-empty{display:grid;grid-template-columns:64px 1fr auto;gap:24px;align-items:center;padding:33px 36px;background:#fff;border:1px solid #e4e7e4;border-radius:9px}
+.events-empty-symbol{width:52px;height:52px;border:1px solid #bdc9c2;border-radius:50%;display:grid;place-items:center;font:500 1.5rem Manrope;color:#6c8a80}
+.events-empty h3{font:500 clamp(1.1rem,1.7vw,1.35rem)/1.35 Manrope,sans-serif;letter-spacing:-.04em;color:#26364a;margin:0 0 5px}
+.events-empty p{font-size:.95rem;color:#687584;margin:0}
+.events-contact-link{font:600 .82rem Manrope,sans-serif;text-decoration:none;color:#26364a;white-space:nowrap;border-bottom:1px solid #9cabae;padding-bottom:5px}
+.events-contact-link:hover{color:#597c73}
+.events-archive{padding:clamp(60px,6vw,90px) 0 clamp(95px,8vw,130px);background:#f1f1ed}
+.events-archive .events-kicker{color:#6c8a80}
+.events-archive .archive-head{display:flex;align-items:end;justify-content:space-between;gap:24px}
+.events-archive .archive-head>p{max-width:310px;color:#66727b;font-size:.9rem;line-height:1.65;margin:0 0 5px}
+.archive-list{border-top:1px solid #cbd2cd}
+.events-page .archive-row{margin:0;border-bottom:1px solid #cbd2cd;padding:0;background:transparent}
+.events-page .archive-row summary{list-style:none;display:grid;grid-template-columns:135px minmax(0,1fr) 38px;gap:26px;align-items:center;padding:21px 12px 21px 0;cursor:pointer;color:#26364a}
+.events-page .archive-row summary::-webkit-details-marker{display:none}
+.events-page .archive-row summary::after{display:none;content:none}
+.events-page .archive-row summary:hover .archive-titles strong{color:#657f78}
+.events-page .archive-row summary:focus-visible{outline:2px solid #7ca28e;outline-offset:2px}
+.archive-date{display:flex;align-items:baseline;gap:10px;white-space:nowrap}
+.archive-day{font:600 1rem Manrope,sans-serif;color:#26364a}
+.archive-year{font:500 .76rem Manrope,sans-serif;color:#829087}
+.archive-titles{display:flex;align-items:center;column-gap:20px;row-gap:5px;flex-wrap:wrap;min-width:0}
+.archive-type{font:600 .68rem Manrope,sans-serif;letter-spacing:.045em;color:#788d83;min-width:155px}
+.archive-titles strong{font:500 clamp(.98rem,1.5vw,1.15rem)/1.45 Manrope,Arial,sans-serif;letter-spacing:-.025em;transition:color .2s}
+.archive-expand{display:grid;place-items:center;border:1px solid #bbc9c3;color:#557369;border-radius:50%;width:31px;height:31px;line-height:1;font:400 1.2rem Manrope,sans-serif;justify-self:end;transition:transform .2s}
+.archive-row[open] .archive-expand{transform:rotate(45deg)}
+.archive-detail{padding:0 70px 26px 161px;color:#53616c;font-size:.91rem;line-height:1.65;max-width:950px}
+.archive-detail p{margin:0 0 13px}
+.archive-meta{color:#79877f;font-size:.82rem}
+.meta-sep{margin:0 7px;color:#a5b2a9}
+.archive-link{display:inline-block;margin-top:7px;text-decoration:none;color:#26364a;font:600 .82rem Manrope,sans-serif;border-bottom:1px solid #82988c;padding-bottom:4px}
+.archive-link:hover{color:#678678}
+@media(max-width:900px){.events-empty{grid-template-columns:52px 1fr}.events-contact-link{grid-column:2;justify-self:start}.archive-titles{display:block}.archive-type{display:block;min-width:0;margin-bottom:4px}.archive-detail{padding-left:145px}}
+@media(max-width:640px){.events-page .wrap{padding-left:22px;padding-right:22px}.events-hero{padding:67px 0 73px}.events-hero h1{font-size:clamp(3rem,11.7vw,4.3rem)}.events-archive .archive-head{display:block}.events-archive .archive-head>p{margin-top:16px}.events-empty{grid-template-columns:1fr;padding:26px 24px;gap:12px}.events-contact-link{grid-column:1;margin-top:6px}.events-page .archive-row summary{grid-template-columns:76px minmax(0,1fr) 28px;gap:13px;padding:18px 0}.archive-date{display:block}.archive-day,.archive-year{display:block}.archive-day{font-size:.86rem}.archive-year{font-size:.7rem;margin-top:3px}.archive-titles strong{font-size:.94rem}.archive-type{font-size:.63rem}.archive-expand{width:26px;height:26px;font-size:1rem}.archive-detail{padding:0 10px 21px 89px;font-size:.87rem}.archive-meta{font-size:.78rem}}
+@media(prefers-reduced-motion:reduce){.archive-expand,.archive-titles strong{transition:none}}
+
+
+/* ==============================================================
+   VIRADAS — "PER CHI": ICONE MONOCROMATICHE
+   Le icone SVG sono nell'HTML; qui solo il loro aspetto.
+   ================================================================ */
+#per-chi .recognition article {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 240px;
+  padding: 28px 26px;
+}
+
+#per-chi .recognition .recognition-icon {
+  display: block;
+  width: 27px;
+  height: 27px;
+  flex: none;
+  color: #7c958a;
+  margin-bottom: 19px;
+}
+
+#per-chi .recognition b {
+  margin-bottom: 9px;
+  color: #26364a;
+}
+
+#per-chi .recognition p {
+  font-size: .87rem;
+  line-height: 1.65;
+  color: #53616b;
+}
+
+@media (max-width: 820px) {
+  #per-chi .recognition article {
+    min-height: 210px;
+    padding: 23px;
+  }
+}
+
+@media (max-width: 480px) {
+  #per-chi .recognition {
+    grid-template-columns: 1fr;
+  }
+  #per-chi .recognition article {
+    min-height: auto;
+  }
+}
