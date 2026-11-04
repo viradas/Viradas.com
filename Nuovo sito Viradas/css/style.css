@@ -136,15 +136,6 @@ h1{font-size:clamp(3.4rem,7.5vw,6.5rem)}h2{font-size:clamp(2.6rem,4.5vw,4.3rem)}
 .hero .hero-art-caption {margin-top:18px;font-size:17px;letter-spacing:.01em;opacity:.82;}
 /* Piccolo dettaglio editoriale: linea salvia, non una cornice attorno alla foto. */
 .hero .hero-art::after {content:none;}
-.hero .hero-copy > * {animation:hero-enter .85s both cubic-bezier(.2,.7,.3,1);}
-.hero .hero-copy > :nth-child(2){animation-delay:.08s}
-.hero .hero-copy > :nth-child(3){animation-delay:.16s}
-.hero .hero-copy > :nth-child(4){animation-delay:.23s}
-.hero .hero-copy > :nth-child(5){animation-delay:.3s}
-.hero .hero-art {animation:hero-photo-enter 1s .22s both cubic-bezier(.2,.7,.3,1)}
-@keyframes hero-enter{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-@keyframes hero-photo-enter{from{opacity:0;transform:translate(18px,18px)}to{opacity:1;transform:translate(0,0)}}
-
 /* Transizioni di sezione sobrie e visibili anche senza JavaScript. */
 .fade {opacity:1;transform:none;}
 html.motion-ready .fade {opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s cubic-bezier(.18,.72,.24,1);}
@@ -543,4 +534,446 @@ section[id], .lab-section[id] { scroll-margin-top: 106px; }
   #per-chi .recognition article {
     min-height: auto;
   }
+}
+
+
+/* Tabelle FAQ: dimensione identica alle risposte nei details */
+.faq .table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 12px;
+}
+.faq table.prof-table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+  font-family: Inter, Arial, sans-serif;
+  font-size: .87rem;
+  line-height: 1.7;
+}
+.faq table.prof-table th,
+.faq table.prof-table td {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  text-align: left;
+  vertical-align: top;
+  padding: 10px 12px;
+  overflow-wrap: break-word;
+}
+.faq table.prof-table th { text-align: left; font-weight: 600; }
+.faq table.prof-table td strong { font-weight: 600; }
+
+/* Uniforma anche eventuali elementi interni alle celle */
+.faq table.prof-table th *,
+.faq table.prof-table td * {
+  font-family: Inter, Arial, sans-serif !important;
+  font-size: .87rem !important;
+  line-height: 1.7 !important;
+  text-align: left !important;
+}
+
+
+/* FAQ — elenchi e testo: dimensione uniforme */
+#approfondimenti .faq details p,
+#approfondimenti .faq details ul,
+#approfondimenti .faq details ol,
+#approfondimenti .faq details li {
+  font-family: Inter, Arial, sans-serif;
+  font-size: .87rem;
+  line-height: 1.7;
+  font-weight: 300;
+  text-align: left;
+}
+#approfondimenti .faq details ul,
+#approfondimenti .faq details ol { margin: 10px 0 12px; padding-left: 1.4rem; }
+#approfondimenti .faq details li { margin: 0 0 5px; }
+
+/* FAQ — evita che la tabella allarghi la pagina sui dispositivi mobili */
+#approfondimenti .faq-grid,
+#approfondimenti .faq,
+#approfondimenti .faq details,
+#approfondimenti .faq .prof-responsive,
+#approfondimenti .faq .table-scroll { min-width: 0; }
+#approfondimenti .faq .table-scroll {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x pan-y;
+}
+#approfondimenti .faq .prof-responsive { width: max-content; min-width: 100%; }
+#approfondimenti .faq table.prof-table { width: 100%; min-width: 700px; }
+#approfondimenti .faq table.prof-table th,
+#approfondimenti .faq table.prof-table td {
+  font-size: .87rem !important;
+  line-height: 1.7 !important;
+  text-align: left !important;
+}
+
+/* VIRADAS — Elenchi nelle risposte FAQ */
+
+#faq .faq details ul,
+#faq .faq details ol,
+#faq .faq details li,
+#faq .faq details li * {
+  font-family: Inter, Arial, sans-serif !important;
+  font-size: 0.87rem !important;
+  font-weight: 400;
+  line-height: 1.7 !important;
+  text-align: left !important;
+  letter-spacing: normal !important;
+}
+
+#faq .faq details li b,
+#faq .faq details li strong {
+  font-weight: 600 !important;
+}
+
+#faq .faq details ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0 1rem;
+}
+
+#faq .faq details li {
+  margin-bottom: 0.35rem;
+}
+
+/* Testi delle risposte FAQ, anche fuori dai paragrafi */
+#faq .faq details {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 0.87rem;
+  line-height: 1.7;
+}
+
+#faq .faq details p,
+#faq .faq details ul,
+#faq .faq details ol,
+#faq .faq details li {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* VIRADAS — FAQ su tre colonne */
+
+#faq .faq-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+#faq .faq {
+  min-width: 0;
+}
+
+/* Tablet: due colonne */
+@media (max-width: 1000px) {
+  #faq .faq-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Cellulare: una colonna */
+@media (max-width: 650px) {
+  #faq .faq-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+/* VIRADAS — FAQ: movimento elegante */
+
+#faq .faq details {
+  overflow: hidden;
+}
+
+#faq .faq details summary {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+#faq .faq details summary:hover {
+  color: #667b75;
+}
+
+/* Animazione di apertura e chiusura */
+@supports (interpolate-size: allow-keywords) {
+  #faq .faq details {
+    interpolate-size: allow-keywords;
+  }
+
+  #faq .faq details::details-content {
+    height: 0;
+    opacity: 0;
+    transition:
+      height 0.4s ease,
+      opacity 0.3s ease,
+      content-visibility 0.4s allow-discrete;
+  }
+
+  #faq .faq details[open]::details-content {
+    height: auto;
+    opacity: 1;
+  }
+}
+
+/* Movimento del simbolo + */
+#faq .faq details summary::after {
+  transition:
+    transform 0.35s ease,
+    color 0.3s ease;
+}
+
+#faq .faq details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+/* Rispetta le preferenze di accessibilità */
+@media (prefers-reduced-motion: reduce) {
+  #faq .faq details,
+  #faq .faq details summary,
+  #faq .faq details summary::after,
+  #faq .faq details::details-content {
+    transition: none !important;
+  }
+}
+
+/* VIRADAS — Prima colonna della tabella sempre fissa */
+
+#faq .table-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+#faq .prof-table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Prima colonna bloccata */
+#faq .prof-table th:first-child,
+#faq .prof-table td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: #fff;
+  min-width: 135px;
+  max-width: 160px;
+  box-shadow: 1px 0 0 rgba(0, 0, 0, 0.10);
+}
+
+/* Intestazione della prima colonna */
+#faq .prof-table thead th:first-child {
+  z-index: 3;
+}
+
+/* VIRADAS — Recapiti: icone verde salvia, coordinate con WhatsApp */
+#contatti .contatti-recapiti {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 18px 0 20px;
+}
+#contatti .contatti-recapiti .contatto-riga {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: #f2f7f4;
+  font: 400 1rem/1.55 Inter, Arial, sans-serif;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+#contatti .contatti-recapiti .contatto-riga svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  color: #b7c8b6;
+  stroke: currentColor;
+  stroke-width: 1.55;
+}
+#contatti .contatti-recapiti .contatto-riga:hover {
+  color: #cce1d2;
+  text-decoration: none;
+}
+#contatti .contatti-recapiti .contatto-riga:focus-visible {
+  outline: 2px solid #cce1d2;
+  outline-offset: 5px;
+}
+
+/* ==========================================================
+   VIRADAS — FOTOGRAFIE PROPOSTE E VIRADA LAB
+   Integrazione sulla versione CSS fornita, senza altre modifiche.
+   ========================================================== */
+
+/* Le fotografie occupano la parte superiore dei due riquadri. */
+.offers .offer {
+  padding: 0;
+}
+.offers .offer::before,
+.offers .offer::after {
+  content: none;
+  display: none;
+}
+.offers .offer .offer-photo {
+  display: block;
+  width: 100%;
+  height: clamp(190px, 23vw, 265px);
+  object-fit: cover;
+  flex: none;
+}
+.offers .offer > :not(.offer-photo) {
+  margin-left: clamp(24px, 3.4vw, 40px);
+  margin-right: clamp(24px, 3.4vw, 40px);
+}
+.offers .offer > .number {
+  margin-top: 28px;
+}
+.offers .offer > h3 {
+  margin-top: 14px;
+}
+.offers .offer > a {
+  margin-top: auto;
+  margin-bottom: 32px;
+}
+.offers .offer > p {
+  margin-bottom: 25px;
+}
+
+/* Workshop e formazione: immagine immersiva, testo leggibile. */
+#virada-lab.lab-section {
+  background-image: linear-gradient(90deg, rgba(25,39,53,.91) 0%, rgba(25,39,53,.78) 47%, rgba(25,39,53,.40) 100%), url('../images/viradalab.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #f0f4f2;
+  padding: clamp(80px, 10vw, 145px) 0;
+}
+#virada-lab .lab-layout {
+  display: block;
+}
+#virada-lab .lab-visual {
+  display: none;
+}
+#virada-lab .lab-copy {
+  max-width: 690px;
+}
+#virada-lab .lab-copy h2 { color: #fff; }
+#virada-lab .lab-copy .eyebrow { color: #c5d8ca; }
+#virada-lab .lab-copy p { color: #edf1ef; }
+#virada-lab .lab-copy .btn.outline {
+  color: #fff;
+  border-color: rgba(255,255,255,.8);
+}
+#virada-lab .lab-copy .btn.outline:hover {
+  color: #26364a;
+  background: #fff;
+}
+@media (max-width: 650px) {
+  .offers .offer .offer-photo { height: 220px; }
+  #virada-lab.lab-section {
+    background-image: linear-gradient(90deg, rgba(25,39,53,.90), rgba(25,39,53,.72)), url('../images/viradalab.jpg');
+    background-position: 58% center;
+  }
+}
+
+/* ==========================================================
+   VIRADAS — MOVIMENTO EDITORIALE COERENTE SU TUTTE LE PAGINE
+   Aggiunta alla versione integrata, senza cambiare contenuti.
+   ========================================================== */
+:root { --viradas-ease: cubic-bezier(.22,.68,.24,1); }
+
+/* Interazioni delicate: nessun salto o ingrandimento vistoso. */
+:is(.offers .offer, .recognition article, .events-empty, .archive-row,
+    .events-contact-link, .archive-link, .btn, .footer-social a) {
+  transition-timing-function: var(--viradas-ease);
+}
+.events-empty { transition: border-color .35s var(--viradas-ease), box-shadow .5s var(--viradas-ease); }
+.events-empty:hover { border-color:#cbd7ce; box-shadow:0 14px 35px rgba(38,54,74,.055); }
+.events-page .archive-row summary { transition: color .3s var(--viradas-ease); }
+.events-page .archive-row .archive-expand { transition: transform .38s var(--viradas-ease), border-color .3s ease; }
+.events-page .archive-row summary:hover .archive-expand { border-color:#7c958a; }
+.events-page .archive-detail { animation: viradas-page-enter .45s both var(--viradas-ease); }
+
+/* Se il browser non supporta animazioni legate allo scroll, resta tutto leggibile. */
+@media (prefers-reduced-motion: reduce) {
+  .events-hero .events-kicker, .events-hero h1, .events-hero p,
+  .profile-hero .wrap > :is(.eyebrow,h1,p), .hero .hero-copy > *,
+  .events-page .archive-detail { animation: none !important; }
+  .events-empty, .events-page .archive-row summary,
+  .events-page .archive-row .archive-expand { transition: none !important; }
+}
+
+
+
+/* ==============================================================
+   VIRADAS — MOVIMENTO UNIFICATO (novembre 2026)
+   Un solo ingresso per elemento, gestito da script.js.
+   Gli elementi rimangono visibili anche se JS non funziona.
+   =============================================================== */
+@keyframes viradas-reveal-unified {
+  from { opacity: 0; transform: translate3d(0, 27px, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes viradas-reveal-photo {
+  from { opacity: 0; transform: translate3d(0, 18px, 0) scale(.98); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* Evita che le vecchie classi nascondano le sezioni. */
+  html.motion-ready .fade,
+  html.motion-ready .offers .offer {
+    opacity: 1;
+    transform: none;
+  }
+  /* Il reveal è un'animazione d'ingresso, non una scroll-timeline. */
+  .viradas-animate {
+    animation: none !important;
+    animation-timeline: auto !important;
+  }
+  .viradas-animate.viradas-animated {
+    animation: viradas-reveal-unified .86s cubic-bezier(.22,.68,.24,1) both !important;
+    animation-delay: var(--viradas-stagger, 0ms) !important;
+    animation-timeline: auto !important;
+  }
+  .viradas-animate.viradas-animated:is(.hero-art,.portrait,.marlene-preview-photo) {
+    animation-name: viradas-reveal-photo !important;
+    animation-duration: 1.05s !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .viradas-animate, .viradas-animated {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* MARLENE — anteprima, se presente nella homepage */
+.marlene-preview { background: #f5f6f2; padding: clamp(85px,10vw,145px) 0; }
+.marlene-preview-layout { display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1fr); gap:clamp(45px,7vw,110px); align-items:center; }
+.marlene-preview-photo { overflow:hidden; aspect-ratio:4/5; background:#dce3da; }
+.marlene-preview-photo img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .9s ease; }
+.marlene-preview-photo:hover img { transform:scale(1.035); }
+.marlene-preview-content { max-width:570px; }
+.marlene-preview-content .eyebrow { display:block; margin-bottom:24px; }
+.marlene-preview-content h2 { color:#26364a; margin-bottom:28px; }
+.marlene-preview-content h2 em { display:block; font-weight:400; }
+.marlene-preview-content p { color:#46545b; line-height:1.85; margin-bottom:20px; }
+.marlene-preview-content .btn { margin-top:20px; }
+@media(max-width:760px) {
+  .marlene-preview-layout { grid-template-columns:1fr; gap:40px; }
+  .marlene-preview-photo { max-width:520px; aspect-ratio:5/4; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .marlene-preview-photo img { transition:none; }
+  .marlene-preview-photo:hover img { transform:none; }
 }
