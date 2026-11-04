@@ -317,3 +317,66 @@ document.addEventListener("DOMContentLoaded", async () => {
   const y = document.getElementById("year");
   if (y) y.textContent = String(new Date().getFullYear());
 });
+
+// VIRADAS — Invio Formspree e conferma multilingue
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+  const popup = document.getElementById("thanksPopup");
+
+  if (!form || !popup) return;
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (!form.reportValidity()) return;
+
+    const button = form.querySelector('button[type="submit"]');
+    if (button) button.disabled = true;
+
+    try {
+      const response = await fetch(
+        "https://formspree.io/f/xnppwdep",
+        {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" }
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Invio non riuscito");
+      }
+
+      const lang = (
+        document.documentElement.lang || "it"
+      ).toLowerCase();
+
+      let message =
+        "Grazie per il messaggio, risponderò al più presto possibile.";
+
+      if (lang.startsWith("pt")) {
+        message =
+          "Obrigada pela sua mensagem. Responderei assim que possível.";
+      } else if (lang.startsWith("en")) {
+        message =
+          "Thank you for your message. I'll get back to you as soon as possible.";
+      }
+
+      popup.textContent = message;
+      popup.style.display = "block";
+
+      form.reset();
+
+      setTimeout(() => {
+        popup.style.display = "none";
+      }, 6500);
+
+    } catch (error) {
+      alert(
+        "Non è stato possibile inviare il messaggio. Riprova più tardi."
+      );
+    } finally {
+      if (button) button.disabled = false;
+    }
+  });
+});

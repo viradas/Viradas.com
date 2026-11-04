@@ -1,66 +1,105 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Viradas</title>
-<link rel="stylesheet" href="/css/style.css">
-<script src="/js/guide-en.js" defer></script>
-<script src="/script.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <title>What do you need right now? | Viradas</title>
+  <meta name="description" content="A short personal reflection exercise from Viradas. Explore what you need right now, with no right or wrong answers.">
 
+  <link rel="icon" type="image/png" href="../images/favicon.png">
 
-<!-- Favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=21">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=21">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet">
+  <!-- Stile condiviso con il resto del sito -->
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- Stile specifico della pagina test -->
+  <link rel="stylesheet" href="../css/guide.css">
 
-<!-- Icons -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <!-- Il primo script gestisce le domande e le risposte del test -->
+  <script src="../js/guide-en.js" defer></script>
+  <!-- Il secondo gestisce header, footer e funzioni comuni -->
+  <script src="../js/script.js" defer></script>
 </head>
 
-<body>
+<body class="guide-page">
+  <a class="skip-link" href="#quiz-percorsi">Go to the exercise</a>
+  <div id="site-header"></div>
 
-<!-- HEADER -->
-<header id="site-header"></header>
+  <main id="main-content">
+    <section class="guide-hero" aria-labelledby="guide-title">
+      <div class="guide-wrap">
+        <a class="guide-back" href="./index.html#per-chi">← Back to Viradas</a>
 
-<!-- QUIZ -->
-<section id="quiz-percorsi" class="quiz-intro">
-  <h2>What do you need right now?</h2>
-  <p>
-    A small space to understand what might support you at this moment.
-    <br>Answer freely and come back to the quiz whenever you like. Your answers remain private.
-  </p>
+        <div class="guide-hero-copy">
+          <span class="guide-kicker">A SHORT EXERCISE · VIRADAS</span>
+          <h1 id="guide-title">What do you need <em>right now?</em></h1>
+          <p>
+            A moment to listen to how you feel and put into words
+            what might help you today.
+          </p>
+        </div>
+      </div>
+    </section>
 
-  <div id="step-container"></div>
+    <section id="quiz-percorsi" class="quiz-intro" aria-label="Reflection exercise">
+      <div class="guide-wrap">
+        <div class="guide-quiz-layout">
+          <aside class="guide-context" aria-label="Before you begin">
+            <span class="guide-kicker">TAKE YOUR TIME</span>
+            <h2>There are no <em>right</em> answers.</h2>
+            <p>
+              Answer freely. You can go back or start again
+              whenever you like.
+            </p>
+            <p class="guide-privacy-note">
+              This is a reflection exercise, not a diagnostic test.
+              Your answers are intended only to guide your reflection.
+            </p>
+          </aside>
 
-  <div class="quiz-controls">
-    <button id="prevBtn" class="btn secondary">Back</button>
-    <button id="nextBtn" class="btn primary">Next</button>
-    <button id="restartBtn" class="btn secondary hidden">Restart the quiz</button>
-  </div>
+          <div class="guide-quiz-panel">
+            <div class="guide-quiz-topline">
+              <span>YOUR SPACE</span>
+              <span id="quiz-step-label" aria-live="polite">QUESTION 1 OF 5</span>
+            </div>
+            <div class="guide-progress" aria-hidden="true">
+              <span id="quiz-progress-fill"></span>
+            </div>
 
-  <div id="result" class="hidden"></div>
-</section>
+            <!-- Il JavaScript inserisce qui le domande -->
+            <div id="step-container" aria-live="polite"></div>
 
-<!-- FOOTER -->
-<footer id="site-footer"></footer>
+            <!-- Manteniamo gli ID originali usati da guide-it.js -->
+            <div class="quiz-controls">
+              <button id="prevBtn" class="btn secondary" type="button">← Back</button>
+              <button id="nextBtn" class="btn primary" type="button">Next →</button>
+              <button id="restartBtn" class="btn secondary hidden" type="button">Restart the exercise</button>
+            </div>
 
-<!-- COOKIE BANNER -->
-<div id="cookie-banner">
-  <div class="cookie-box">
-    <p>
-      This site uses statistical cookies via Google Analytics to improve the browsing experience.
-      You can accept or decline their use.
-    </p>
+            <!-- Il JavaScript inserisce qui il risultato finale -->
+            <div id="result" class="hidden" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="cookie-buttons">
-      <button id="cookie-accept">Accept</button>
-      <button id="cookie-decline" class="decline">Decline</button>
-    </div>
-  </div>
-</div>
+    <section class="guide-outro" aria-label="Explore further">
+      <div class="guide-wrap guide-outro-content">
+        <div>
+          <span class="guide-kicker">ONE STEP AT A TIME</span>
+          <h2>You don’t need to have everything <em>figured out.</em></h2>
+          <p>If you would like to talk about it, you can request an initial meeting.</p>
+        </div>
+        <a class="guide-contact-link" href="./index.html#contatti">Let’s talk ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
 
 </body>
 </html>

@@ -70,6 +70,8 @@ function initQuiz() {
   const nextBtn = document.getElementById("nextBtn");
   const restartBtn = document.getElementById("restartBtn");
   const resultBox = document.getElementById("result");
+  const stepLabel = document.getElementById("quiz-step-label");
+  const progressFill = document.getElementById("quiz-progress-fill");
 
 
 console.log("QUIZ init:", {
@@ -84,17 +86,19 @@ console.log("QUIZ init:", {
 
   function renderStep() {
     const step = steps[currentStep];
-    const hintText = step.multi ? "<b>PIÙ</b> risposte possibili." : "<b>UNA</b> sola risposta.";
+    const hintText = step.multi ? "Puoi scegliere più risposte." : "Scegli una sola risposta.";
+    if (stepLabel) stepLabel.textContent = `DOMANDA ${currentStep + 1} DI ${steps.length}`;
+    if (progressFill) progressFill.style.width = `${(currentStep + 1) / steps.length * 100}%`;
 
     container.innerHTML = `
-      <div class="question">
+      <div class="question" data-multi="${step.multi}">
         <h3>${step.question}</h3>
         <p class="question-hint">${hintText}</p>
         <div class="options">
           ${step.options.map(o => `
-            <div class="option-card ${(answers[step.id] || []).includes(o.tag) ? "selected" : ""}" data-tag="${o.tag}">
+            <button type="button" class="option-card ${(answers[step.id] || []).includes(o.tag) ? "selected" : ""}" data-tag="${o.tag}" aria-pressed="${(answers[step.id] || []).includes(o.tag)}">
               <span>${o.text}</span>
-            </div>
+            </button>
           `).join("")}
         </div>
         <p class="hint-error hidden">Scegli almeno una risposta per continuare.</p>
@@ -111,6 +115,8 @@ console.log("QUIZ init:", {
           answers[step.id] = [tag];
         }
         renderStep();
+        const updated = [...container.querySelectorAll(".option-card")].find(button => button.dataset.tag === tag);
+        if (updated) updated.focus({ preventScroll: true });
       };
     });
     prevBtn.disabled = currentStep === 0;
@@ -119,7 +125,10 @@ console.log("QUIZ init:", {
   function showResult() {
     container.innerHTML = "";
     nextBtn.classList.add("hidden");
+    prevBtn.classList.add("hidden");
     restartBtn.classList.remove("hidden");
+    if (stepLabel) stepLabel.textContent = "IL TUO ORIENTAMENTO";
+    if (progressFill) progressFill.style.width = "100%";
 
     const allTags = Object.values(answers).flat();
     
@@ -170,7 +179,7 @@ console.log("QUIZ init:", {
   }
 
   nextBtn.onclick = () => {
-    if (!answers[steps[currentStep].id]) {
+    if (!answers[steps[currentStep].id]?.length) {
       container.querySelector(".hint-error").classList.remove("hidden");
       return;
     }
