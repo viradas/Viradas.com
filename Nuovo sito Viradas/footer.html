@@ -2,7 +2,6 @@
 <footer class="footer" aria-label="Piè di pagina">
   <div class="wrap footer-one-line">
     <div class="footer-copyright">© <span id="year">2026</span> Viradas</div>
-
     <nav class="footer-social" aria-label="Viradas sui social">
       <a href="https://www.instagram.com/viradas_counseling" target="_blank" rel="noopener noreferrer" aria-label="Instagram Viradas" title="Instagram">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.7" cy="6.6" r=".9" fill="currentColor" stroke="none"/></svg>
@@ -11,19 +10,19 @@
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.6 21v-8.15h2.76l.41-3.16H13.6V7.67c0-.91.26-1.54 1.58-1.54h1.68V3.31A22.5 22.5 0 0 0 14.4 3c-2.45 0-4.12 1.5-4.12 4.25v2.44H7.5v3.16h2.78V21h3.32Z"/></svg>
       </a>
     </nav>
-
     <nav class="footer-links" aria-label="Informazioni del sito">
       <a href="#legale" class="open-legal">Informazioni legali</a>
       <span class="footer-separator" aria-hidden="true">·</span>
-      <a href="./marlene.html#collaborazioni">Collaborazioni</a>
+      <a href="#" id="cookie-settings">Preferenze cookie</a>
+      <span class="footer-separator" aria-hidden="true">·</span>
+      <a href="./index.html#collaborazioni">Collaborazioni</a>
     </nav>
   </div>
 </footer>
-<div class="legal-modal" role="dialog" aria-modal="true" aria-labelledby="legal-heading" id="legalModal">
+
+<div aria-labelledby="legal-heading" aria-modal="true" class="legal-modal" id="legalModal" role="dialog">
 <div class="legal-content">
-<button type="button" class="legal-close" id="closeLegal" aria-label="Chiudi le informazioni legali">
-<i class="fa-solid fa-xmark"></i>
-</button>
+<button aria-label="Chiudi le informazioni legali" class="legal-close" id="closeLegal" type="button">×</button>
 <h2 id="legal-heading">Informazioni legali</h2>
 <p style="font-size:14px;line-height:1.55;text-align:justify;">
     Le presenti informazioni hanno lo scopo di illustrare in modo chiaro e trasparente la natura del servizio offerto tramite Viradas, il trattamento dei dati personali forniti volontariamente dall’utente e le modalità di utilizzo degli strumenti tecnici impiegati dal sito.
@@ -77,4 +76,10 @@
   </p>
 </p></div>
 </div>
-<div id="cookie-banner" role="region" aria-label="Preferenze cookie"><p>Questo sito utilizza cookie statistici tramite Google Analytics solo dopo il consenso. Puoi accettare o rifiutare.</p><div class="cookie-buttons"><button id="cookie-accept" type="button">Accetta</button><button id="cookie-decline" class="decline" type="button">Rifiuta</button></div></div>
+<div id="cookie-banner" role="region" aria-label="Preferenze cookie">
+  <p>Questo sito utilizza cookie statistici tramite Google Analytics solo dopo il consenso. Puoi accettare o rifiutare.</p>
+  <div class="cookie-buttons">
+    <button id="cookie-accept" type="button">Accetta</button>
+    <button id="cookie-decline" class="decline" type="button">Rifiuta</button>
+  </div>
+</div>

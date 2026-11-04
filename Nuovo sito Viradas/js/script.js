@@ -279,6 +279,14 @@ function initCookie() {
     "click",
     () => save("declined")
   );
+
+  document.addEventListener("click", e => {
+    const link = e.target.closest("#cookie-settings");
+    if (!link) return;
+    e.preventDefault();
+    try { localStorage.removeItem("cookie-consent"); } catch (err) {}
+    window.location.reload();
+  });
 }
 
 function initThanks() {
