@@ -16,6 +16,7 @@
     <link href="./css/style.css?v=9" rel="stylesheet"/>
     <script defer="" src="./js/script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;1,400&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="./css/collaborazioni-profilo.css">
   </head>
 
   <body>
@@ -242,19 +243,26 @@
         </div>
       </section>
 
-      <section class="section dark" id="approccio">
-        <div class="wrap method fade">
-          <div>
-            <span class="eyebrow">03 / L'approccio</span>
-            <h2>Una mappa.<br/>Non una formula.</h2>
-            <p>Sette aree per esplorare ciò che stringe. Non una sequenza obbligatoria: si parte da ciò che emerge.</p>
-            <p class="map-hint">Seleziona una delle sette aree direttamente sulla mappa.</p>
-            <div aria-live="polite" class="map-detail">
-              <strong id="mapTitle">Verità</strong>
-              <p id="mapText">Osservare ciò che accade, con attenzione e senza giudizio.</p>
-            </div>
-          </div>
-          <div>
+     
+<section class="section dark" id="approccio">
+  <div class="wrap method fade">
+
+    <!-- COLONNA SINISTRA -->
+    <div>
+      <span class="eyebrow">03 / L'approccio</span>
+      <h2>Una mappa.<br/>Non una formula.</h2>
+      <p>
+        Sette aree per esplorare ciò che stringe.
+        Non una sequenza obbligatoria: si parte da ciò che emerge.
+      </p>
+      <p class="map-hint">
+        Seleziona una delle sette aree direttamente sulla mappa.
+      </p>
+    </div>
+
+    <!-- COLONNA DESTRA -->
+    <div>
+
             <svg aria-label="Mappa Viradas: seleziona una delle sette aree" class="map" role="group" viewbox="0 0 440 440">
               <circle cx="220" cy="220" fill="none" r="150" stroke="rgba(255,255,255,.22)" stroke-dasharray="3 6"></circle>
               <g stroke="rgba(255,255,255,.25)">
@@ -305,14 +313,22 @@
                 <text fill="#26364a" font-family="Manrope" font-size="9.5" text-anchor="middle" x="103" y="139">Svolta</text>
               </g>
             </svg>
-            <p class="map-label">VIRADAS · sette aree, una mappa aperta</p>
-
-
-            
-          </div>
           
-        </div>
-      </section>
+    <!-- SPIEGAZIONE SOTTO LA MAPPA -->
+    <div aria-live="polite" class="map-detail">
+      <strong id="mapTitle">Verità</strong>
+      <p id="mapText">
+        Osservare ciò che accade, con attenzione e senza giudizio.
+      </p>
+    </div>
+
+    </div> <!-- Fine colonna destra -->
+
+  </div> <!-- Fine contenitore a due colonne -->
+</section>
+
+          
+
 
       <section class="section paper" id="approfondimenti">
         <div class="wrap fade">
@@ -375,7 +391,7 @@
             <img alt="Ritratto di Marlene Masino" src="./images/marlene.jpg"/>
           </div>
           <div>
-            <span class="eyebrow">06 / Chi sono</span>
+            <span class="eyebrow">04 / Chi sono</span>
             <h2>Marlene Masino.</h2>
             <p class="leadshort">Counsellor SGfB. Accompagno persone e gruppi nei momenti in cui la vita è, o è percepita, come stretta.</p>
             <p>Un lavoro che intreccia ascolto, relazione e consapevolezza del corpo.</p>
@@ -383,6 +399,11 @@
           </div>
         </div>
       </section>
+
+
+
+
+
 
       <section class="section" id="contatti">
         <div class="wrap editorial-contact">
@@ -418,6 +439,18 @@
 
       <div class="small-footer-note" id="collaborazioni">
         <p class="wrap" style="padding:18px 0;font-size:.85rem;color:#687788">Collaborazioni professionali e progetti condivisi: <a href="/marlene.html#collaborazioni">scopri di più</a>.</p>
+      
+      
+      
+      
+      
+      
+    
+      
+      
+      
+      
+      
       </div>
     </main>
 

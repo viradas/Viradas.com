@@ -1,13 +1,36 @@
 "use strict";
-const VIRADAS_MAP={
- verita:["Verità","Osservare ciò che accade, con attenzione e senza giudizio."],
- identita:["Identità","Riconoscere ciò che conta per sé, oltre ruoli e aspettative."],
- relazione:["Relazione","Esplorare il modo in cui stiamo con gli altri."],
- assertivita:["Assertività","Dare spazio alla propria voce e ai confini."],
- direzione:["Direzione","Chiarire ciò verso cui desideriamo muoverci."],
- azione:["Azione","Provare piccoli passi concreti, sostenibili."],
- svolta:["Svolta","Riconoscere il cambiamento possibile, anche quando è piccolo."]
+
+const VIRADAS_MAP = {
+  verita: [
+    "Verità",
+    "Fare chiarezza su ciò che sta accadendo, distinguendo tra fatti, emozioni e interpretazioni."
+  ],
+  identita: [
+    "Identità",
+    "Riappropriarsi dei propri valori, bisogni e desideri, distinguendoli da ciò che non ci appartiene più."
+  ],
+  relazione: [
+    "Relazione",
+    "Riconoscere ruoli, aspettative e schemi ricorrenti nella relazione con sé e con gli altri."
+  ],
+  assertivita: [
+    "Assertività",
+    "Allenarsi a esprimere bisogni e confini con chiarezza e gentile fermezza, senza aggredire né rinunciare."
+  ],
+  direzione: [
+    "Direzione",
+    "Scegliere una direzione e trasformare il desiderio in progetto, passo dopo passo."
+  ],
+  azione: [
+    "Azione",
+    "Sperimentare piccoli passi per allargare lo spazio e creare nuove possibilità."
+  ],
+  svolta: [
+    "Svolta",
+    "Integrare e consolidare i cambiamenti, in una svolta che trasforma senza travolgere."
+  ]
 };
+
 async function injectFragment(selector,url){
  const el=document.querySelector(selector);if(!el)return;
  try{const res=await fetch(url);if(!res.ok)throw new Error(`${res.status} ${url}`);el.innerHTML=await res.text();}
