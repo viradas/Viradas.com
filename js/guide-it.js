@@ -135,42 +135,59 @@ console.log("QUIZ init:", {
     let title = "";
     let message = "";
 
+   
+   
     // LOGICA DI ASSEGNAZIONE BASATA SUI TAG DELLE RISPOSTE
-    // Profilo 1: Vuoto o Umore clinico
+
+    // Profilo 1: Fatica, vuoto, mancanza di energia
     if (allTags.includes("vuoto") || allTags.includes("umore_clinico")) {
-        title = "Recuperare respiro e terreno";
+        title = "Quando le energie vengono meno";
         message = `
-            <p>Se in questo periodo senti che la spinta manca e una stanchezza invade un po’ tutto, è probabile che tu senta anche una pressione di fondo. A volte ci si sente come intrappolati in una nuvola di tristezza o di pesantezza che blocca ogni iniziativa: succede quando si rimane troppo a lungo in una situazione stretta che finisce per togliere respiro e voglia di fare.</p>
-            <p>In questi momenti le cose semplici sembrano pesantissime e le tue risorse appaiono ridotte ai minimi termini. Potresti sentire una forte frustrazione perché vorresti cambiare qualcosa, ma ti sembra di non avere né lo spazio né la forza per farlo.</p> 
-            <p>È un segnale importante: il tuo sistema ti sta dicendo che prima di agire bisogna recuperare terreno.</p>
-            <p><strong>Una cosa utile (1 minuto):</strong>
-            Invece di chiederti “cosa dovrei fare?”, prova a fermarti e chiederti: <em>“In questo momento ho più bisogno di un piccolo movimento per sciogliere questa pesantezza o di stare ferma/o per recuperare energia?”</em></p>
-            <p><strong>Un pensiero in più:</strong> Se senti che questo spegnimento è molto profondo o se questa tristezza ti accompagna da tanto tempo, potrebbe essere prezioso parlarne con il tuo medico o con uno psicoterapeuta. Avere un sostegno clinico nei momenti di buio più intenso è un atto di grande rispetto verso te stessa/o, che può viaggiare insieme ad altri percorsi come il counseling quando sentirai il bisogno di rimettere mano alla tua progettualità.</p>
+            <p>Ci sono momenti in cui anche le cose più semplici sembrano richiedere uno sforzo enorme. Vorresti che qualcosa cambiasse, ma senti di non avere l'energia per iniziare. La stanchezza, la tristezza o una sensazione di vuoto possono rendere difficile vedere una via d'uscita.</p>
+
+            <p>Forse ciò che stai vivendo ti sta chiedendo di fermarti e ascoltare la tua fatica, invece di pretendere ancora qualcosa da te.</p>
+
+            <p><strong>Una prima consapevolezza:</strong> non sempre il primo passo è fare di più. A volte è riconoscere ciò che ci sta togliendo energia e dare spazio ai propri bisogni.</p>
+
+            <p><strong>Un piccolo esercizio (1 minuto):</strong> invece di chiederti "Cosa dovrei fare?", prova a fermarti e domandarti: <em>"In questo momento ho più bisogno di un piccolo movimento per alleggerire questa pesantezza o di fermarmi per recuperare energia?"</em></p>
+
+            <p><strong>E da qui?</strong> Se desideri fare un passo in più, possiamo esplorare insieme ciò che ti pesa e cercare nuove possibilità per ritrovare un po' di respiro, rispettando i tuoi tempi.</p>
+
+            <p><em>Se la tristezza, il vuoto o la mancanza di energia sono intensi o persistenti, è importante parlarne con un medico o uno psicoterapeuta per ricevere un sostegno adeguato.</em></p>
         `;
-    } 
-    // Profilo 2: Pressione continua o Corpo
+    }
+
+    // Profilo 2: Pressione continua, tensione e sovraccarico
     else if (allTags.includes("corpo") || allTags.includes("fanno_male")) {
-        title = "Allentare l’allerta e il carico";
+        title = "Quando la pressione non si ferma";
         message = `
-            <p>Qui emerge un sovraccarico: che si manifesti come tensione nel corpo o come pensieri che non si fermano, il segnale è lo stesso. Il tuo sistema è “in guardia” e ti sta chiedendo di rallentare perché ha raggiunto un limite.</p>
-            <p><strong>Regola d’oro in questi casi:</strong> meglio togliere una piccola pressione che aggiungere un grande obiettivo.</p>
-            <p><strong>Una cosa utile (2 minuti):</strong>
-            Scegli un momento della giornata in cui senti più pressione e chiediti: “Quale piccola azione, pensiero o scenario la aumenta?” e “Quale la riduce?”<br>
-            Poi fai solo una scelta: riduci del 10% ciò che la aumenta (anche solo per oggi).</p>
-            <p><strong>Indizio pratico:</strong> Se il corpo è sempre “in guardia”, non serve spingere di più: serve creare una piccola routine di recupero che sia breve, fattibile e senza pretese di perfezione.</p>
+            <p>Forse hai la sensazione di dover essere sempre presente, disponibile, pronta/o a rispondere a ciò che accade. I pensieri non si fermano, il corpo resta in tensione e anche quando potresti riposare, non è semplice lasciar andare.</p>
+
+            <p>Quando ci si abitua a sostenere tanto, può diventare difficile accorgersi di quanto spazio occupi questa pressione nella propria vita.</p>
+
+            <p><strong>Una prima consapevolezza:</strong> forse non si tratta di imparare a sopportare di più, ma di riconoscere quanto stai sostenendo e quanto spazio rimane per te.</p>
+
+            <p><strong>Un piccolo esercizio (2 minuti):</strong> pensa a un momento della giornata in cui senti particolarmente la pressione. Chiediti: <em>"Che cosa la aumenta? E che cosa, anche solo per un momento, la rende più leggera?"</em></p>
+
+            <p><strong>E da qui?</strong> Se desideri fare un passo in più, possiamo esplorare insieme ciò che alimenta questa pressione e dove potrebbe essere possibile iniziare ad allentarla.</p>
         `;
-    } 
-    // Profilo 3: Default (Relazione/Spazio)
+    }
+
+    // Profilo 3: Relazioni, aspettative e spazio personale
     else {
-        title = "Ritrovare spazio e raggio d’azione";
+        title = "Quando manca spazio per sé";
         message = `
-            <p>Se ti senti in una situazione che "stringe", di solito non è un problema di mancanza di volontà, ma di mancanza di spazio. Quando senti di non avere margine di manovra, che sia in una relazione, in un ruolo o in un impegno, la prima cosa che perdi è la capacità di vedere dove puoi davvero muoverti.</p>
-            <p><strong>L'obiettivo:</strong> Prima di decidere cosa cambiare, serve capire con precisione dove e come stai perdendo il tuo spazio.</p>
-            <p><strong>L'esercizio (90 secondi):</strong>
-            Pensa a una situazione recente in cui hai sentito poco raggio d'azione. Prova a guardarla per un istante: è una pressione che arriva da fuori (una richiesta, un obbligo, una persona) o da dentro (pensieri, aspettative, senso di colpa)?<br><br>
-            Ora chiediti: “In quel momento, che cosa stavo cercando di proteggere o tenere al sicuro?” (la mia pace, un'immagine di me, il mio tempo, il controllo, l'approvazione degli altri...).</p>
-            <p><strong>Piccolo orientamento:</strong> Se capisci cosa stai proteggendo e a quale costo lo stai facendo, la direzione appare più chiara: non come una scelta drastica, ma come un passo possibile per riprenderti un po' di terreno.</p>
-            <p><em>Nota bene: se senti che il tuo margine di manovra è bloccato da situazioni di controllo o pericolo reale, è fondamentale non affrontare tutto in solitudine: cercare un supporto specifico è il primo atto di protezione per la propria incolumità.</em></p>
+            <p>A volte ci si ritrova in situazioni in cui sembra di avere poco margine di scelta. Può succedere nelle relazioni, nel lavoro, nelle responsabilità quotidiane o nelle aspettative che abbiamo verso noi stessi.</p>
+
+            <p>Ci si abitua ad adattarsi, a rispondere alle richieste e a fare ciò che sembra necessario, fino a perdere un po' di vista ciò che si desidera davvero.</p>
+
+            <p><strong>Una prima consapevolezza:</strong> accorgerti di dove ti senti stretta/o può aiutarti a riconoscere quanto spazio lasci ai tuoi bisogni e alle tue scelte.</p>
+
+            <p><strong>Un piccolo esercizio (90 secondi):</strong> pensa a una situazione recente in cui ti sei sentita/o senza molto spazio di scelta. Prova a chiederti: <em>"La pressione arrivava soprattutto da fuori, dalle richieste o dalle aspettative degli altri, oppure da dentro, da ciò che pretendevo da me?"</em></p>
+
+            <p><strong>E da qui?</strong> Se desideri fare un passo in più, possiamo esplorare insieme ciò che oggi limita il tuo spazio e quali possibilità potrebbero aprirsi per scegliere con maggiore libertà la tua direzione.</p>
+
+            <p><em>Se vivi situazioni di controllo, minaccia o pericolo, è importante cercare un sostegno specifico per proteggere la tua sicurezza.</em></p>
         `;
     }
 

@@ -135,44 +135,61 @@ console.log("QUIZ init:", {
     let title = "";
     let message = "";
 
-    // LOGICA DI ASSEGNAZIONE BASATA SUI TAG DELLE RISPOSTE
-    // Profilo 1: Vuoto o Umore clinico
+    
+    // PROFILE ASSIGNMENT LOGIC BASED ON ANSWER TAGS
+
+    // Profile 1: Fatigue, emptiness, lack of energy
     if (allTags.includes("vuoto") || allTags.includes("umore_clinico")) {
-        title = "Regain your breath and a sense of footing";
+        title = "When your energy is running low";
         message = `
-            <p>If you feel a lack of drive lately and tiredness seems to spread into everything, you may also sense an underlying pressure. Sometimes it feels like being trapped in a cloud of sadness or heaviness that stops you from taking any initiative. This can happen when you remain too long in a constraining situation that gradually takes away your breath and motivation.</p>
-            <p>At times like these, even simple things can feel enormously difficult, and your resources may seem almost depleted. You may feel deeply frustrated because you want to change something but feel you have neither the space nor the strength to do so.</p> 
-            <p>This is an important sign: your system is telling you that before taking action, you need to regain some footing.</p>
-            <p><strong>Something helpful (1 minute):</strong>
-            Instead of asking yourself “what should I do?”, try pausing and asking: <em>“Right now, do I need a small movement to ease this heaviness, or do I need to rest and recover my energy?”</em></p>
-            <p><strong>One more thought:</strong> If this loss of energy feels very deep, or if sadness has been with you for a long time, it may be valuable to speak with your doctor or a psychotherapist. Seeking clinical support during particularly dark periods is an important way of caring for yourself. Such support can go alongside other approaches, including counselling, when you feel ready to reconnect with your plans and aspirations.</p>
-        `;
-    } 
-    // Profilo 2: Pressione continua o Corpo
-    else if (allTags.includes("corpo") || allTags.includes("fanno_male")) {
-        title = "Ease the alertness and the load";
-        message = `
-            <p>What emerges here is overload: whether it shows up as tension in your body or thoughts that will not stop, the signal is similar. Your system is on alert and asking you to slow down because it has reached a limit.</p>
-            <p><strong>A useful rule of thumb:</strong> it is better to remove one small pressure than add one big goal.</p>
-            <p><strong>Something helpful (2 minutes):</strong>
-            Choose a moment of the day when you feel the most pressure and ask yourself: “What small action, thought or situation increases it?” and “What reduces it?”<br>
-            Then make just one choice: reduce what increases it by 10% (even if only for today).</p>
-            <p><strong>A practical clue:</strong> If your body is constantly on alert, pushing harder will not help. What may help is a short, manageable recovery routine without any expectation of perfection.</p>
-        `;
-    } 
-    // Profilo 3: Default (Relationship/Spazio)
-    else {
-        title = "Regain space and room to act";
-        message = `
-            <p>If you feel caught in a situation that is closing in on you, the issue is usually not a lack of willpower but a lack of space. When you feel you have no room to manoeuvre, whether in a relationship, a role or a commitment, the first thing you lose is the ability to see where you can still move.</p>
-            <p><strong>The aim:</strong> Before deciding what to change, it helps to understand precisely where and how you are losing your space.</p>
-            <p><strong>The exercise (90 seconds):</strong>
-            Think of a recent situation in which you felt you had little room to act. Look at it for a moment: is the pressure coming from outside (a request, an obligation, a person) or from within (thoughts, expectations, guilt)?<br><br>
-            Now ask yourself: “At that moment, what was I trying to protect or keep safe?” (my peace of mind, my self-image, my time, control, other people’s approval...).</p>
-            <p><strong>A small point of guidance:</strong> When you understand what you are protecting and at what cost, the direction becomes clearer: not as a drastic decision, but as a possible step towards reclaiming some ground.</p>
-            <p><em>Please note: if your freedom to act is restricted by controlling circumstances or real danger, it is essential not to face everything alone. Seeking appropriate specialist support is a first step towards protecting your safety.</em></p>
+            <p>There are times when even the simplest things seem to require an enormous amount of effort. You wish something would change, but you feel you don't have the energy to begin. Tiredness, sadness or a sense of emptiness can make it difficult to see a way forward.</p>
+
+            <p>Perhaps what you're going through is asking you to pause and acknowledge how tired you feel, rather than keep expecting more of yourself.</p>
+
+            <p><strong>A first moment of awareness:</strong> the first step isn't always about doing more. Sometimes it's about recognising what's draining our energy and making room for our own needs.</p>
+
+            <p><strong>A small exercise (1 minute):</strong> instead of asking yourself "What should I do?", try pausing and asking: <em>"Right now, do I need to take a small step to ease this heaviness, or do I need to stop and regain some energy?"</em></p>
+
+            <p><strong>And from here?</strong> If you'd like to take another step, we can explore together what's weighing on you and look for new possibilities to help you find some breathing room, at your own pace.</p>
+
+            <p><em>If feelings of sadness, emptiness or low energy are intense or persistent, it's important to speak with a doctor or psychotherapist to receive appropriate support.</em></p>
         `;
     }
+
+    // Profile 2: Ongoing pressure, tension and overload
+    else if (allTags.includes("corpo") || allTags.includes("fanno_male")) {
+        title = "When the pressure never lets up";
+        message = `
+            <p>Perhaps you feel you always have to be present, available and ready to respond to whatever happens. Your thoughts keep racing, your body remains tense and even when you could rest, it's not easy to let go.</p>
+
+            <p>When we get used to carrying so much, it can become difficult to notice just how much space this pressure takes up in our lives.</p>
+
+            <p><strong>A first moment of awareness:</strong> perhaps it's not about learning to cope with even more, but about recognising how much you're carrying and how much room is left for you.</p>
+
+            <p><strong>A small exercise (2 minutes):</strong> think of a moment in your day when you feel particularly under pressure. Ask yourself: <em>"What makes it worse? And what, even just for a moment, makes it feel lighter?"</em></p>
+
+            <p><strong>And from here?</strong> If you'd like to take another step, we can explore together what's contributing to this pressure and where it might be possible to start easing it.</p>
+        `;
+    }
+
+    // Profile 3: Relationships, expectations and personal space
+    else {
+        title = "When there's little room for yourself";
+        message = `
+            <p>Sometimes we find ourselves in situations where it feels as though we have very little room to choose. This can happen in relationships, at work, in everyday responsibilities or in the expectations we place on ourselves.</p>
+
+            <p>We get used to adapting, meeting demands and doing what seems necessary, until we gradually lose sight of what we truly want.</p>
+
+            <p><strong>A first moment of awareness:</strong> noticing where you feel constrained can help you recognise how much room you leave for your own needs and choices.</p>
+
+            <p><strong>A small exercise (90 seconds):</strong> think of a recent situation in which you felt you had very little room to choose. Try asking yourself: <em>"Was the pressure mainly coming from outside, from other people's demands or expectations, or from within, from what I expected of myself?"</em></p>
+
+            <p><strong>And from here?</strong> If you'd like to take another step, we can explore together what's limiting your space today and what possibilities might open up for you to choose your own direction more freely.</p>
+
+            <p><em>If you're experiencing situations involving control, threats or danger, it's important to seek specialised support to protect your safety.</em></p>
+        `;
+    }
+
 
     resultBox.innerHTML = `<h3>${title}</h3>${message} <p class="micro-note"><em>This quiz is a tool for guidance and reflection. It does not provide diagnoses or replace medical or psychotherapeutic assessment or care.</em></p>`;
     resultBox.classList.remove("hidden");

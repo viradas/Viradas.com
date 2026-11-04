@@ -135,44 +135,61 @@ console.log("QUIZ init:", {
     let title = "";
     let message = "";
 
-    // LOGICA DI ASSEGNAZIONE BASATA SUI TAG DELLE RISPOSTE
-    // Profilo 1: Vuoto o Umore clinico
+    
+    // LÓGICA DE ATRIBUIÇÃO BASEADA NAS TAGS DAS RESPOSTAS
+
+    // Perfil 1: Cansaço, vazio, falta de energia
     if (allTags.includes("vuoto") || allTags.includes("umore_clinico")) {
-        title = "Recuperar o fôlego e encontrar apoio";
+        title = "Quando a energia começa a faltar";
         message = `
-            <p>Se neste período você sente falta de ânimo e um cansaço que toma conta de quase tudo, talvez também perceba uma pressão constante. Às vezes é como ficar em uma nuvem de tristeza ou peso que impede qualquer iniciativa: isso pode acontecer quando se permanece por muito tempo em uma situação apertada, que acaba tirando o fôlego e a vontade de agir.</p>
-            <p>Nesses momentos, até as coisas simples parecem muito pesadas e seus recursos parecem estar no limite. Você pode sentir muita frustração por querer mudar alguma coisa, mas achar que não tem espaço nem forças para isso.</p> 
-            <p>É um sinal importante: seu organismo está indicando que, antes de agir, é preciso recuperar um pouco de chão.</p>
-            <p><strong>Uma proposta útil (1 minuto):</strong>
-            Em vez de se perguntar “o que eu deveria fazer?”, experimente parar e perguntar a si: <em>“Neste momento, preciso mais de um pequeno movimento para aliviar esse peso ou de ficar em repouso para recuperar energia?”</em></p>
-            <p><strong>Uma reflexão a mais:</strong> Se você sente que esse desânimo é muito profundo ou que essa tristeza acompanha você há muito tempo, pode ser valioso conversar com um médico ou psicoterapeuta. Buscar apoio clínico nos momentos mais difíceis é uma forma importante de cuidar de si. Esse apoio pode caminhar junto com outros processos, como o counseling, quando você sentir necessidade de retomar seus projetos.</p>
-        `;
-    } 
-    // Profilo 2: Pressione continua o Corpo
-    else if (allTags.includes("corpo") || allTags.includes("fanno_male")) {
-        title = "Reduzir o estado de alerta e a sobrecarga";
-        message = `
-            <p>Aqui aparece uma sobrecarga: seja como tensão no corpo ou como pensamentos que não param, o sinal é o mesmo. Seu organismo está em estado de alerta e pede que você desacelere porque chegou a um limite.</p>
-            <p><strong>Uma regra de ouro nesses casos:</strong> é melhor aliviar uma pequena pressão do que acrescentar uma grande meta.</p>
-            <p><strong>Uma proposta útil (2 minutos):</strong>
-            Escolha um momento do dia em que sente mais pressão e pergunte a si: “Que pequena ação, pensamento ou situação aumenta essa pressão?” e “O que a reduz?”<br>
-            Depois, faça apenas uma escolha: reduza em 10% aquilo que a aumenta (nem que seja só por hoje).</p>
-            <p><strong>Uma dica prática:</strong> Se o corpo está sempre em estado de alerta, não adianta exigir mais de si: é melhor criar uma pequena rotina de recuperação, breve, viável e sem exigir perfeição.</p>
-        `;
-    } 
-    // Profilo 3: Default (Relação/Spazio)
-    else {
-        title = "Recuperar espaço e margem de ação";
-        message = `
-            <p>Se você sente que está em uma situação que “aperta”, geralmente não se trata de falta de vontade, mas de falta de espaço. Quando sente que não tem margem para agir, seja em uma relação, um papel ou um compromisso, a primeira coisa que perde é a capacidade de enxergar onde ainda pode se movimentar.</p>
-            <p><strong>O objetivo:</strong> Antes de decidir o que mudar, é importante entender exatamente onde e como você está perdendo seu espaço.</p>
-            <p><strong>O exercício (90 segundos):</strong>
-            Pense em uma situação recente em que sentiu pouca margem para agir. Observe por um instante: a pressão vem de fora (uma exigência, uma obrigação, uma pessoa) ou de dentro (pensamentos, expectativas, culpa)?<br><br>
-            Agora pergunte a si: “Naquele momento, o que eu estava tentando proteger ou manter em segurança?” (minha tranquilidade, a imagem que tenho de mim, meu tempo, o controle, a aprovação dos outros...).</p>
-            <p><strong>Uma pequena orientação:</strong> Quando você entende o que está protegendo e a que custo, a direção fica mais clara: não como uma decisão drástica, mas como um passo possível para recuperar um pouco de espaço.</p>
-            <p><em>Atenção: se sua margem de ação está limitada por situações de controle ou perigo real, é fundamental não enfrentar tudo sem apoio. Buscar ajuda especializada é um primeiro passo para proteger sua segurança.</em></p>
+            <p>Há momentos em que até as coisas mais simples parecem exigir um esforço enorme. Você gostaria que algo mudasse, mas sente que não tem energia para começar. O cansaço, a tristeza ou uma sensação de vazio podem dificultar a percepção de uma saída.</p>
+
+            <p>Talvez o que você esteja vivendo seja um convite para parar e acolher seu cansaço, em vez de continuar exigindo mais de si.</p>
+
+            <p><strong>Uma primeira tomada de consciência:</strong> nem sempre o primeiro passo é fazer mais. Às vezes, é reconhecer o que está consumindo nossa energia e dar espaço às nossas necessidades.</p>
+
+            <p><strong>Um pequeno exercício (1 minuto):</strong> em vez de se perguntar "O que eu deveria fazer?", experimente parar e se perguntar: <em>"Neste momento, preciso mais de um pequeno movimento para aliviar esse peso ou de uma pausa para recuperar minhas energias?"</em></p>
+
+            <p><strong>E a partir daqui?</strong> Se você quiser dar mais um passo, podemos explorar juntos o que está pesando e buscar novas possibilidades para recuperar um pouco de fôlego, respeitando seu ritmo.</p>
+
+            <p><em>Se a tristeza, a sensação de vazio ou a falta de energia forem intensas ou persistentes, é importante conversar com um médico ou psicoterapeuta para receber o apoio adequado.</em></p>
         `;
     }
+
+    // Perfil 2: Pressão constante, tensão e sobrecarga
+    else if (allTags.includes("corpo") || allTags.includes("fanno_male")) {
+        title = "Quando a pressão não dá trégua";
+        message = `
+            <p>Talvez você sinta que precisa estar sempre presente, disponível e pronto para responder ao que acontece. Os pensamentos não param, o corpo permanece tenso e, mesmo quando você poderia descansar, não é fácil relaxar.</p>
+
+            <p>Quando nos acostumamos a carregar tantas coisas, pode ser difícil perceber quanto espaço essa pressão ocupa em nossa vida.</p>
+
+            <p><strong>Uma primeira tomada de consciência:</strong> talvez não se trate de aprender a suportar mais, mas de reconhecer o quanto você está carregando e quanto espaço ainda resta para você.</p>
+
+            <p><strong>Um pequeno exercício (2 minutos):</strong> pense em um momento do dia em que você sente mais pressão. Pergunte a si: <em>"O que aumenta essa pressão? E o que, mesmo que por um instante, a torna mais leve?"</em></p>
+
+            <p><strong>E a partir daqui?</strong> Se você quiser dar mais um passo, podemos explorar juntos o que alimenta essa pressão e onde seria possível começar a aliviá-la.</p>
+        `;
+    }
+
+    // Perfil 3: Relações, expectativas e espaço pessoal
+    else {
+        title = "Quando falta espaço para si";
+        message = `
+            <p>Às vezes, nos encontramos em situações nas quais parece haver pouca margem de escolha. Isso pode acontecer nos relacionamentos, no trabalho, nas responsabilidades do dia a dia ou nas expectativas que temos em relação a nós mesmos.</p>
+
+            <p>Acostumamo-nos a nos adaptar, a atender às demandas e a fazer o que parece necessário, até perder um pouco de vista aquilo que realmente desejamos.</p>
+
+            <p><strong>Uma primeira tomada de consciência:</strong> perceber onde você se sente sem espaço pode ajudar a reconhecer quanto lugar reserva às suas necessidades e às suas escolhas.</p>
+
+            <p><strong>Um pequeno exercício (90 segundos):</strong> pense em uma situação recente em que você sentiu que tinha pouca liberdade de escolha. Experimente se perguntar: <em>"A pressão vinha principalmente de fora, das exigências ou expectativas dos outros, ou de dentro, daquilo que eu exigia de mim?"</em></p>
+
+            <p><strong>E a partir daqui?</strong> Se você quiser dar mais um passo, podemos explorar juntos o que hoje limita seu espaço e quais possibilidades podem surgir para escolher com mais liberdade a direção que deseja seguir.</p>
+
+            <p><em>Se você vive situações de controle, ameaça ou perigo, é importante buscar apoio especializado para proteger sua segurança.</em></p>
+        `;
+    }
+
 
     resultBox.innerHTML = `<h3>${title}</h3>${message} <p class="micro-note"><em>Este questionário é uma ferramenta de orientação e reflexão. Não oferece diagnósticos nem substitui avaliações ou acompanhamentos médicos ou psicoterapêuticos.</em></p>`;
     resultBox.classList.remove("hidden");
