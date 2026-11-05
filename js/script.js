@@ -450,3 +450,35 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+
+
+function cambiaLingua(lang) {
+    const url = new URL(window.location.href);
+    const parti = url.pathname.split("/").filter(Boolean);
+
+    // Individua la lingua attuale
+    const indiceLingua = parti.findIndex(
+        parte => parte === "en" || parte === "pt"
+    );
+
+    // Elimina la lingua attuale dal percorso
+    if (indiceLingua !== -1) {
+        parti.splice(indiceLingua, 1);
+    }
+
+    // Aggiunge la nuova lingua prima del nome della pagina
+    if (lang !== "it") {
+        const posizione = indiceLingua !== -1
+            ? indiceLingua
+            : Math.max(0, parti.length - 1);
+
+        parti.splice(posizione, 0, lang);
+    }
+
+    // Conserva la pagina, i parametri e l'eventuale ancora
+    url.pathname = "/" + parti.join("/");
+
+    window.location.assign(url.href);
+}
