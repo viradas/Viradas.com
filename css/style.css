@@ -982,3 +982,10 @@ section[id], .lab-section[id] { scroll-margin-top: 106px; }
 .map-label {
   font-size: 90%;
 }
+
+
+
+.modalities-note > p {
+  max-width: none;
+  width: 100%;
+}
