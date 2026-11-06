@@ -97,7 +97,21 @@ const VIRADAS_MAP_TRANSLATIONS = {
   }
 };
 
-
+function viradasLang() {
+  const p = location.pathname;
+  const onEvents = p.endsWith("/events.html");
+  const valid = ["it", "pt", "en"];
+  let lang = p.startsWith("/pt/") ? "pt" : p.startsWith("/en/") ? "en" : null;
+  try {
+    if (onEvents && !lang) {
+      const q = new URLSearchParams(location.search).get("lang");
+      lang = valid.includes(q) ? q : localStorage.getItem("viradas-lang");
+    }
+    if (!onEvents) localStorage.setItem("viradas-lang", lang || "it");
+    else if (lang) localStorage.setItem("viradas-lang", lang);
+  } catch (e) {}
+  return valid.includes(lang) ? lang : "it";
+}
 async function injectFragment(selector, url) {
   const el = document.querySelector(selector);
   if (!el) return;
@@ -141,11 +155,7 @@ function initMenu() {
     if (!nav.contains(e.target) && !button.contains(e.target)) close();
   });
 
-  const current = location.pathname.startsWith("/pt/")
-    ? "pt"
-    : location.pathname.startsWith("/en/")
-    ? "en"
-    : "it";
+    const current = viradasLang();
 
   document.querySelectorAll(".langs a").forEach(link => {
     if (link.lang === current) {
@@ -375,10 +385,52 @@ document.addEventListener("DOMContentLoaded", async () => {
   initReveal();
   initThanks();
 
+  const lang = viradasLang();
+const base = location.pathname.startsWith("/lp/")
+  ? "/"
+  : (lang === "it" ? "./" : "/" + lang + "/");
+
+
   await Promise.all([
-    injectFragment("#site-header", "./header.html"),
-    injectFragment("#site-footer", "./footer.html")
+    injectFragment("#site-header", base + "header.html"),
+    injectFragment("#site-footer", base + "footer.html")
   ]);
+
+  // Correzione percorsi solo per le landing page /lp/
+if (location.pathname.startsWith("/lp/")) {
+  document.querySelectorAll(
+    "#site-header a, #site-footer a"
+  ).forEach(a => {
+    const href = a.getAttribute("href");
+    if (href && href.startsWith("./")) {
+      a.setAttribute("href", "/" + href.slice(2));
+    }
+  });
+
+  document.querySelectorAll(
+    "#site-header img, #site-footer img"
+  ).forEach(img => {
+    const src = img.getAttribute("src");
+    if (src && src.startsWith("./")) {
+      img.setAttribute("src", "/" + src.slice(2));
+    }
+  });
+}
+
+  // Sulla pagina Eventi (che sta nella cartella principale) i link
+  // relativi di header e footer PT/EN devono puntare alla cartella della lingua.
+  if (lang !== "it") {
+    const onEvents = location.pathname.endsWith("/events.html");
+    const scope = onEvents
+      ? "#site-header a, #site-footer a, main a"
+      : "#site-header a, #site-footer a";
+    document.querySelectorAll(scope).forEach(a => {
+      const h = a.getAttribute("href");
+      if (h && h.startsWith("./")) {
+        a.setAttribute("href", "/" + lang + "/" + h.slice(2));
+      }
+    });
+  }
 
   initMenu();
   initLegal();
@@ -456,14 +508,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function cambiaLingua(lang) {
     const url = new URL(window.location.href);
-        // La pagina Eventi esiste solo in italiano:
-    // da lì il cambio lingua porta alla home della lingua scelta.
+
+        // La landing page esiste solo in italiano.
+    // Il cambio lingua porta alla homepage nella lingua scelta.
+   // Landing page: rimane sulla stessa pagina e cambia solo la lingua del menu
+if (url.pathname.startsWith("/lp/")) {
+    url.searchParams.set("lang", lang);
+    window.location.assign(url.href);
+    return;
+}
+    // La pagina Eventi esiste solo in italiano: resta qui e cambia
+    // solo la lingua di header e footer.
     if (url.pathname.endsWith("/events.html")) {
-        window.location.assign(
-            lang === "it" ? "/index.html" : "/" + lang + "/index.html"
-        );
+        url.searchParams.set("lang", lang);
+        window.location.assign(url.href);
         return;
     }
+
     const parti = url.pathname.split("/").filter(Boolean);
 
     // Individua la lingua attuale
