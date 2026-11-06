@@ -1019,3 +1019,322 @@ section[id], .lab-section[id] { scroll-margin-top: 106px; }
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* ========================================================
+   VIRADAS — Collaborazioni e pagina Marlene
+   Foglio aggiuntivo: non sostituisce css/style.css
+   ======================================================== */
+
+:root {
+  --vp-blue: #26364a;
+  --vp-sage: #8fa99b;
+  --vp-cream: #f6f5f1;
+  --vp-ink: #344656;
+}
+
+/* COLLABORAZIONI — nella homepage */
+#collaborazioni.viradas-collaborations {
+  background: var(--vp-cream);
+  scroll-margin-top: 95px;
+}
+
+.viradas-collaborations .collaborations-intro {
+  max-width: 680px;
+  color: #5b6872;
+}
+
+.collaborations-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 35px;
+}
+
+.collaborations-grid .collab-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+  padding: 24px 22px;
+  border: 1px solid #e2e5df;
+  border-radius: 16px;
+  background: #fff;
+  color: var(--vp-blue);
+  text-decoration: none;
+  transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.collaborations-grid .collab-link:hover {
+  border-color: #a9bdb1;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(38, 54, 74, .06);
+}
+
+.collaborations-grid .collab-link:focus-visible {
+  outline: 3px solid var(--vp-sage);
+  outline-offset: 3px;
+}
+
+.collaborations-grid .collab-logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 78px;
+}
+
+.collaborations-grid .collab-logo img {
+  display: block;
+  max-width: 100%;
+  max-height: 76px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.collaborations-grid .collab-name {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -.02em;
+}
+
+.collaborations-grid .collab-role {
+  color: #718077;
+  font-family: 'Inter', sans-serif;
+  font-size: .79rem;
+  line-height: 1.5;
+}
+
+.collaborations-grid .collab-arrow {
+  margin-top: auto;
+  font-size: 1.1rem;
+  color: #718b80;
+}
+
+/* PAGINA MARLENE — Hero con foto a destra */
+.profile-hero.profile-hero--portrait {
+  background: var(--vp-blue);
+  color: #e1e8ed;
+  padding: 74px 0 82px;
+}
+
+.profile-hero--portrait .profile-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 340px);
+  align-items: center;
+  gap: clamp(35px, 7vw, 100px);
+}
+
+.profile-hero--portrait .eyebrow {
+  color: #b6cbbb;
+}
+
+.profile-hero--portrait h1 {
+  color: #fff;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -.035em;
+  font-size: clamp(3.6rem, 7.3vw, 6.8rem);
+  line-height: .98;
+  margin: 0 0 26px;
+}
+
+.profile-hero--portrait .leadshort {
+  color: #e2e9ee;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.17rem);
+  font-weight: 400;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.profile-hero--portrait .profile-hero-photo {
+  width: 100%;
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 3px;
+  background: #6b7d8b;
+}
+
+.profile-hero--portrait .profile-hero-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 26%;
+}
+
+.profile-biography .biography-content {
+  max-width: 760px;
+}
+
+.profile-biography .biography-content > p {
+  font-size: 1.03rem;
+  line-height: 1.85;
+  color: var(--vp-ink);
+}
+
+.profile-biography h2,
+.profile-experience h2,
+.profile-collaboration-invite h2,
+.viradas-collaborations h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  letter-spacing: -.025em;
+  font-weight: 500;
+  font-size: clamp(2.7rem, 4.8vw, 4.4rem);
+  line-height: 1.09;
+  color: var(--vp-blue);
+}
+
+.profile-experience .faq-grid {
+  margin-top: 30px;
+}
+
+.profile-experience .faq h3 {
+  color: var(--vp-blue);
+}
+
+.profile-experience .faq ul {
+  padding-left: 20px;
+  margin-top: 15px;
+  line-height: 1.7;
+}
+
+.profile-experience .faq li + li {
+  margin-top: 8px;
+}
+
+.profile-collaboration-invite {
+  background: #f6f5f1;
+}
+
+.profile-collaboration-invite p {
+  max-width: 680px;
+}
+
+@media (max-width: 950px) {
+  .collaborations-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .profile-hero.profile-hero--portrait {
+    padding: 50px 0 55px;
+  }
+
+  .profile-hero--portrait .profile-hero-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(115px, 36%);
+    align-items: center;
+    gap: 18px;
+  }
+
+  .profile-hero--portrait h1 {
+    font-size: clamp(2.5rem, 9vw, 4.3rem);
+    margin-bottom: 15px;
+  }
+
+  .profile-hero--portrait .leadshort {
+    font-size: .84rem;
+  }
+
+  .profile-hero--portrait .profile-hero-photo {
+    aspect-ratio: 3 / 4;
+  }
+}
+
+@media (max-width: 480px) {
+  .collaborations-grid {
+    gap: 10px;
+  }
+
+  .collaborations-grid .collab-link {
+    padding: 18px 15px;
+  }
+
+  .collaborations-grid .collab-name {
+    font-size: .88rem;
+  }
+
+  .collaborations-grid .collab-logo {
+    height: 65px;
+  }
+
+  .collaborations-grid .collab-logo img {
+    max-height: 63px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .collaborations-grid .collab-link {
+    transition: none;
+  }
+
+  .collaborations-grid .collab-link:hover {
+    transform: none;
+  }
+}
+
+
+/* Dimensione testo delle liste nella pagina Marlene */
+.profile-experience .faq details p,
+.profile-experience .faq details li {
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+
+/* FAQ Marlene — animazione elegante */
+.profile-experience .faq details {
+  overflow: hidden;
+}
+
+.profile-experience .faq details::details-content {
+  height: 0;
+  opacity: 0;
+  transition:
+    height 420ms cubic-bezier(.22, 1, .36, 1),
+    opacity 280ms ease,
+    content-visibility 420ms allow-discrete;
+}
+
+.profile-experience .faq details[open]::details-content {
+  height: auto;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-experience .faq details::details-content {
+    transition: none;
+  }
+}
+
+
+/* Riserva lo spazio dell'header durante il caricamento */
+#site-header {
+  min-height: 93px;
+}
+
+@media (max-width: 1100px) {
+  #site-header {
+    min-height: 83px;
+  }
+}
+
+@media (max-width: 920px) {
+  #site-header {
+    min-height: 78px;
+  }
+}
+
+@media (max-width: 520px) {
+  #site-header {
+    min-height: 74px;
+  }
+}

@@ -494,3 +494,20 @@ document.querySelectorAll('#faq details').forEach((faq) => {
     }
   });
 });
+
+
+
+/* FAQ Marlene — una sola aperta alla volta */
+document.querySelectorAll('.profile-experience .faq details')
+  .forEach((faq) => {
+    faq.addEventListener('toggle', () => {
+      if (!faq.open) return;
+
+      document.querySelectorAll('.profile-experience .faq details')
+        .forEach((other) => {
+          if (other !== faq && other.open) {
+            other.open = false;
+          }
+        });
+    });
+  });
