@@ -482,3 +482,15 @@ function cambiaLingua(lang) {
 
     window.location.assign(url.href);
 }
+
+document.querySelectorAll('#faq details').forEach((faq) => {
+  faq.addEventListener('toggle', () => {
+    if (faq.open) {
+      document.querySelectorAll('#faq details').forEach((other) => {
+        if (other !== faq) {
+          other.open = false;
+        }
+      });
+    }
+  });
+});

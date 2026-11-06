@@ -989,3 +989,33 @@ section[id], .lab-section[id] { scroll-margin-top: 106px; }
   max-width: none;
   width: 100%;
 }
+
+
+/* FAQ: due colonne a tutta larghezza */
+
+#faq .faq-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 32px;
+  width: 100%;
+  max-width: none;
+  align-items: start;
+}
+
+#faq .faq-left {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  min-width: 0;
+}
+
+#faq .faq-grid > .faq {
+  min-width: 0;
+}
+
+/* Smartphone */
+@media (max-width: 768px) {
+  #faq .faq-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
