@@ -456,6 +456,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function cambiaLingua(lang) {
     const url = new URL(window.location.href);
+        // La pagina Eventi esiste solo in italiano:
+    // da lì il cambio lingua porta alla home della lingua scelta.
+    if (url.pathname.endsWith("/events.html")) {
+        window.location.assign(
+            lang === "it" ? "/index.html" : "/" + lang + "/index.html"
+        );
+        return;
+    }
     const parti = url.pathname.split("/").filter(Boolean);
 
     // Individua la lingua attuale
