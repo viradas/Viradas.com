@@ -1908,3 +1908,56 @@ section[id], .lab-section[id] { scroll-margin-top: 106px; }
     margin-bottom: 2.5rem;
   }
 }
+
+/* ==========================================================
+   FIX MOBILE — la pagina non deve scorrere a destra
+   ========================================================== */
+
+/* 1) Footer: su telefono i link vanno a capo e il footer si impila */
+@media (max-width: 600px) {
+  .footer .footer-one-line {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 14px;
+    padding-left: 22px;
+    padding-right: 22px;
+    text-align: center;
+  }
+  .footer .footer-copyright,
+  .footer .footer-social,
+  .footer .footer-links {
+    justify-self: center;
+  }
+  .footer .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    white-space: normal;
+    gap: 8px 20px;
+    font-size: .8rem;
+  }
+  .footer .footer-links .footer-separator { display: none; }
+  .footer .footer-links a[href$="#collaborazioni"] { display: inline; }
+}
+
+/* 2) Rete di sicurezza: se un elemento sborda, la pagina non si sposta.
+      "clip" (a differenza di "hidden") non rompe l'header fisso. */
+html, body { max-width: 100%; }
+body { overflow-x: clip; }
+
+/* 3) Telefoni molto piccoli (320–360 px): header più compatto */
+@media (max-width: 360px) {
+  .wrap { padding-left: 14px; padding-right: 14px; }
+  #site-header .head-row { gap: 6px; }
+  #site-header .brand { gap: 6px; }
+  #site-header .brand img { height: 34px; max-width: 70px; }
+  #site-header .brand-name { font-size: 18px; }
+  #site-header .langs { font-size: .64rem; gap: 3px; }
+  #site-header .lang-icon { display: none; }
+  #site-header .menu-toggle { font-size: 24px; padding: 4px; }
+}
+
+/* 4) Titoli: le parole lunghe vanno a capo e su telefono i titoli sono un po' più piccoli */
+h1, h2, h3, h4 { overflow-wrap: break-word; hyphens: auto; }
+@media (max-width: 480px) {
+  h2 { font-size: clamp(1.9rem, 8.5vw, 2.6rem); }
+}
