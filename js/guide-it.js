@@ -1,6 +1,5 @@
 /* === QUIZ PERCORSI AGGIORNATO (Versione Consapevolezza e Slancio) === */
 
-console.log("QUIZ file caricato:", location.pathname);
 
 function initQuiz() {
   const steps = [
@@ -74,13 +73,6 @@ function initQuiz() {
   const progressFill = document.getElementById("quiz-progress-fill");
 
 
-console.log("QUIZ init:", {
-  container,
-  prevBtn,
-  nextBtn,
-  restartBtn,
-  resultBox
-});
 
   if (!container || !prevBtn || !nextBtn || !restartBtn || !resultBox) return;
 
@@ -122,6 +114,30 @@ console.log("QUIZ init:", {
     prevBtn.disabled = currentStep === 0;
   }
 
+  // PUNTEGGIO PER PROFILO
+  // Ogni risposta pesa su uno dei tre profili: [profilo, peso]
+  //   1 = energie che vengono meno · 2 = pressione e tensione · 3 = poco spazio per sé
+  // Il tag da solo non basta: conta anche in quale domanda è stato scelto.
+  function scoreProfile() {
+    const WEIGHTS = {
+      1: { relazione: [3, 2], strumenti: [3, 2], corpo: [2, 2], vuoto: [1, 2] },
+      2: { relazione: [3, 2], strumenti: [3, 2], corpo: [1, 2], vuoto: [1, 2] },
+      3: { relazione: [3, 1], strumenti: [3, 1], corpo: [2, 1], orientamento: [2, 1] },
+      4: { corpo: [2, 1], fanno_male: [2, 1], umore_clinico: [1, 3] },
+      5: { corpo: [2, 1], riflessione: [3, 1] }
+    };
+    const score = { 1: 0, 2: 0, 3: 0 };
+    Object.keys(answers).forEach(q => {
+      (answers[q] || []).forEach(tag => {
+        const w = (WEIGHTS[q] || {})[tag];
+        if (w) score[w[0]] += w[1];
+      });
+    });
+    const max = Math.max(score[1], score[2], score[3]);
+    // a parità vince il profilo 3, poi il 2, poi il 1
+    return [3, 2, 1].find(p => score[p] === max);
+  }
+
   function showResult() {
     container.innerHTML = "";
     nextBtn.classList.add("hidden");
@@ -131,6 +147,8 @@ console.log("QUIZ init:", {
     if (progressFill) progressFill.style.width = "100%";
 
     const allTags = Object.values(answers).flat();
+    const profile = scoreProfile();
+    const needsHealthNote = profile === 1 || allTags.includes("umore_clinico") || allTags.includes("supporto");
     
     let title = "";
     let message = "";
@@ -140,7 +158,7 @@ console.log("QUIZ init:", {
     // LOGICA DI ASSEGNAZIONE BASATA SUI TAG DELLE RISPOSTE
 
     // Profilo 1: Fatica, vuoto, mancanza di energia
-    if (allTags.includes("vuoto") || allTags.includes("umore_clinico")) {
+    if (profile === 1) {
         title = "Quando le energie vengono meno";
         message = `
             <p>Ci sono momenti in cui anche le cose più semplici sembrano richiedere uno sforzo enorme. Vorresti che qualcosa cambiasse, ma senti di non avere l'energia per iniziare. La stanchezza, la tristezza o una sensazione di vuoto possono rendere difficile vedere una via d'uscita.</p>
@@ -158,7 +176,7 @@ console.log("QUIZ init:", {
     }
 
     // Profilo 2: Pressione continua, tensione e sovraccarico
-    else if (allTags.includes("corpo") || allTags.includes("fanno_male")) {
+    else if (profile === 2) {
         title = "Quando la pressione non si ferma";
         message = `
             <p>Forse hai la sensazione di dover essere sempre presente, disponibile, pronta/o a rispondere a ciò che accade. I pensieri non si fermano, il corpo resta in tensione e anche quando potresti riposare, non è semplice lasciar andare.</p>
@@ -186,12 +204,13 @@ console.log("QUIZ init:", {
             <p><strong>Un piccolo esercizio (90 secondi):</strong> pensa a una situazione recente in cui ti sei sentita/o senza molto spazio di scelta. Prova a chiederti: <em>"La pressione arrivava soprattutto da fuori, dalle richieste o dalle aspettative degli altri, oppure da dentro, da ciò che pretendevo da me?"</em></p>
 
             <p><strong>E da qui?</strong> Se desideri fare un passo in più, possiamo esplorare insieme ciò che oggi limita il tuo spazio e quali possibilità potrebbero aprirsi per scegliere con maggiore libertà la tua direzione.</p>
-
-            <p><em>Se vivi situazioni di controllo, minaccia o pericolo, è importante cercare un sostegno specifico per proteggere la tua sicurezza.</em></p>
         `;
     }
 
-    resultBox.innerHTML = `<h3>${title}</h3>${message} <p class="micro-note"><em>Questo quiz è uno strumento di orientamento e riflessione. Non fornisce diagnosi né sostituisce valutazioni o percorsi medici o psicoterapeutici.</em></p>`;
+    // Note finali: sicurezza sempre presente; nota medica se serve (il profilo 1 ha già la sua)
+    const extraNotes = (needsHealthNote && profile !== 1 ? `<p><em>Se ti preoccupano la stanchezza, il senso di vuoto o altri segnali, è importante parlarne con un medico o uno psicoterapeuta per ricevere un sostegno adeguato.</em></p>` : "") + `<p><em>Se vivi situazioni di controllo, minaccia o pericolo, o se la sofferenza è intensa, rivolgiti subito a <a href="https://www4.ti.ch/tich/numeri-di-emergenza" target="_blank" rel="noopener">servizi specializzati</a>.</em></p>`;
+
+    resultBox.innerHTML = `<h3>${title}</h3>${message}${extraNotes} <p class="micro-note"><em>Questo quiz è uno strumento di orientamento e riflessione. Non fornisce diagnosi né sostituisce valutazioni o percorsi medici o psicoterapeutici.</em></p>`;
     resultBox.classList.remove("hidden");
   }
 
@@ -228,7 +247,6 @@ if (document.readyState === "loading") {
 }
 
 
-console.log("guide-it.js LOADED");
 
 
 window.VIRADAS_STEP_CONTENT = {
